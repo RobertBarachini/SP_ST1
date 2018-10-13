@@ -6,9 +6,9 @@ body {
   text-align: center;
 }
 
-:root {
+/*:root {
   --jumbotron-padding-y: 3rem;
-}
+}*/
 
 .jumbotron {
   padding-top: var(--jumbotron-padding-y);
@@ -52,6 +52,19 @@ footer p {
   margin-right: 15px;
   display: block;
   background-color: #ddd;
+  cursor: pointer;
+}
+
+.btn-circle-default {
+  background-color: #ddd;
+}
+
+.btn-circle-success {
+  background-color: #28a745;
+}
+
+.btn-circle-danger {
+  background-color: #dc3545;
 }
 
 .a-hashtag {
@@ -60,4 +73,12 @@ footer p {
 
 .a-hashtag:hover {
   color: #333;
+}
+
+.card-user {
+  color: black;
+}
+
+.card-user:hover {
+  color: black;
 }
