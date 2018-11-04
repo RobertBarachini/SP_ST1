@@ -6,9 +6,20 @@ body {
   text-align: center;
 }
 .img-icon-top {
-  height: 50px !important;
+  height: 50px;
   margin-right: 5px;
   border-radius: 50%;
+}
+.file-upload{
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:0;
+  filter: alpha(opacity=0);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity:0;
+  background-color:transparent;
+  color:transparent;
 }
 
 /*:root {

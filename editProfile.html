@@ -9,7 +9,7 @@
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#212529">
     
-    <title>NotInstagram</title>
+    <title>Aggregate.io</title>
     <meta name="description" content="Web development project at FRI.">
     <meta name="author" content="RB AH AV RM">
     <link rel="stylesheet" href="styles.css">
@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="indexPrijavljen.html">
         <img src="resources/app-icon2.png" class="img-icon-top" height="50px">
-        NotInstagram
+        Aggregate.io
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -114,7 +114,14 @@
                   <img src="resources/garavi-sokak.jpg" alt="Card image cap" class="rounded-circle profile-img" alt="Avatar">
                   <h6>Upload a different photo...</h6>
                   
-                  <input type="file" class="form-control">
+                  <div style="position:relative;">
+                  <a class='btn btn-primary' href='javascript:;'>
+                  Choose File
+                  <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                  </a>
+                  &nbsp;
+                  <span class='label label-info' id="upload-file-info"></span>
+                  </div>
                 </div>
               </div>
               
