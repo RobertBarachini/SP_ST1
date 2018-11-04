@@ -82,3 +82,7 @@ footer p {
 .card-user:hover {
   color: black;
 }
+
+.profile-picture {
+    border-radius: 50%;
+}
