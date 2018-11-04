@@ -87,6 +87,7 @@ footer p {
   height: 40px;
   margin-right: 5px;
   border-radius: 50%;
+<<<<<<< HEAD
   background-color:yellow;
 }
 
@@ -95,4 +96,16 @@ footer p {
   position: fixed;
   width: 500px;
   height: 500px;
+=======
+}
+.profile-h5 {
+  display: inline-block;
+  margin-right: 5px
+}
+.profile-img {
+  width: 100%;
+  height: 100%;
+  padding:5px;
+  border: 2px solid #a7a6ad
+>>>>>>> 94c4ae9fdb6aad9c59bc08e9a91b976acc159351
 }
