@@ -82,3 +82,8 @@ footer p {
 .card-user:hover {
   color: black;
 }
+
+.img-icon-top {
+  height: 40px;
+  margin-right: 5px;
+}
