@@ -11,7 +11,7 @@ This is the main repository for a web development class at FRI.
 # Opis projekta, vizije in delovanja strani
 
 ## Vizija
-Naša vizija je izdelava sodobnega socialnega omrežja, ki temelji na združevanju informacij tako iz uporabnikove lokalne shrambe kot tudi iz vseh mogočiš zunanjih virov.
+Naša vizija je izdelava sodobnega socialnega omrežja, ki temelji na združevanju informacij tako iz uporabnikove lokalne shrambe kot tudi iz vseh mogočih zunanjih virov.
 Poimenovali smo se [Aggregate.io](README.md) zaradi tega, ker na enem mestu zbiramo podatke. 
 Osnovna ideja je možnost deljenja:
 * zgodb v tekstovni obliki
