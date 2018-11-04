@@ -25,21 +25,23 @@
     
     <!-- MAIN AREA -->
     <main role="main">
-      <section class="jumbotron container text-center">
-        <div class="container">
+      <section class="jumbotron container">
+        <div class="container text-center">
           <img src="resources/app-icon2.png" style="height: 40px; margin-right: 5px"></img>
-          <h1 class="jumbotron-heading">Log in to NotInstagram</h1>
+          <h3 class="jumbotron-heading">Dodaj sliko</h3>
           <p>
-            <input class="form-control mr-sm-2" type="text" placeholder="Username">
-            <input class="form-control mr-sm-2" type="password" placeholder="Password">
-            <a href="indexPrijavljen.html" class="btn btn-primary my-2">Log in</a>
+              <form id="upload" method="post" action="upload.php" enctype="multipart/form-data">
+			        <div id="drop">
+				        <a>Browse</a>
+				        <input type="file" name="upl" multiple />
+			        </div>
+			    <ul>
+				    <!-- The file uploads will be shown here -->
+			    </ul>
+
+		        </form>
           </p>
-            <a href="#" class="btn">Forgot password?</a>
         </div>
-      </section>
-      <section class="jumbotron container text-center" style="border: 1px">
-        <p style="font-size: 25px">New to NotInstagram? <a href="register.html">Create an account</a></p>
-      </section>
     
     <!-- FOOTER -->
       

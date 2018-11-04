@@ -44,6 +44,18 @@ footer p {
   margin-bottom: .25rem;
 }
 
+#drop a{
+    background-color:#007a96;
+    padding:12px 26px;
+    color:#fff;
+    font-size:14px;
+    border-radius:2px;
+    cursor:pointer;
+    display:inline-block;
+    margin-top:12px;
+    line-height:1;
+}
+
 .btn-circle {
   width: 30px;
   height: 30px;
@@ -81,8 +93,4 @@ footer p {
 
 .card-user:hover {
   color: black;
-}
-
-.profile-picture {
-    border-radius: 50%;
 }
