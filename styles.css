@@ -87,4 +87,12 @@ footer p {
   height: 40px;
   margin-right: 5px;
   border-radius: 50%;
+  background-color:yellow;
+}
+
+.dummy{
+  background-color: yellow;
+  position: fixed;
+  width: 500px;
+  height: 500px;
 }
