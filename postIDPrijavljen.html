@@ -53,9 +53,10 @@
         </div>
       </div>
     </header>-->
+    
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="indexPrijavljen.html">
-        <img src="resources/app-icon2.png" class="img-icon-top" style="height: 50px"></img>
+        <img src="resources/app-icon2.png" class="img-icon-top" height="50px">
         Aggregate.io
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,14 +94,16 @@
         
         <a class="navbar-brand" href="userID.html">
         Bane Krstič
-        <img src="resources/garavi-sokak.jpg" style="height: 40px; width: 40px; margin-left: 5px; border-radius: 50%;"></img>
+        <img src="resources/garavi-sokak.jpg" style="height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;"></img>
         </a>
        
       </div>
     </nav>
     
+    
     <!-- MAIN AREA -->
-    <main role="main" style="background-color: #343A40;">
+    
+    <main role="main" style="background-color: #ffffff;">
         <div class="container">
             <div class="row" >
               
@@ -132,11 +135,30 @@
                     <button class="btn" type="button" data-toggle="dropdown" style="background-color: #ffffff">Options
                     <span class="glyphicon glyphicon-option-horizontal"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Delete</a></li>
+                      <li><a href="#myModal" data-toggle="modal">Delete</a></li>
                       <li><a href="editSliko.html">Edit</a></li>
                     </ul>
-                  </div>
-                  
+                  </div>                                 
+                    <!-- Modal HTML -->
+                  <div id="myModal" class="modal fade">
+                  	<div class="modal-dialog modal-confirm">
+                  		<div class="modal-content">
+                  			<div class="text-center">
+                  				<h4 class="modal-title">Are you sure?</h4>	
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  			</div>
+                  			<div class="modal-body">
+                  				<p>Do you really want to delete this picture? This process cannot be undone.</p>
+                  			</div>
+                  			<div class="text-center">
+                  				<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                  				<a href="userID.html">
+                  				  <button type="button" class="btn btn-danger">Delete</button>
+                  				</a>
+                  			</div>
+                  		</div>
+                  	</div>
+                  </div>   
                   <p><h4>Comments</h4></p>
                   <div>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -163,9 +185,6 @@
               </div>
               
               </div>
-              
-              
-                
             </div>
         </div>
     </main>
