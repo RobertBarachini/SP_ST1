@@ -1,5 +1,52 @@
 extends layout
 
+block bootStyle
+    link(href='../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='../styles.css')
+    
 block content
-  h1= title
-  p Welcome to #{title}
+  main(role='main')
+  
+    section(class='jumbotron text-center')
+      div(class='container')
+        h1(class='jumbotron-heading')
+          | Consent
+        p(class='lead text-muted')
+          | This site uses cookies. To get the full experience you need to sign a deal with the devil. All your data belongs to us.
+        p
+          a(href='#', class='btn btn-primary my-2')
+            | Accept
+          a(href='#', class='btn btn-secondary my-2')
+            | Reject
+            
+    div(class='album py-5 bg-light')
+      div(class='container')
+        div(class='row')
+          
+          div(class='col-md-4')
+            div(class='card mb-4 shadow-sm')
+              a(href='postID.html')
+                img(class='card-img-top', src='../resources/A_01.jpg', alt='Card image cap')
+              div(class='card-body')
+                a(href='' class='card-user')
+                  h5 @wanderlust
+                p(class='card-text')
+                  | I love exploring - taking photos is my life.
+                p(class='card-text')
+                  a(href='' class='a-hashtag')
+                    b #blessed
+                  a(href='' class='a-hashtag')
+                    b #travel
+                div(class='d-flex justify-content-between align-items-center')
+                  div(class='btn-group')
+                    div(class='btn-circle btn-circle-default')
+                    div(class='btn-circle btn-circle-default')
+                  small(class='text-muted')
+                    | 5.1 k
+        
+    
+block endSkripti
+    script(src='../scripts.js')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy', crossorigin='anonymous')

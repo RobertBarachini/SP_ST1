@@ -1,0 +1,51 @@
+extends layout
+
+block bootStyle
+    link(rel='stylesheet', href='../styles.css')
+    link(href='../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    
+block content
+    main(role='main', style='background-color: #ffffff;')
+        div(class='container')
+            div(class='row')
+                div(class='col-md-7')
+                    div(class='card mb-4 shadow-sm')
+                        a(href='../resources/A_01.jpg', target='_blank')
+                            img(class='card-img-top', src='../resources/A_01.jpg', alt='Card image cap')
+                    div(class='card-body', style='background-color: #ffffff;')
+                        a(href='', class="card-user")
+                            h3 Naslov
+                        a(href='', class="card-user")
+                            h5 @wanderlust
+                        p(class='card-text')
+                            | I love exploring - taking photos is my life..
+                        p(class='card-text')
+                            a(href='', class="a-hashtag")
+                                b #blessed
+                            a(href='', class="a-hashtag")
+                                b  #travel
+                        div(class='d-flex justify-content-between align-items-center')
+                            div(class='btn-group')
+                                div(class='btn-circle btn-circle-default')
+                                div(class='btn-circle btn-circle-default')
+                            small(class='text-muted')
+                                | 5.1 k
+                        p
+                            h4 Comments
+                        div
+                            hr
+                            h6 John
+                            p Best thing since sliced bread
+                            hr
+                            h6 Mike
+                            p Photography is the art, application and practice of creating durable images by recording light or other electromagnetic radiation, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film. It is employed in many fields of science, manufacturing (e.g., photolithography), and business, as well as its more direct uses for art, film and video production, recreational purposes, hobby, and mass communication.
+                            hr
+                            h6 Jess
+                            p ok.
+                            hr
+                            
+block endSkripti
+    script(src='../scripts.js')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy', crossorigin='anonymous')
