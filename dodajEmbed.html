@@ -115,16 +115,17 @@
                 <p>
                   <a>Post your URL</a>
                   <form class = "inline">
-                          <input class="form-control mr-sm-2" type="text" placeholder = "http://www.youtube.com" required />
+                          <input id="wbL" class="form-control mr-sm-2" type="text" placeholder = "http://www.youtube.com" required />
                   </form>
                   
                   <div class="form-group">
                       <label for="exampleFormControlTextarea1">Description</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                      <textarea id="opis" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                   </div>
                   <a>Tags</a> 
-                  <input class="form-control mr-sm-2" type="text" placeholder = "#ravnica">
-                  <a href="indexPrijavljen.html" class="btn btn-primary my-2">Share embed</a>
+                  <input id="tagi" class="form-control mr-sm-2" type="text" placeholder = "#ravnica">
+                  <a id="gumb" onclick="preveri()" class="btn btn-primary my-2">Share embed</a>
+                  <script type="text/javascript" src="dodajEmbedPreveri.js"></script>
                 </p>
               </div>
             <!-- END CONTENT -->

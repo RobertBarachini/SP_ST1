@@ -111,17 +111,16 @@
             <section class="jumbotron container text-left">
               <div class="container">
                 <h1 class="jumbotron-heading">Create a new account</h1>
-                <p>
-                  <a>Username</a>
-                  <input class="form-control mr-sm-2" type="text" required>
-                  <a>Email address</a> 
-                  <input class="form-control mr-sm-2" type="email" required>
-                  <a>Password</a>
-                  <input class="form-control mr-sm-2" type="password" required>
-                  <a>Confirm Password</a>
-                  <input class="form-control mr-sm-2" type="password" required>
-                  <a href="login.html" class="btn btn-primary my-2">Create new account</a>
-                </p>
+                <a>Username</a>
+                <input id="usr" class="form-control mr-sm-2" type="text" required>
+                <a>Email address</a> 
+                <input id="em" class="form-control mr-sm-2" type="email" required>
+                <a>Password</a>
+                <input id="psw" class="form-control mr-sm-2" type="password" required>
+                <a>Confirm Password</a>
+                <input id="cps" class="form-control mr-sm-2" type="password" required>
+                <a id="gumb" onclick="preveri()" class="btn btn-primary my-2">Create new account</a>
+                <script type="text/javascript" src="registerPreveri.js"></script>
               </div>
             </section>
             <section class="jumbotron container text-center" style="border: 1px">
