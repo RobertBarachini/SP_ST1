@@ -1,9 +1,5 @@
 extends layout
 
-block bootStyle
-    link(href='../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', href='../styles.css')
-
 block content
     main(role='main')
         div(class='album py-5 bg-light')
@@ -25,7 +21,7 @@ block content
                     section(class='jumbotron container text-center', style='border: 1px')
                         p(style='font-size: 25px')
                          | New to Aggregate.io?
-                         a(href='register.html')  Create an account
+                         a(href='/register')  Create an account
                         
 block endSkripti
     script(src='../scripts.js')

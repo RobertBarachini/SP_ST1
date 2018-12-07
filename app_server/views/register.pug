@@ -1,9 +1,5 @@
 extends layout
 
-block bootStyle
-    link(rel='stylesheet', href='../styles.css')
-    link(href='../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
-
 block content
     main(role='main')
         div(class='album py-5 bg-light')
@@ -22,12 +18,12 @@ block content
                                 input(class='form-control mr-sm-2', type='password', required)
                                 a Confirm Password
                                 input(class='form-control mr-sm-2', type='password', required)
-                                a(href='login.html', class='btn btn-primary my-2')
+                                a(href='/login', class='btn btn-primary my-2')
                                     | Create new account
                                 
                     section(class='jumbotron container text-center', style='border: 1px')
                         p(style='font-size: 25px')
-                         a(href='register.html')  Log into existing account
+                         a(href='/login')  Log into existing account
                             
                             
 block endSkripti

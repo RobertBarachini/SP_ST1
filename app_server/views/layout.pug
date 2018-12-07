@@ -11,11 +11,14 @@ html
     block bootStyle
     
     link(href='../resources/app-icon2.png', rel='icon')
+    link(href='/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='../styles.css')
+
   body
     
     
     nav(class='navbar navbar-expand-md navbar-dark bg-dark fixed-top')
-      a(class='navbar-brand', href='#')
+      a(class='navbar-brand', href='/')
         img(src='../resources/app-icon2.png', class='img-icon-top', height='50px')
         | Aggregate.io
         
@@ -27,9 +30,12 @@ html
           form(class='form-inline my-2 my-lg-0')
             input(class='form-control mr-sm-2', type='text', placeholder='Search', aria-label='Search')
             button(class='btn btn-outline-light my-2 my-sm-0', type='submit') Search
-        a(class='navbar-brand', href='')
-          | neki
-          img(src='', style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;')
+        if uporabnik == null
+          a(class='navbar-brand', href='/login') Login
+        else
+          a(class='navbar-brand', href='')
+            | #{uporabnik.ime}
+            img(src='#{uporabnik.slika}', style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;')
             
     
     block content
