@@ -138,31 +138,31 @@
                   <div class="form-group">
                     <label class="col-lg-3 control-label">Name:</label>
                     <div class="col-lg-8">
-                      <input class="form-control" type="text" placeholder="Bane Krstič">
+                      <input id="fullName" class="form-control" type="text" placeholder="Bane Krstič">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-lg-3 control-label">Username:</label>
                     <div class="col-lg-8">
-                      <input class="form-control" type="text" placeholder="BaneK">
+                      <input id="usr" class="form-control" type="text" placeholder="BaneK">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-lg-3 control-label">Website:</label>
                     <div class="col-lg-8">
-                      <input class="form-control" type="text" placeholder="www.BaneKrstič.si">
+                      <input id="webS" class="form-control" type="text" placeholder="www.BaneKrstič.si">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="textArea" class="col-lg-3 control-label">Bio</label>
                     <div class="col-lg-8">
-                      <textarea class="form-control" id="textArea" form="usrform" rows="3" placeholder="priden&#10;pošten&#10;delaven"></textarea>
+                      <textarea id="bio" class="form-control" id="textArea" form="usrform" rows="3" placeholder="priden&#10;pošten&#10;delaven"></textarea>
                       </div>
                   </div>
                   <div class="form-group">
                     <label class="col-lg-3 control-label">Email:</label>
                     <div class="col-lg-8">
-                      <input class="form-control" type="email" placeholder="banekrstic@gmail.com">
+                      <input id="em" class="form-control" type="email" placeholder="banekrstic@gmail.com">
                     </div>
                   </div>
                   <div class="form-group">
@@ -185,21 +185,22 @@
                   <div class="form-group">
                     <label class="col-md-3 control-label">Password:</label>
                     <div class="col-md-8">
-                      <input class="form-control" type="password" placeholder="password">
+                      <input id="psw" class="form-control" type="password" placeholder="password">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-md-3 control-label">Confirm password:</label>
                     <div class="col-md-8">
-                      <input class="form-control" type="password" placeholder="password">
+                      <input id="cps" class="form-control" type="password" placeholder="password">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-8">
-                      <a href="userID.html">
-                        <input type="button" class="btn btn-primary" value="Save Changes">
+                      <a onclick="preveri()">
+                        <input id="gumb" type="button" class="btn btn-primary" value="Save Changes">
                       </a>
+                      <script type="text/javascript" src="editProfilePreveri.js"></script>
                       <span></span>
                         <input type="reset" class="btn btn-default" value="Cancel">
                     </div>
