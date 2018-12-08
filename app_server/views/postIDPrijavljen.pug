@@ -32,17 +32,18 @@ block content
                             small(class='text-muted')
                                 | 5.1 k
                         br
-                        div(class='dropdown')
-                            button(class='btn', type='button', data-toggle='dropdown', style='background-color: #ffffff')
-                                | Options
-                                span(class='glyphicon glyphicon-option-horizontal')
-                            ul(class='dropdown-menu')
-                                li
-                                    a(href='#myModal', data-toggle='modal')
-                                        | Delete
-                                li
-                                    a(href='editSliko.html')
-                                        | Edit
+                        if uporabnik != null
+                            div(class='dropdown')
+                                button(class='btn', type='button', data-toggle='dropdown', style='background-color: #ffffff')
+                                    | Options
+                                    span(class='glyphicon glyphicon-option-horizontal')
+                                ul(class='dropdown-menu')
+                                    li
+                                        a(href='#myModal', data-toggle='modal')
+                                            | Delete
+                                    li
+                                        a(href='editSliko.html')
+                                            | Edit
                         div(id='myModal', class='modal fade')
                             div(class='modal-dialog modal-confirm')
                                 div(class='modal-content')

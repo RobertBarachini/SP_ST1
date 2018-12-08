@@ -1,0 +1,92 @@
+extends layout
+
+block bootStyle
+    link(rel='stylesheet', href='../../styles.css')
+    link(href='../../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    
+block content
+    main(role="main")
+      .album.py-5.bg-light
+        .container
+          h1 Edit Profile
+          hr
+          .row
+            // left column
+            .col-md-3
+              .text-center
+                img.rounded-circle.profile-img(src="../../public/resources/garavi-sokak.jpg" alt="Card image cap")
+                h6 Upload a different photo...
+                div(style="position:relative;")
+                  a.btn.btn-primary(href="javascript:;")
+                    | Choose File
+                    input(type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());')
+                  span#upload-file-info.label.label-info
+            // edit form column
+            .col-md-9.personal-info
+              .alert.alert-info.alert-dismissable
+                a.panel-close.close(data-dismiss="alert") ×
+                i.fa.fa-coffee
+                |                   This is an 
+                strong .alert
+                | . Use this to show important messages to the user.
+              h3 Personal info
+              form#usrform.form-horizontal(role="form")
+                .form-group
+                  label.col-lg-3.control-label Name:
+                  .col-lg-8
+                    input#fullName.form-control(type="text" placeholder="Bane Krstič")
+                .form-group
+                  label.col-lg-3.control-label Username:
+                  .col-lg-8
+                    input#usr.form-control(type="text" placeholder="BaneK")
+                .form-group
+                  label.col-lg-3.control-label Website:
+                  .col-lg-8
+                    input#webS.form-control(type="text" placeholder="www.BaneKrstič.si")
+                .form-group
+                  label.col-lg-3.control-label(for="textArea") Bio
+                  .col-lg-8
+                    textarea#bio.form-control(form="usrform" rows="3" placeholder="priden\
+                    pošten\
+                    delaven")
+                .form-group
+                  label.col-lg-3.control-label Email:
+                  .col-lg-8
+                    input#em.form-control(type="email" placeholder="banekrstic@gmail.com")
+                .form-group
+                  label.col-lg-3.control-label Time Zone:
+                  .col-lg-8
+                    .ui-select
+                      select#user_time_zone.form-control
+                        option(value="Hawaii") (GMT-10:00) Hawaii
+                        option(value="Alaska") (GMT-09:00) Alaska
+                        option(value="Pacific Time (US & Canada)") (GMT-08:00) Pacific Time (US & Canada)
+                        option(value="Arizona") (GMT-07:00) Arizona
+                        option(value="Mountain Time (US & Canada)") (GMT-07:00) Mountain Time (US & Canada)
+                        option(value="Central Time (US & Canada)" selected="selected") (GMT-06:00) Central Time (US & Canada)
+                        option(value="Eastern Time (US & Canada)") (GMT-05:00) Eastern Time (US & Canada)
+                        option(value="Indiana (East)") (GMT-05:00) Indiana (East)
+                .form-group
+                  label.col-md-3.control-label Password:
+                  .col-md-8
+                    input#psw.form-control(type="password" placeholder="password")
+                .form-group
+                  label.col-md-3.control-label Confirm password:
+                  .col-md-8
+                    input#cps.form-control(type="password" placeholder="password")
+                .form-group
+                  label.col-md-3.control-label
+                  .col-md-8
+                    a(onclick="preveri()")
+                        input(id='gumb', type='button', class='btn btn-primary', value='Save Changes')
+                    script(type="text/javascript" src="../../editProfilePreveri.js")
+                    span
+                    input.btn.btn-default(type="reset" value="Cancel")
+        hr
+
+
+block endSkripti
+    script(src='../../scripts.js')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy', crossorigin='anonymous')

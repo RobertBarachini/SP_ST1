@@ -1,0 +1,80 @@
+extends layout
+
+block bootStyle
+    link(rel='stylesheet', href='../../styles.css')
+    link(href='../../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+
+block content
+    main(role="main")
+      header.py-5.bg-light
+        .container
+          .row
+            .col-md-3
+              img.rounded-circle.profile-img(src="../../resources/garavi-sokak.jpg" alt="Card image cap")
+            .col-md-9
+              section
+                div
+                  .mb-3
+                    h5.profile-h5 Bane Krstič
+                    a(href="editProfile.html")
+                      button.btn.btn-outline-dark.my-2.my-sm-0(type="button") Edit profile
+                    a(href="index.html")
+                      button.btn.btn-outline-dark.my-2.my-sm-0(type="button") Sign out
+                      br
+                  ul.list-inline
+                    li.list-inline-item
+                      b 123 
+                      | posts
+                    li.list-inline-item
+                      b 123 
+                      | followers
+                    li.list-inline-item
+                      b 123 
+                      | following
+                  h6 Bane Krstič
+                  ul(style="padding-left:15px")
+                    li priden
+                    li pošten
+                    li delaven
+                  a(href="")
+                    | www.banekrstic.si
+                    a
+      nav
+        ul.nav.nav-pills.justify-content-center.py-5.bg-light
+          li.nav-item
+            a.nav-link.active(href="#") Posts
+          li.nav-item
+            a.nav-link(href="#") Tagged
+          li.nav-item
+            a.nav-link(href="#") Saved
+          li.nav-item
+            a.nav-link.disabled(href="#") Disabled
+      .album.py-5.bg-light
+        .container
+          .row
+            .col-md-4
+              .card.mb-4.shadow-sm
+                a(href="postIDPrijavljen.html")
+                  img.card-img-top(src="../../resources/A_01.jpg" alt="Card image cap")
+                .card-body
+                  a.card-user(href="")
+                    h5 @wanderlust
+                  p.card-text I love exploring - taking photos is my life.
+                  p.card-text
+                    a.a-hashtag(href="")
+                      b #blessed
+                    a.a-hashtag(href="")
+                      b #travel
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      .btn-circle.btn-circle-success
+                      .btn-circle.btn-circle-default
+                    small.text-muted 5.1 k
+
+
+
+block endSkripti
+    script(src='../../scripts.js')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy', crossorigin='anonymous')

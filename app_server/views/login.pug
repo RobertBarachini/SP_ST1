@@ -6,17 +6,20 @@ block content
             div(class='container', style='height:666px')
                 div(class='row')
                     section(class='jumbotron container text-center')
-                        div(class='container')
-                            img(src='../resources/app-icon2.png', style='height: 40px; margin-right: 5px')
-                            h1(class='jumbotron-heading')
-                                | Log in to Aggregate.io
-                            p
-                                input(class='form-control mr-sm-2', type='text', placeholder='Username')
-                                input(class='form-control mr-sm-2', type='password', placeholder='Password')
-                                a(href='indexPrijavljen.html', class='btn btn-primary my-2')
-                                    | Log in
-                            a(href='#' class='btn')
-                                | Forgot password?
+                        form(method='POST' action='/login')
+                            div(class='container')
+                                img(src='../resources/app-icon2.png', style='height: 40px; margin-right: 5px')
+                                h1(class='jumbotron-heading')
+                                    | Log in to Aggregate.io
+                                p
+                                    label(for='username')
+                                    input#username.form-control(class='form-control mr-sm-2', type='text', placeholder='Username' name='username')
+                                    label(for='password')
+                                    input#password.form-control(class='form-control mr-sm-2', type='password', placeholder='Password' name='password')
+                                    button.btn.btn-primary(type='submit')
+                                        | Log in
+                                a(href='#' class='btn')
+                                    | Forgot password?
                             
                     section(class='jumbotron container text-center', style='border: 1px')
                         p(style='font-size: 25px')
