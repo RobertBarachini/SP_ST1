@@ -3,7 +3,7 @@ var router = express.Router();
 
 var ctrlUserIdentities = require('../controllers/userIdentities');
 
-/* userIdentitites */
+// userIdentitites
 router.get("/userIdentities", ctrlUserIdentities.getAll);
 /*router.get("/userIdentities/:idUserIdentities", );
 router.post("/userIdentities", );
