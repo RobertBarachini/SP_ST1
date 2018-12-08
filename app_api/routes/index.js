@@ -4,7 +4,7 @@ var router = express.Router();
 var ctrlUserIdentities = require('../controllers/userIdentities');
 
 /* userIdentitites */
-router.get("/userIdentities", ctrlUserIdentities.getUserIdentities);
+router.get("/userIdentities", ctrlUserIdentities.getAll);
 /*router.get("/userIdentities/:idUserIdentities", );
 router.post("/userIdentities", );
 router.put("/userIdentities/:idUserIdentities", );

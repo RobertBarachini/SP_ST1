@@ -1,0 +1,1 @@
+This folder stores all files that are being used for application rendering.

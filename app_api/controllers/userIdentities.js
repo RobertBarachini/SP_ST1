@@ -8,17 +8,19 @@ var vrniJsonOdgovor = function(odgovor, status, vsebina) {
   odgovor.json(vsebina);
 };
 
-me.getUserIdentities = function(zahteva, odgovor) {
-  //vrniJsonOdgovor(odgovor, 200, {"status": "uspesno"});
-  
-  /*UserIdentity
-    .findById(zahteva.params.idLokacije)
-    .exec(function(napaka, neki) {
-      vrniJsonOdgovor(odgovor, 200, neki); 
-    });*/
-  UserIdentity
-    .find()
-    .exec(function(napaka, podatki) {
-      vrniJsonOdgovor(odgovor, 200, podatki); 
-    });
+// Basic CRUD
+me.getAll = function(req, res) {
+  try {
+    UserIdentity
+      .find()
+      .exec(function(err, data) {
+        if(err || !data) {
+          console.log("Napaka:\n" + err.stack);
+          vrniJsonOdgovor(res, 404, { message: "Data not found" });
+        }
+        else {
+          vrniJsonOdgovor(res, 200, data); 
+        }
+      });
+  } catch(ex) { console.log("Evade server crash:\n" + ex); }
 };
