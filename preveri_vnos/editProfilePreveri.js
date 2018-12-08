@@ -50,6 +50,11 @@ function preveri() {
     //TODO poglej ce username email obstajata
     console.log(check1+" "+check2+" "+check3+" "+check4+" "+check5+" "+check6);
     
+    if(check1 && check2 && check3 && check4 && check5 && check6){
+        console.log("TRU")
+        //button.href="/userID";
+    }
+    
     //button.href="userID.html";
     
 }

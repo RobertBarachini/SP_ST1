@@ -7,38 +7,38 @@ var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
 
 function preveri() {
     var button=document.getElementById("gumb");
-    var username=document.getElementById("usr");
-    var password=document.getElementById("psw");
+    var username=document.getElementById("username");
+    var email=document.getElementById("email");
+    var password=document.getElementById("password");
+    var confPassword=document.getElementById("password2");
     
     var check1=false;
     var check2=false;
+    var check3=false;
+    var check4=false;
     
     console.log(username.value);
+    console.log(email.value);
     console.log(password.value);
+    console.log(confPassword.value);
     
-    if(regUsr.test(username.value)){
-        //username
-        check1=true;
-    } else if(regEm.test(username.value)) {
-        //mail
-        check1=true;
-    }
-    
+    check1=(regUsr.test(username.value));
+    check2=(regEm.test(email.value));
     if(/(?=.*[\s])/.test(password.value)){ //prvo preveri ce je kaksen prazen znak
         console.log("prazno");
     } else{
-        check2=(regPass.test(password.value));
+        check3=(regPass.test(password.value));
     }
+    check4=(password.value == confPassword.value);
     
-    console.log(check1+" "+check2);
+    console.log(check1+" "+check2+" "+check3+" "+check4);
     console.log("////////////////");
     
-    if(check1 && check2){
-        //TODO poglej ce obstaja
-        console.log("kul");
+    if(check1 && check2 && check3 && check4){
+        console.log("TRU");
+        //TODO dodaj v bazo
         //button.href="login.html";
     } else {
-        console.log("not kul");
         //button.href="#";
     }
 }

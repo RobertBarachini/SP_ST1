@@ -1,8 +1,8 @@
 extends layout
 
 block bootStyle
-    link(rel='stylesheet', href='../../styles.css')
-    link(href='../../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='../../stylesheets/styles.css')
+    link(href='../../bootstrap.min.css', rel='stylesheet')
     
 block content
     main(role="main")
@@ -14,7 +14,7 @@ block content
             // left column
             .col-md-3
               .text-center
-                img.rounded-circle.profile-img(src="../../public/resources/garavi-sokak.jpg" alt="Card image cap")
+                img.rounded-circle.profile-img(src="../../resources/garavi-sokak.jpg" alt="Card image cap")
                 h6 Upload a different photo...
                 div(style="position:relative;")
                   a.btn.btn-primary(href="javascript:;")
@@ -79,7 +79,7 @@ block content
                   .col-md-8
                     a(onclick="preveri()")
                         input(id='gumb', type='button', class='btn btn-primary', value='Save Changes')
-                    script(type="text/javascript" src="../../editProfilePreveri.js")
+                    script(type="text/javascript" src="../../preveri_vnos/editProfilePreveri.js")
                     span
                     input.btn.btn-default(type="reset" value="Cancel")
         hr

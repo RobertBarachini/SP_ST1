@@ -34,6 +34,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+/*
 app.use(session({
     secret:"OdVardaraPaDoTriglava",
     name:"Aggregator-Session-Cookie",
@@ -42,6 +43,7 @@ app.use(session({
     resave: false,
     cookie:{maxAge:3600000}
 }));
+*/
 //passport
 app.use(passport.initialize());
 app.use(passport.session());

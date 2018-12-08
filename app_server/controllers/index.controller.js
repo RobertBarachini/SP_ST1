@@ -1,8 +1,6 @@
 module.exports.indexPage = function (req, res) {
-        if(req.session.prijavljenUporabnik) {
-            res.render("index", {uporabnik: req.session.prijavljenUporabnik})
-        }
-        res.render("index", {uporabnik: null});
+        
+        res.render("index");
     };
 
 module.exports.loginPage = function (req,res) {
@@ -10,7 +8,7 @@ module.exports.loginPage = function (req,res) {
     };
 
 module.exports.loginPagePost = function (req,res) {
-    req.session.prijavljenUporabnik = req.body.username;
+    
     res.redirect('/')
 };
 
