@@ -4,8 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session')
-
+var FileStore = require('session-file-store')(session);
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var indexRouter = require('./app_server/routes/index.route');
+var usersRouter = require('./app_server/routes/users.route');
+var postsRouter = require('./app_server/routes/posts.route');
+
 
 var app = express();
 
@@ -20,15 +25,28 @@ app.use(cookieParser());
 app.use(session({
     secret:"OdVardaraPaDoTriglava",
     name:"Aggregator-Session-Cookie",
+    store: new FileStore(),
     saveUninitialized: true,
     resave: false,
     cookie:{maxAge:3600000}
 }));
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules','bootstrap','dist','css')));
 
+//Login ses
+app.get('*',function (req,res,next) {
+    res.locals.user  = req.user || null;
+    next();
+});
 
 app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

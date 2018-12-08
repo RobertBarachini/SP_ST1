@@ -6,20 +6,23 @@ block content
             div(class='container')
                 div(class='row')
                     section(class='jumbotron container text-left')
-                        div(class='container')
-                            h1(class='jumbotron-heading')
-                                | Create a new account
-                            p
-                                a Username
-                                input(class='form-control mr-sm-2', type='text', required)
-                                a Email address
-                                input(class='form-control mr-sm-2', type='email', required)
-                                a Password
-                                input(class='form-control mr-sm-2', type='password', required)
-                                a Confirm Password
-                                input(class='form-control mr-sm-2', type='password', required)
-                                a(href='/login', class='btn btn-primary my-2')
-                                    | Create new account
+                        form(method='POST', action='/register')
+                            div(class='container')
+                                h1(class='jumbotron-heading')
+                                    | Create a new account
+                                p
+                                    label(for='name')
+                                    input#name.form-control(class='form-control mr-sm-2', type='text', placeholder='Name and Surname', name='name', required)
+                                    label(for='username')
+                                    input#username.form-control(class='form-control mr-sm-2', type='text', placeholder='Username', name='username', required)
+                                    label(for='email')
+                                    input#email.form-control(class='form-control mr-sm-2', type='email', placeholder='Email', name='email', required)
+                                    label(for='password')
+                                    input#password.form-control(class='form-control mr-sm-2', type='password', placeholder='Password', name='password', required)
+                                    label(for='password2')
+                                    input#password2.form-control(class='form-control mr-sm-2', type='password', placeholder='Repeat password', name='password2', required)
+                                    button.btn.btn-primary(type='submit')
+                                        | Create new account
                                 
                     section(class='jumbotron container text-center', style='border: 1px')
                         p(style='font-size: 25px')
