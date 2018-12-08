@@ -8,7 +8,7 @@ var LocalStrategy = require('passport-local').Strategy;
 router.get('/', indexController.indexPage);
 router.get('/login', indexController.loginPage)
 router.post('/login',indexController.loginPagePost)
-router.get('/register',passport.authenticate('local',{failureRedirect:'/login', failureFlash:'Invalid email or pass'}) ,indexController.registerPage)
+router.get('/register' ,indexController.registerPage)
 router.post('/register',indexController.registerPagePost)
 
 passport.use(new LocalStrategy(function(username,password,done){

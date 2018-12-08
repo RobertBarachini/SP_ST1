@@ -1,9 +1,11 @@
+require('log-timestamp');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session')
+var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -12,11 +14,21 @@ var usersRouter = require('./app_server/routes/users.route');
 var postsRouter = require('./app_server/routes/posts.route');
 
 
+console.log("app: a");
+var dbVar = require('./app_api/models/db');
+console.log("dbVar");
+console.log("app: b")
+
+var indexApi = require("./app_api/routes/index");
+
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'pug');
+
+app.use("/api", indexApi)
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -47,6 +59,8 @@ app.get('*',function (req,res,next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
+app.use("/userIdentiti", indexApi)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
