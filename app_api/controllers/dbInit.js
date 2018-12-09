@@ -8,17 +8,33 @@ var User = mongoose.model('User');
 var Post = require('../models/post');
 var Post = mongoose.model('Post');
 
+var execSync = require('child_process').execSync;
+var cmdRestore = "mongorestore -d sp ~/workspace/app_api/db_exports/sp";
+var cmdDrop = "mongo sp --eval 'db.dropDatabase()'"
+
+var options = {
+  encoding: 'utf8'
+};
+
 var vrniJsonOdgovor = function(odgovor, status, vsebina) {
   odgovor.status(status);
   odgovor.json(vsebina);
 };
 
 me.init = function(req, res) {
+  console.log("INIT");
   
+  console.log(execSync(cmdRestore, options));
+  
+  vrniJsonOdgovor(res, 200, "Uspeh");
 };
 
 me.drop = function(req, res) {
+  console.log("DROP");
   
+  console.log(execSync(cmdDrop, options));
+  
+  vrniJsonOdgovor(res, 200, "Uspeh");
 };
 
 // Basic CRUD
