@@ -17,7 +17,10 @@ block content
                         a(href='', class="card-user")
                             h3 #{post.title}
                         a(href='', class="card-user")
-                            h5 #{post.owner}
+                            //-h5 #{post.owner}
+                            each up, index in vsiU
+                                if up._id == post.owner
+                                    h5= up.username
                         p(class='card-text')
                             | #{post.description}
                         p(class='card-text')
@@ -28,8 +31,12 @@ block content
                             //-    b  #travel
                         div(class='d-flex justify-content-between align-items-center')
                             div(class='btn-group')
-                                div(class='btn-circle btn-circle-success')
-                                div(class='btn-circle btn-circle-default')
+                                if uporabnik != null
+                                    div(class='btn-circle btn-circle-success')
+                                    div(class='btn-circle btn-circle-default')
+                                else
+                                    div(class='btn-circle btn-circle-default')
+                                    div(class='btn-circle btn-circle-default')
                             small(class='text-muted')
                                 | #{post.likes - post.dislikes}
                         br
@@ -72,8 +79,10 @@ block content
                                         | Post
                             hr
                             each comm, index in post.comments
-                                h6= comm.owner
-                                p= comm.content
+                                each up, index in vsiU
+                                    if up._id == comm.owner
+                                        h6= up.username
+                                        p= comm.content
                                 hr
                                 
                             //-h6 John
