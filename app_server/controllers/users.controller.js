@@ -185,6 +185,7 @@ module.exports.addPicturePost = function(req,res) {
     var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
     var regOp= new RegExp("(?=.{1,500}$)");
     
+    var pic=req.body.website;
     var tagi = req.body.tagi;
     var textArea = req.body.exampleFormControlTextarea1;
     
@@ -193,10 +194,39 @@ module.exports.addPicturePost = function(req,res) {
     
     if(check1 && check2){
         console.log("TRU")
-        res.redirect('/')
-    }
-    
-  
+        var iduser = req.session.user._id;
+        console.log(iduser)
+        var pot = '/api/posts/'
+        var posredovaniPodatki = {
+          title: "PUSHI",
+          owner: iduser,
+          body: {
+            bodyType: 'image',
+            content: pic
+          },
+          description: textArea,
+          hashtags:[tagi],
+          likes: null,
+          dislikes: null,
+          comments: null
+        };
+        
+        var parametriZahteve = {
+          url: apiParametri.streznik + pot,
+          method: 'POST',
+          json: posredovaniPodatki
+        };
+        
+        request(
+        parametriZahteve,
+        function(napaka, odgovor, vsebina) {
+          if (odgovor.statusCode === 201) {
+            res.redirect('/');
+          }
+        }
+        );
+      } else res.redirect("");
+      
 };
 
 module.exports.addEmbedPost = function(req,res) {
