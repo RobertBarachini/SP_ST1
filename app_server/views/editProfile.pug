@@ -58,14 +58,17 @@ block content
                   .col-lg-8
                     .ui-select
                       select#user_time_zone.form-control
-                        option(value="Hawaii") (GMT-10:00) Hawaii
-                        option(value="Alaska") (GMT-09:00) Alaska
-                        option(value="Pacific Time (US & Canada)") (GMT-08:00) Pacific Time (US & Canada)
-                        option(value="Arizona") (GMT-07:00) Arizona
-                        option(value="Mountain Time (US & Canada)") (GMT-07:00) Mountain Time (US & Canada)
-                        option(value="Central Time (US & Canada)" selected="selected") (GMT-06:00) Central Time (US & Canada)
-                        option(value="Eastern Time (US & Canada)") (GMT-05:00) Eastern Time (US & Canada)
-                        option(value="Indiana (East)") (GMT-05:00) Indiana (East)
+                        mixin v(zone, time)
+                          option(value=zone)&attributes(attributes)= time
+                        ul
+                          +v('Hawaii','(GMT-10:00) Hawaii')
+                          +v('Alaska','(GMT-09:00) Alaska')
+                          +v('Pacific Time (US & Canada)','(GMT-08:00) Pacific Time (US & Canada)')
+                          +v('Arizona','(GMT-07:00) Arizona')
+                          +v('Mountain Time (US & Canada)','(GMT-07:00) Mountain Time (US & Canada)')
+                          +v('Central Time (US & Canada)','(GMT-06:00) Central Time (US & Canada)')
+                          +v('Eastern Time (US & Canada)','(GMT-05:00) Eastern Time (US & Canada)')
+                          +v('Indiana (East)','(GMT-05:00) Indiana (East)')
                 .form-group
                   label.col-md-3.control-label Password:
                   .col-md-8
