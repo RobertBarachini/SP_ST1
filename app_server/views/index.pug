@@ -38,18 +38,19 @@ block content
             
     div(class='album py-5 bg-light')
       div(class='container')
-        each post in posts
-          div(class='row')
+        div(class='row')
+          each post in posts
             div(class='col-md-4')
               div(class='card mb-4 shadow-sm')
-                a(href='/posts/postID')
+                -povezava = '/posts/' + post._id
+                a(href=povezava)
                   img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
                 div(class='card-body')
                   a(href='' class='card-user')
                     h5 #test
                   p(class='card-text')
                     | #{post.description}
-                  p(class='card-text')
+                  p(class='crd-text')
                     a(href='' class='a-hashtag')
                       b #blessed
                     a(href='' class='a-hashtag')
