@@ -23,11 +23,15 @@ var prikaziZacetnePoste = function(req, res, vsebina) {
         });
         console.log("......................")
     } 
-}
+};
 
+var poglejCeSeLahkoLogina = function(req, res, vsebina) {
+    console.log(vsebina)
+    res.redirect("/login")
+};
 
 module.exports.indexPage = function (req, res) {
-        var pot = '/api/posts'
+    var pot = '/api/posts'
     var parametriZahteve = {
         url: apiParametri.streznik + pot,
         method: 'GET',
@@ -64,23 +68,6 @@ module.exports.loginPage = function (req,res) {
     };
 
 module.exports.loginPagePost = function (req,res) {
-    /*var UserIdentity = {
-    email: "test@test.si",
-    password: "test"
-    }
-    var name = {
-        name: "Janko Knez",
-        
-    }
-
-    var email = req.body.email;
-    var password = req.body.password;
-    if(email === UserIdentity.email && password === UserIdentity.password) {
-        req.session.user = name
-        res.redirect('/');
-    } else res.redirect('login')
-*/
-    //preveri
     var username = req.body.email;
     var password = req.body.password;
     
@@ -112,15 +99,25 @@ module.exports.loginPagePost = function (req,res) {
         check2=(regPass.test(password));
     }
     
+    
     if(check1 && check2){
-        //TODO poglej ce obstaja
-        console.log("kul");
-        //var name dubi iz baze
-        var name = {
-            name: "Janko Knez",
-        }
-        req.session.user = name
-        res.redirect('/');
+        var pot = '/api/userIdentities'
+        var parametriZahteve = {
+            url: apiParametri.streznik + pot,
+            method: 'GET',
+            json: {}
+         };
+        request(parametriZahteve,function(napaka, odgovor,  vsebina) {
+        poglejCeSeLahkoLogina(req, res, vsebina);    
+            }
+        );
+        //console.log("kul");
+        ////var name dubi iz baze
+        //var name = {
+        //    name: "Janko Knez",
+        //}
+        //req.session.user = name
+        //res.redirect('/');
     } else {
         console.log("not kul");
         //button.href="#";
@@ -177,5 +174,8 @@ module.exports.registerPagePost = function (req,res) {
     } else {
     }
 
+};
+module.exports.db = function (req,res) {
+    res.render('temp');
 };
 
