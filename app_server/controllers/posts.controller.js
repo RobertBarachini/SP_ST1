@@ -18,11 +18,17 @@ module.exports.editPost = function (req, res) {
         console.log("......................")
     }
 };
+module.exports.addComment = function(req,res) {
+    var comment = req.body.textarea;
+    console.log(comment);
+    res.redirect("")
+    
+};
 
 module.exports.editPostPost = function(req,res) {
-    var description = req.body.Textarea;
+    var description = req.body.textarea;
     console.log(description);
     res.redirect('/')
     //to ne dela
     
-}
+};

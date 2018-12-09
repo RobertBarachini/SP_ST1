@@ -64,11 +64,11 @@ block content
                             h4 Comments
                         div
                             if uporabnik != null
-                                textarea(class='form-control', id='exampleFormControlTextarea1', rows='3')
-                                br
-                                button(id='gumb', onclick='preveri()', class='btn', type='submit', style='align: left;')
-                                    | Post
-                                script(type="text/javascript" src="../../preveri_vnos/postIDPrijavljenPreveri.js")
+                                form(method='POST' action='/posts/postID')
+                                    textarea(class='form-control', id='exampleFormControlTextarea1', rows='3', name = 'textarea')
+                                    br
+                                    button(id='gumb', class='btn', type='submit', style='align: left;')
+                                        | Post
                             hr
                             h6 John
                             p Best thing since sliced bread
