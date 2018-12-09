@@ -25,8 +25,24 @@ var prikaziZacetnePoste = function(req, res, vsebina) {
 };
 
 var poglejCeSeLahkoLogina = function(req, res, vsebina) {
-    console.log(vsebina)
-    res.redirect("/login")
+    var aJe = false;
+    console.log(req.body.email)
+    for (var i = 0; i<vsebina.length; i++){
+         //console.log(vsebina[i]);
+         var id = vsebina[i]._id;
+         var email = vsebina[i].email;
+         var password = vsebina[i].password;
+         if(email === req.body.email && password === req.body.password){
+            req.session.user = id
+            res.redirect("/");
+            aJe = true;
+            break;
+         }
+    }
+    if(!aJe) {
+        res.redirect("/login")
+    }
+       
 };
 
 module.exports.indexPage = function (req, res) {
@@ -74,7 +90,8 @@ module.exports.loginPagePost = function (req,res) {
     //username = med 4 in 32 znakov, zgoraj nasteti znaki
     var regEm = new RegExp("^(?![\.])(?!.*[\.]{2})[a-zA-Z0-9\.!#$%&'*+-=?^_`{|}~]+(?![\.])@(?![-])[a-zA-Z0-9-]+(?![-])\.(?![\.])(?!.*[\.]{2})[a-zA-Z0-9\.]+(?![\.])$");
     //email = (. ni na zaceetku in koncu, in se ne sme podvajat znotraj gor nastetih znakov v []) @ (- ni na zactku in koncu) . (. ni na zactku, koncu in se ne podvaja)
-    var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+    //var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+    var regPass = new RegExp(".");
     //geslo = min 8 znakov, min 1 mala crkam, min 1 velika crka, min 1 stevilka
 
 
