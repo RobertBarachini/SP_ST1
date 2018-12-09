@@ -16,11 +16,13 @@ block content
                     div(class='card-body', style='background-color: #ffffff;')
                         a(href='', class="card-user")
                             h3 #{post.title}
-                        a(href='', class="card-user")
                             //-h5 #{post.owner}
                             each up, index in vsiU
                                 if up._id == post.owner
-                                    h5= up.username
+                                    -pov = '/users/' + up._id
+                                    a(href=pov , class="card-user")
+                                        h5= up.username
+                                    
                         p(class='card-text')
                             | #{post.description}
                         p(class='card-text')

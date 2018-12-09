@@ -149,13 +149,9 @@ module.exports.editProfilePost = function (req, res) {
 };
 
 module.exports.logout = function(req,res) {
-  if (req.session.user && req.cookies.user_sid) {
-      res.clearCookie('user_sid');
-      res.redirect('/');
-  } else {
       req.session.user = null;
       res.redirect('/login');
-  }
+
 };
 
 module.exports.addPicture = function(req,res) {
