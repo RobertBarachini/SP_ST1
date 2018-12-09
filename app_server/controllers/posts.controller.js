@@ -6,6 +6,37 @@ if (process.env.NODE_ENV === 'production') {
   apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/'; //TODO: nastavit na nase ime aplikacije za Heroku
 }
 
+var prikaziPost = function(req, res, vsebina) {
+    console.log()
+    if(req.session.user) {
+        res.render("postIDPrijavljen", {
+            uporabnik: req.session.user,
+            post: vsebina})
+    }else{
+        res.render("postIDPrijavljen", {
+            uporabnik: null,
+            post: vsebina})
+    } 
+}
+
+
+module.exports.postPage = function (req, res) {
+    var pot = '/api/posts' +req.url
+    var parametriZahteve = {
+        url: apiParametri.streznik + pot,
+        method: 'GET',
+        json: {}
+    };
+    
+     request(parametriZahteve,function(napaka, odgovor,  vsebina) {
+      prikaziPost(req, res, vsebina);    
+    }
+  );
+  
+  
+  
+};
+/*
 module.exports.postPage = function (req, res) {
     if(req.session.user) {
         res.render("postIDPrijavljen", {uporabnik: req.session.user})
@@ -16,6 +47,7 @@ module.exports.postPage = function (req, res) {
         console.log("......................")
     }
 };
+*/
 module.exports.editPost = function (req, res) {
     if(req.session.user) {
         res.render("editSliko", {uporabnik: req.session.user})

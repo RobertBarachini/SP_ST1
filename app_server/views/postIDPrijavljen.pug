@@ -15,22 +15,23 @@ block content
                             
                     div(class='card-body', style='background-color: #ffffff;')
                         a(href='', class="card-user")
-                            h3 Naslov
+                            h3 #{post.title}
                         a(href='', class="card-user")
-                            h5 @wanderlust
+                            h5 #{post.owner}
                         p(class='card-text')
-                            | I love exploring - taking photos is my life..
+                            | #{post.description}
                         p(class='card-text')
-                            a(href='', class="a-hashtag")
-                                b #blessed
-                            a(href='', class="a-hashtag")
-                                b  #travel
+                            b #{post.hashtags}
+                            //-a(href='', class="a-hashtag")
+                            //-    b #blessed
+                            //-a(href='', class="a-hashtag")
+                            //-    b  #travel
                         div(class='d-flex justify-content-between align-items-center')
                             div(class='btn-group')
                                 div(class='btn-circle btn-circle-success')
                                 div(class='btn-circle btn-circle-default')
                             small(class='text-muted')
-                                | 5.1 k
+                                | #{post.likes - post.dislikes}
                         br
                         if uporabnik != null
                             div(class='dropdown')
@@ -70,15 +71,20 @@ block content
                                     button(id='gumb', class='btn', type='submit', style='align: left;')
                                         | Post
                             hr
-                            h6 John
-                            p Best thing since sliced bread
-                            hr
-                            h6 Mike
-                            p Photography is the art, application and practice of creating durable images by recording light or other electromagnetic radiation, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film. It is employed in many fields of science, manufacturing (e.g., photolithography), and business, as well as its more direct uses for art, film and video production, recreational purposes, hobby, and mass communication.
-                            hr
-                            h6 Jess
-                            p ok.
-                            hr
+                            each comm, index in post.comments
+                                h6= comm.owner
+                                p= comm.content
+                                hr
+                                
+                            //-h6 John
+                            //-p Best thing since sliced bread
+                            //-hr
+                            //-h6 Mike
+                            //-p Photography is the art, application and practice of creating durable images by recording light or other electromagnetic radiation, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film. It is employed in many fields of science, manufacturing (e.g., photolithography), and business, as well as its more direct uses for art, film and video production, recreational purposes, hobby, and mass communication.
+                            //-hr
+                            //-h6 Jess
+                            //-p ok.
+                            
                             
 block endSkripti
     script(src='../../scripts.js')
