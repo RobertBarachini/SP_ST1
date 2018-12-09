@@ -19,16 +19,17 @@ block content
                                     img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
                                 div
                                     b &nbsp;
-                                div(class='form-group')
-                                    label(for='exampleFormControlTextarea1')
-                                        | Description
-                                    textarea(class='form-control', id='exampleFormControlTextarea1', rows='5')
-                                        | I love exploring - taking photos is my life..
-                                a Tags
-                                input(id='tagi', class='form-control mr-sm-2', type='text', placeholder = '#blessed #travel')
-                                a(id='gumb', onclick='preveri()', class='btn btn-primary my-2')
-                                    | Save
-                                script(type="text/javascript" src="../../preveri_vnos/editSlikoPreveri.js")
+                                form(method='POST' action='/posts/postID/editPost')
+                                    div(class='form-group')
+                                        label(for='Textarea')
+                                            | Description
+                                        Textarea(class='form-control', name='Textarea', rows='5')
+                                            | I love exploring - taking photos is my life..
+                                    a Tags
+                                    input(id='tagi', class='form-control mr-sm-2', type='text', placeholder = '#blessed #travel')
+                                    button.btn.btn-primary(id='gumb', type='submit')
+                                       | Save
+                               
                                     
 block endSkripti
     script(src='../../scripts.js')

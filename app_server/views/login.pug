@@ -16,11 +16,12 @@ block content
                                 h1(class='jumbotron-heading')
                                     | Log in to Aggregate.io
                                 p
-                                   input(id='username', class='form-control mr-sm-2', type='text', placeholder='Username')
-                                   input(id='password', class='form-control mr-sm-2', type='password', placeholder='Password')
-                                   a(id='gumb', onclick='preveri()', class='btn btn-primary my-2')
-                                    | Log in
-                                   script(type="text/javascript" src="../../preveri_vnos/loginPreveri.js")
+                                    label(for='email')
+                                    input#email.form-control(class='form-control mr-sm-2', type='email', placeholder='Email', name='email', required)
+                                    label(for='password')
+                                    input#password.form-control(class='form-control mr-sm-2', type='password', placeholder='Password', name='password', required)
+                                    button.btn.btn-primary(id='gumb', type='submit')
+                                        | Log in
                                 a(href='#' class='btn')
                                     | Forgot password?
                             
