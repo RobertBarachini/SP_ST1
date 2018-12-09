@@ -35,7 +35,8 @@ html
         if !uporabnik
           a(class='navbar-brand', href='/login') Login
         else
-          a(class='navbar-brand', href='/users/userID')
+          -povezava2 = 'users/'+ uporabnik._id
+          a(class='navbar-brand', href=povezava2)
             | #{uporabnik.name}
             -povezava = ''+ uporabnik.profilePicture
             img(src=povezava, style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;')
