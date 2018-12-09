@@ -37,6 +37,5 @@ module.exports.editPostPost = function(req,res) {
     var description = req.body.textarea;
     console.log(description);
     res.redirect('/')
-    //to ne dela
     
 };
