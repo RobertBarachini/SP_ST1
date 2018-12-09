@@ -3,7 +3,9 @@ var router = express.Router();
 var usersController = require('../controllers/users.controller')
 
 /* GET home page. */
-router.get('/name', usersController.userPage);
+router.get('/userID', usersController.userPage);
+router.get('/userID/editProfile', usersController.editProfile);
+router.get('/logout', usersController.logout);
 
 
 module.exports = router;

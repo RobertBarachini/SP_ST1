@@ -1,16 +1,41 @@
+
 module.exports.indexPage = function (req, res) {
-        
-        res.render("index");
-    };
+    
+    if(req.session.user) {
+        res.render("index", {uporabnik: req.session.user})
+        console.log("MA KAAAJ")
+    }
+    else{
+        res.render("index", {uporabnik: null});
+        console.log("......................")
+    } 
+};
+      
 
 module.exports.loginPage = function (req,res) {
         res.render("login")
     };
 
 module.exports.loginPagePost = function (req,res) {
+    var UserIdentity = {
+    email: "test@test.si",
+    password: "test"
+    }
+    var name = {
+        name: "Janko Knez",
+        
+    }
+
+    var email = req.body.email;
+    var password = req.body.password;
+    if(email === UserIdentity.email && password === UserIdentity.password) {
+        req.session.user = name
+        res.redirect('/');
+    } else res.redirect('login')
+
     
-    res.redirect('/')
 };
+
 
 module.exports.registerPage = function (req,res) {
         res.render("register")

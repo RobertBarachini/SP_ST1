@@ -29,12 +29,12 @@ html
             input( id='searchIn', class='form-control mr-sm-2', type='text', placeholder='Search', aria-label='Search')
             button(id='gumbS', onclick='preveri()', class='btn btn-outline-light my-2 my-sm-0') Search
             script(type='text/javascript', src='../../preveri_vnos/searchPreveri.js')
-        if !user
+        if !uporabnik
           a(class='navbar-brand', href='/login') Login
         else
-          a(class='navbar-brand', href='')
-            | #{uporabnik.ime}
-            img(src='#{uporabnik.slika}', style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;')
+          a(class='navbar-brand', href='/users/userID')
+            | #{uporabnik.name}
+            img(src='', style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;')
             
     
     block content

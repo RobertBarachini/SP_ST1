@@ -42,7 +42,7 @@ block content
                                         a(href='#myModal', data-toggle='modal')
                                             | Delete
                                     li
-                                        a(href='editSliko.html')
+                                        a(href='/posts/postID/editPost')
                                             | Edit
                         div(id='myModal', class='modal fade')
                             div(class='modal-dialog modal-confirm')
@@ -63,11 +63,12 @@ block content
                         p
                             h4 Comments
                         div
-                            textarea(class='form-control', id='exampleFormControlTextarea1', rows='3')
-                            br
-                            button(id='gumb', onclick='preveri()', class='btn', type='submit', style='align: left;')
-                                | Post
-                            script(type="text/javascript" src="../../preveri_vnos/postIDPrijavljenPreveri.js")
+                            if uporabnik != null
+                                textarea(class='form-control', id='exampleFormControlTextarea1', rows='3')
+                                br
+                                button(id='gumb', onclick='preveri()', class='btn', type='submit', style='align: left;')
+                                    | Post
+                                script(type="text/javascript" src="../../preveri_vnos/postIDPrijavljenPreveri.js")
                             hr
                             h6 John
                             p Best thing since sliced bread

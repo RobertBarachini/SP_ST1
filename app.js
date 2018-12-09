@@ -22,6 +22,7 @@ console.log("app: b")
 var indexApi = require("./app_api/routes/index");
 
 
+
 var app = express();
 
 // view engine setup
@@ -34,16 +35,21 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-/*
+
+
 app.use(session({
-    secret:"OdVardaraPaDoTriglava",
+    secret:"user_sid",
     name:"Aggregator-Session-Cookie",
-    store: new FileStore(),
     saveUninitialized: true,
     resave: false,
     cookie:{maxAge:3600000}
 }));
-*/
+app.use((req, res, next) => {
+    if (req.cookies.user_sid && !req.session.user) {
+        res.clearCookie('user_sid');        
+    }
+    next();
+});
 //passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -53,10 +59,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules','bootstrap','dist','css')));
 
 //Login ses
-app.get('*',function (req,res,next) {
+/*app.get('*',function (req,res,next) {
     res.locals.user  = req.user || null;
     next();
-});
+});*/
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
