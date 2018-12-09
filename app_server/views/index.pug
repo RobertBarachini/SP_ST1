@@ -7,35 +7,22 @@ block bootStyle
 
 block content
   if uporabnik
-  .container.fixed-bottom.text-center
-    .dropup
-      button.btn-lg.dropdown(type="button" data-toggle="dropdown" style="border-radius: 50%; background-color: #7800ff")
-        | +
-        span.caret
-      ul.dropdown-menu.dropdown-menu-back.text-center
-        li
-          a(href="/users/userID/addPicture") Add Picture
-        li.divider
-        li
-          a(href="/users/userID/addEmbed") Add Embed
-        li.divider
-        li
-          a(href="/users/userID/addText") Add Text
+    .container.fixed-bottom.text-center
+      .dropup
+        button.btn-lg.dropdown(type="button" data-toggle="dropdown" style="border-radius: 50%; background-color: #7800ff")
+          | +
+          span.caret
+        ul.dropdown-menu.dropdown-menu-back.text-center
+          li
+            a(href="/users/userID/addPicture") Add Picture
+          li.divider
+          li
+            a(href="/users/userID/addEmbed") Add Embed
+          li.divider
+          li
+            a(href="/users/userID/addText") Add Text
   
   main(role='main')
-  
-    section(class='jumbotron text-center')
-      div(class='container')
-        h1(class='jumbotron-heading')
-          | Consent
-        p(class='lead text-muted')
-          | This site uses cookies. To get the full experience you need to sign a deal with the devil. All your data belongs to us.
-        p
-          a(href='#', class='btn btn-primary my-2')
-            | Accept
-          a(href='#', class='btn btn-secondary my-2')
-            | Reject
-            
     div(class='album py-5 bg-light')
       div(class='container')
         div(class='row')

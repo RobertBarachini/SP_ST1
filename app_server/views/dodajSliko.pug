@@ -17,9 +17,9 @@ block content
                             p
                                 form(method='POST' action='/users/userID/addPicture')
                                     div(style='position:relative;')
-                                        a(class='btn btn-primary' href='javascript:;')
-                                            | Choose File
-                                            input(type='file', style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());')
+                                        a Post your Picture
+                                            label(for="website")
+                                            input#website.form-control.mr-sm-2(type='text', placeholder = 'http://www.novosti.rs/upload/images/2017a//12/05n/19Krstic.jpg', name='website', required)
                                         b &nbsp;
                                         span(class='label label-info', id='upload-file-info')
                                     div
