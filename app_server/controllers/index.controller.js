@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var prikaziZacetnePoste = function(req, res, vsebina) {
-    
+    console.log(vsebina);
         if(req.session.user) {
             res.render("index", {
             uporabnik: req.session.user,
