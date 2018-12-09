@@ -72,9 +72,11 @@ block content
                                         | Post
                             hr
                             each comm, index in post.comments
-                                h6= comm.owner
-                                p= comm.content
-                                hr
+                                -povezava = '/users/' + comm.owner
+                                    a(href=povezava)
+                                        h6= comm.owner
+                                    p= comm.content
+                                    hr
                                 
                             //-h6 John
                             //-p Best thing since sliced bread

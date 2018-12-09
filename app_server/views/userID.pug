@@ -15,7 +15,7 @@ block content
               section
                 div
                   .mb-3
-                    h5.profile-h5 Bane Krstič
+                    h5.profile-h5=user.username
                     a(href="/users/userID/editProfile")
                       button.btn.btn-outline-dark.my-2.my-sm-0(type="button") Edit profile
                     a(href="/users/logout")
@@ -23,7 +23,7 @@ block content
                       br
                   ul.list-inline
                     li.list-inline-item
-                      b 123 
+                      b=user.posts.length 
                       | posts
                     li.list-inline-item
                       b 123 
@@ -31,13 +31,13 @@ block content
                     li.list-inline-item
                       b 123 
                       | following
-                  h6 Bane Krstič
+                  h6= user.name + ' ' +user.surname
                   ul(style="padding-left:15px")
                     li priden
                     li pošten
                     li delaven
                   a(href="")
-                    | www.banekrstic.si
+                    | www.#{user.username}.si
                     a
       nav
         ul.nav.nav-pills.justify-content-center.py-5.bg-light

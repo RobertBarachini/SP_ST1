@@ -1,10 +1,36 @@
-module.exports.userPage = function (req, res) {
+var request = require('request');
+var apiParametri = {
+  streznik: 'http://localhost:' + process.env.PORT
+};
+if (process.env.NODE_ENV === 'production') {
+  apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/'; //TODO: nastavit na nase ime aplikacije za Heroku
+}
+
+var prikaziUserPage = function(req, res, vsebina) {
+    console.log(vsebina)
     if(req.session.user) {
-      res.render("userID", {uporabnik: req.session.user})
-    }
-    else{
-      res.render("userID", {uporabnik: null});
+        res.render("userID", {
+            uporabnik: req.session.user,
+            user: vsebina})
+    }else{
+        res.render("userID", {
+            uporabnik: null,
+            user: vsebina})
     } 
+}
+
+module.exports.userPage = function (req, res) {
+    var pot = '/api/users' + req.url;
+    console.log("userPage -> pot : " + pot)
+    var parametriZahteve = {
+        url: apiParametri.streznik + pot,
+        method: 'GET',
+        json: {}
+    };
+         request(parametriZahteve,function(napaka, odgovor,  vsebina) {
+      prikaziUserPage(req, res, vsebina);    
+    }
+    );
 };
 
 module.exports.editProfile = function (req, res) {
