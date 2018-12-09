@@ -17,7 +17,8 @@ block content
                 div
                   .mb-3
                     h5.profile-h5=user.username
-                    a(href="/users/userID/editProfile")
+                    -povezava = '/users/'+ uporabnik._id + '/editProfile'
+                    a(href=povezava)
                       button.btn.btn-outline-dark.my-2.my-sm-0(type="button") Edit profile
                     a(href="/users/logout")
                       button.btn.btn-outline-dark.my-2.my-sm-0(type="button") Sign out

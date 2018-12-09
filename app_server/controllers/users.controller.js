@@ -34,6 +34,8 @@ module.exports.userPage = function (req, res) {
 };
 
 module.exports.editProfile = function (req, res) {
+  console.log("OOOOOOOOO")
+  console.log(req.session.user)
     if(req.session.user) {
       res.render("editProfile", {uporabnik: req.session.user})
     }
@@ -47,7 +49,8 @@ module.exports.editProfilePost = function (req, res) {
     //username = med 4 in 32 znakov, zgoraj nasteti znaki
     var regEm = new RegExp("^(?![\.])(?!.*[\.]{2})[a-zA-Z0-9\.!#$%&'*+-=?^_`{|}~]+(?![\.])@(?![-])[a-zA-Z0-9-]+(?![-])\.(?![\.])(?!.*[\.]{2})[a-zA-Z0-9\.]+(?![\.])$");
     //email = (. ni na zaceetku in koncu, in se ne sme podvajat znotraj gor nastetih znakov v []) @ (- ni na zactku in koncu) . (. ni na zactku, koncu in se ne podvaja)
-    var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+    //var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+    var regPass = new RegExp(".");
     //geslo = min 8 znakov, min 1 mala crkam, min 1 velika crka, min 1 stevilka
     var regFN = new RegExp("^(?=.{1,50}$)(?![\ ])[a-žA-Ž-(\ )]+(?![\ ])$");
     //full name = crke, presledki, -
@@ -98,6 +101,9 @@ module.exports.editProfilePost = function (req, res) {
     
     if(check1 && check2 && check3 && check4 && check5 && check6){
         console.log("TRU")
+        
+        
+        
         res.redirect(".");
     }
     

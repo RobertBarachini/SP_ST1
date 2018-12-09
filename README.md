@@ -69,3 +69,8 @@ v polju se mora vsaka beseda zaceti z znakom '#', potem sledijo male in veliko c
 polje vsebuje med 1 in 500 znakov
 * Comments 
 uporabnik lahko komentira med 1 in 500 znakov
+
+## Naprave na katerih aplikacija deluje
+* Računalnik
+* Telefon
+* Tablica
