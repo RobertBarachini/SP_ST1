@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"sp.UserIdentities"},{"v":2,"unique":true,"key":{"email":1},"name":"email_1","ns":"sp.UserIdentities","background":true}],"uuid":"ecb60ab63c284573a593ca4af92d63ba"}
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"sp.UserIdentities"},{"v":2,"unique":true,"key":{"email":1},"name":"email_1","ns":"sp.UserIdentities","background":true}],"uuid":"9c3a2a5205ff4a81b63fe75b63a761be"}
