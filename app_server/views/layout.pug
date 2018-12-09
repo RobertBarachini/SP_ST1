@@ -37,7 +37,8 @@ html
         else
           a(class='navbar-brand', href='/users/userID')
             | #{uporabnik.name}
-            img(src='', style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;')
+            -povezava = ''+ uporabnik.profilePicture
+            img(src=povezava, style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;')
             
     
     block content
