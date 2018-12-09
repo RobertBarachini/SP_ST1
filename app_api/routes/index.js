@@ -4,11 +4,14 @@ var router = express.Router();
 var ctrlUserIdentities = require('../controllers/userIdentities');
 var ctrlUsers = require('../controllers/users');
 var ctrlPosts = require('../controllers/posts');
+var ctrlDbInit = require("../controllers/dbInit");
 //var ctrlUsers = require("../controllers/users");
 
 // userIdentitites
 router.get("/userIdentities", ctrlUserIdentities.getAll);
 router.get("/userIdentities/:userIdentityId", ctrlUserIdentities.getById);
+router.delete("/userIdentities/:userIdentityId", ctrlUserIdentities.deleteById)
+router.post("/userIdentities", ctrlUserIdentities.addNew);
 /*router.get("/userIdentities/:idUserIdentities", );
 router.post("/userIdentities", );
 router.put("/userIdentities/:idUserIdentities", );
@@ -17,6 +20,9 @@ router.delete("/userIdentities/:idUserIdentities", );*/
 // users
 router.get("/users", ctrlUsers.getAll);
 router.get("/users/:userId", ctrlUsers.getById);
+router.delete("/users/:userId", ctrlUsers.deleteById)
+router.get("/users", ctrlUsers.addNew);
+//router.put("/users/:userId", ctrlUsers.updatePostReactions);
 //router.get("/users", ctrlUsers.getAll);
 
 
@@ -24,5 +30,10 @@ router.get("/users/:userId", ctrlUsers.getById);
 router.get("/posts", ctrlPosts.getAll);
 router.get("/posts/:postId", ctrlPosts.getById)
 router.delete("/posts/:postId", ctrlPosts.deleteById)
+router.get("/posts", ctrlPosts.addNew);
+
+// init
+router.get("/db/init", ctrlDbInit.init);
+router.get("/db/drop", ctrlDbInit.drop);
 
 module.exports = router;

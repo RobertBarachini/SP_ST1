@@ -1,5 +1,6 @@
 require('log-timestamp');
 
+var bodyParser = require('body-parser');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -12,6 +13,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var indexRouter = require('./app_server/routes/index.route');
 var usersRouter = require('./app_server/routes/users.route');
 var postsRouter = require('./app_server/routes/posts.route');
+
 
 
 console.log("app: a");
@@ -33,7 +35,7 @@ app.use("/api", indexApi)
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
@@ -69,7 +71,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use("/userIdentiti", indexApi);
-
+app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
