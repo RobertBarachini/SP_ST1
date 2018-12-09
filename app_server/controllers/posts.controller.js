@@ -34,7 +34,6 @@ var prikaziPost = function(req, res, vsebina) {
         })
     } 
     });
-    
 }
 
 

@@ -1,6 +1,6 @@
 require('log-timestamp');
 
-var bodyParser = require('body-parser');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -13,7 +13,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var indexRouter = require('./app_server/routes/index.route');
 var usersRouter = require('./app_server/routes/users.route');
 var postsRouter = require('./app_server/routes/posts.route');
-
+var bodyParser = require('body-parser');
 
 
 console.log("app: a");
@@ -31,7 +31,9 @@ var app = express();
 app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'pug');
 
-app.use("/api", indexApi)
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -66,13 +68,17 @@ app.use(express.static(path.join(__dirname, 'node_modules','bootstrap','dist','c
     next();
 });*/
 
-
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
-app.use("/userIdentiti", indexApi);
-app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use("/api", indexApi)
+app.use("/userIdenty", indexApi);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

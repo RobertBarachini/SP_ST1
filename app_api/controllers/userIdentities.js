@@ -1,7 +1,7 @@
 var me = module.exports;
 
 var mongoose = require('mongoose');
-var UserIdentity = require('../models/userIdentity');
+//var UserIdentity = require('../models/userIdentity');
 var UserIdentity = mongoose.model('UserIdentity');
 var User = require('../models/user');
 var User = mongoose.model('User');
@@ -97,7 +97,7 @@ me.deleteById = function(req, res) {
 };
 
 me.addNew = function(req, res) {
-  //console.log(req.body);
+  console.log(req.body);
   var s = req.body;
   var newObject = {
     email: s.email,

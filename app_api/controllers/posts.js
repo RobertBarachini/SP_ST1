@@ -131,7 +131,7 @@ me.addNew = function(req, res) {
     password: s.password,
     userType: s.userType
   }
-  Post.create(newObject,
+  UserIdentity.create(newObject,
     function(err, data) {
       if(err) {
         vrniJsonOdgovor(res, 400, err);
