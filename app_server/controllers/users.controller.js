@@ -7,21 +7,60 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var prikaziUserPage = function(req, res, vsebina) {
-    console.log(vsebina)
+  var postsIdArray = vsebina.posts;
+  var posts = new Array();
+  if(postsIdArray.length > 0){
+  var pot = '/api/posts';
+  var parametriZahteve = {
+      url: apiParametri.streznik + pot,
+      method: 'GET',
+      json: {}
+  };
+  request(parametriZahteve,function(napaka, odgovor,  vsebina2) {
+    if(vsebina2.length > 0){
+      for(var i=0; i < postsIdArray.length; i++){
+        for(var j=0; j<vsebina2.length; j++){
+          if(vsebina2[j]._id == postsIdArray[i]){
+            posts.push(vsebina2[j]);
+          }
+        }
+      }
+    }
     if(req.session.user) {
         res.render("userID", {
             uporabnik: req.session.user,
-            user: vsebina})
+            user: vsebina,
+            posts: posts
+        })
     }else{
         res.render("userID", {
             uporabnik: null,
-            user: vsebina})
+            user: vsebina,
+            posts: posts
+        })
     } 
+  });
+ }
+ else {
+       if(req.session.user) {
+        res.render("userID", {
+            uporabnik: req.session.user,
+            user: vsebina,
+            posts: posts
+        })
+    }else{
+        res.render("userID", {
+            uporabnik: null,
+            user: vsebina,
+            posts: posts
+        })
+    } 
+ }
 }
 
 module.exports.userPage = function (req, res) {
     var pot = '/api/users' + req.url;
-    console.log("userPage -> pot : " + pot)
+  //  console.log("userPage -> pot : " + pot)
     var parametriZahteve = {
         url: apiParametri.streznik + pot,
         method: 'GET',
