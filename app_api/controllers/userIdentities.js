@@ -1,7 +1,7 @@
 var me = module.exports;
 
 var mongoose = require('mongoose');
-var UserIdentity = require('../models/userIdentity');
+//var UserIdentity = require('../models/userIdentity');
 var UserIdentity = mongoose.model('UserIdentity');
 var User = require('../models/user');
 var User = mongoose.model('User');
