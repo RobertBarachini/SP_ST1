@@ -7,11 +7,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var prikaziZacetnePoste = function(req, res, vsebina) {
-    console.log(vsebina)
-    console.log(vsebina.length);
     
         if(req.session.user) {
-        res.render("index", {
+            res.render("index", {
             uporabnik: req.session.user,
             posts: vsebina})
         console.log("MA KAAAJ")
@@ -26,8 +24,38 @@ var prikaziZacetnePoste = function(req, res, vsebina) {
 };
 
 var poglejCeSeLahkoLogina = function(req, res, vsebina) {
-    console.log(vsebina)
-    res.redirect("/login")
+    var aJe = false;
+    for (var i = 0; i<vsebina.length; i++){
+         var id = vsebina[i]._id;
+         var email = vsebina[i].email;
+         var password = vsebina[i].password;
+         if(email === req.body.email && password === req.body.password){
+            var pot = '/api/users'
+            console.log(pot)
+            var parametriZahteve = {
+                url: apiParametri.streznik + pot,
+                method: 'GET',
+                json: {}
+            };
+            request(parametriZahteve,function(napaka, odgovor,  vs) {
+                for(var j = 0; j<vs.length; j++) {
+                    console.log(vs[j])
+                    if(vs[j].identity === id) {
+                         req.session.user = vs[j]
+                         console.log(req.session.user.profilePicture)
+                    }
+                }
+                res.redirect("/");
+                }
+             );
+             aJe = true;
+             break;
+         }
+    }
+    if(!aJe) {
+        res.redirect("/login")
+    }
+       
 };
 
 module.exports.indexPage = function (req, res) {
@@ -45,7 +73,6 @@ module.exports.indexPage = function (req, res) {
       
 module.exports.indexPagePost = function (req, res) {
     var searchIn=req.body.searchIn;
-    console.log(searchIn)
     
     var regIn = new RegExp("^\S+$");
     
@@ -75,15 +102,13 @@ module.exports.loginPagePost = function (req,res) {
     //username = med 4 in 32 znakov, zgoraj nasteti znaki
     var regEm = new RegExp("^(?![\.])(?!.*[\.]{2})[a-zA-Z0-9\.!#$%&'*+-=?^_`{|}~]+(?![\.])@(?![-])[a-zA-Z0-9-]+(?![-])\.(?![\.])(?!.*[\.]{2})[a-zA-Z0-9\.]+(?![\.])$");
     //email = (. ni na zaceetku in koncu, in se ne sme podvajat znotraj gor nastetih znakov v []) @ (- ni na zactku in koncu) . (. ni na zactku, koncu in se ne podvaja)
-    var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+    //var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+    var regPass = new RegExp(".");
     //geslo = min 8 znakov, min 1 mala crkam, min 1 velika crka, min 1 stevilka
 
 
     var check1=false;
     var check2=false;
-    
-    console.log(username);
-    console.log(password);
     
     if(regUsr.test(username)){
         //username

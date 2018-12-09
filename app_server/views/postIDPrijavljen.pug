@@ -79,9 +79,12 @@ block content
                                         | Post
                             hr
                             each comm, index in post.comments
+
                                 each up, index in vsiU
                                     if up._id == comm.owner
-                                        h6= up.username
+                                        -povezava = '/users/' + comm.owner
+                                        a(href=povezava)
+                                            h6= up.username
                                         p= comm.content
                                 hr
                                 
