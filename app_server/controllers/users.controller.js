@@ -115,12 +115,45 @@ module.exports.addText = function(req,res) {
 };
 
 module.exports.addPicturePost = function(req,res) {
+    var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
+    var regOp= new RegExp("(?=.{1,500}$)");
+    
+    var tagi = req.body.tagi;
+    var textArea = req.body.exampleFormControlTextarea1;
+    
+    var check1=regOp.test(textArea);
+    var check2=regTag.test(tagi);
+    
+    if(check1 && check2){
+        console.log("TRU")
+        res.redirect('/')
+    }
+    
   
-  res.redirect('/')
 };
 
 module.exports.addEmbedPost = function(req,res) {
-  res.redirect('/')
+    var textarea = req.body.textarea
+  var tags = req.body.tags;
+  var website = req.body.website;
+  console.log(textarea);
+  console.log(tags);
+  console.log(website);
+  
+  var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
+  var regOp= new RegExp("(?=.{1,500}$)");
+  var regWbL= new RegExp("^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$");
+  
+  var check1=regOp.test(textarea);
+  var check2=regTag.test(tags);
+  var check3=regWbL.test(website);
+    
+    if(check1 && check2 && check3){
+        console.log("TRU")
+        res.redirect('/')
+    }
+    
+  //res.redirect('/')
 };
 
 module.exports.addTextPost = function(req,res) {
@@ -128,5 +161,16 @@ module.exports.addTextPost = function(req,res) {
   var tags = req.body.tags;
   console.log(textarea);
   console.log(tags);
-  res.redirect('/')
+  
+  var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
+  var regOp= new RegExp("(?=.{1,500}$)");
+  
+  var check1=regOp.test(textarea);
+  var check2=regTag.test(tags);
+    
+    if(check1 && check2){
+        console.log("TRU")
+        res.redirect('/')
+    }
+  
 };

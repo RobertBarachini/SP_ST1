@@ -15,18 +15,19 @@ block content
                                 | Post your Embed
                             b &nbsp;
                             p
-                                a Post your URL
-                                form(class = 'inline')
-                                    input(id='wbL', class='form-control mr-sm-2', type='text', placeholder = 'http://www.youtube.com', required)
-                                div(class='form-group')
-                                    label(for='exampleFormControlTextarea1')
-                                        | Description
-                                    textarea(class='form-control', id='exampleFormControlTextarea1', rows='5')
-                                a Tags
-                                input(id='tagi', class='form-control mr-sm-2', type='text', placeholder = '#ravnica')
-                                a(id='gumb', onclick='preveri()', class='btn btn-primary my-2')
-                                    | Share embed
-                                script(type='text/javascript', src='../../preveri_vnos/dodajEmbedPreveri.js')
+                                form(method='POST' action='/users/userID/addEmbed')
+                                    a Post your URL
+                                        label(for="website")
+                                        input#website.form-control.mr-sm-2(type='text', placeholder = 'http://www.youtube.com', name='website', required)
+                                    div(class='form-group')
+                                        label(for='textarea')
+                                            | Text
+                                        textarea(class='form-control', id='exampleFormControlTextarea1', rows='5', name = 'textarea')
+                                    a Tags
+                                    labels(for ='tags')
+                                    input(class='form-control mr-sm-2', type='text', placeholder = '#ravnica', name = 'tags')
+                                    button.btn.btn-primary(id='gumb', type='submit')
+                                        | Share embed
                     
 block endSkripti
     script(src='../../scripts.js')
