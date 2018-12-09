@@ -1,0 +1,19 @@
+html(lang="en")
+  head
+    link(href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet")
+    link(rel="stylesheet" href="styles.css")
+  body
+    main(role="main")
+      .album.py-5.bg-light
+        .container
+          .row
+            .col-md-4
+              .card.mb-4.shadow-sm
+                a(href='/api/db/renew')
+                  button#gumb1.btn.btn-primary.my-2
+                    | UVOZ
+            .col-md-4
+              .card.mb-4.shadow-sm
+                a(href='/api/db/drop')
+                  button#gumb2.btn.btn-primary.my-2
+                    | BRISANJE
