@@ -6,6 +6,22 @@ block bootStyle
     
 
 block content
+  if uporabnik
+  .container.fixed-bottom.text-center
+    .dropup
+      button.btn-lg.dropdown(type="button" data-toggle="dropdown" style="border-radius: 50%; background-color: #7800ff")
+        | +
+        span.caret
+      ul.dropdown-menu.dropdown-menu-back.text-center
+        li
+          a(href="dodajSliko.html") Add Picture
+        li.divider
+        li
+          a(href="dodajEmbed.html") Add Embed
+        li.divider
+        li
+          a(href="dodajText.html") Add Text
+  
   main(role='main')
   
     section(class='jumbotron text-center')
