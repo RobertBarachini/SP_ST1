@@ -51,27 +51,32 @@ block content
             a.nav-link(href="#") Saved
           li.nav-item
             a.nav-link.disabled(href="#") Disabled
-      .album.py-5.bg-light
-        .container
-          .row
-            .col-md-4
-              .card.mb-4.shadow-sm
-                a(href="/posts/postID")
-                  img.card-img-top(src="../../resources/A_01.jpg" alt="Card image cap")
-                .card-body
-                  a.card-user(href="")
-                    h5 @wanderlust
-                  p.card-text I love exploring - taking photos is my life.
-                  p.card-text
-                    a.a-hashtag(href="")
-                      b #blessed
-                    a.a-hashtag(href="")
-                      b #travel
-                  .d-flex.justify-content-between.align-items-center
-                    .btn-group
-                      .btn-circle.btn-circle-success
-                      .btn-circle.btn-circle-default
-                    small.text-muted 5.1 k
+      div(class='album py-5 bg-light')
+        div(class='container')
+          if posts != undefined && posts.length > 0
+            div(class='row')
+              each post in posts
+                div(class='col-md-4')
+                  div(class='card mb-4 shadow-sm')
+                    -povezava = '/posts/' + post._id
+                    a(href=povezava)
+                      img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
+                    div(class='card-body')
+                      a(href='' class='card-user')
+                        h5 #test
+                      p(class='card-text')
+                        | #{post.description}
+                      p(class='crd-text')
+                        a(href='' class='a-hashtag')
+                          b #blessed
+                        a(href='' class='a-hashtag')
+                          b #travel
+                      div(class='d-flex justify-content-between align-items-center')
+                        div(class='btn-group')
+                          div(class='btn-circle btn-circle-default')
+                          div(class='btn-circle btn-circle-default')
+                        small(class='text-muted')
+                          | #{post.likes}
 
 
 
