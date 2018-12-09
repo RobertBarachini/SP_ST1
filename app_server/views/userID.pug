@@ -10,7 +10,8 @@ block content
         .container
           .row
             .col-md-3
-              img.rounded-circle.profile-img(src="../../resources/garavi-sokak.jpg" alt="Card image cap")
+              -url = user.profilePicture
+              img.rounded-circle.profile-img(src=url)
             .col-md-9
               section
                 div
