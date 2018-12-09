@@ -39,7 +39,20 @@ module.exports.addComment = function(req,res) {
 
 module.exports.editPostPost = function(req,res) {
     var description = req.body.textarea;
-    console.log(description);
-    res.redirect('/')
+    var tags = req.body.tags;
+    
+    var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
+  var regOp= new RegExp("(?=.{1,500}$)");
+  
+  var check1=regOp.test(description);
+  var check2=regTag.test(tags);
+    
+    if(check1 && check2){
+        console.log("TRU")
+        console.log(description);
+        console.log(tags);
+        res.redirect('/')
+    }
+    
     
 };

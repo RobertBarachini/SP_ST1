@@ -25,10 +25,13 @@ html
       
       div(class='collapse navbar-collapse', id='navbarsExampleDefault')
         ul(class='navbar-nav mr-auto')
-          form(class='form-inline my-2 my-lg-0')
-            input( id='searchIn', class='form-control mr-sm-2', type='text', placeholder='Search', aria-label='Search')
-            button(id='gumbS', onclick='preveri()', class='btn btn-outline-light my-2 my-sm-0') Search
-            script(type='text/javascript', src='../../preveri_vnos/searchPreveri.js')
+          //-form(class='form-inline my-2 my-lg-0')
+            //-input( id='searchIn', class='form-control mr-sm-2', type='text', placeholder='Search', aria-label='Search')
+            //-button(id='gumbS', onclick='preveri()', class='btn btn-outline-light my-2 my-sm-0') Search
+          form(method='POST' action='/').form-inline.my-2.my-lg-0
+            label(for='searchIn')
+            input#searchIn.form-control(class='form-control mr-sm-2', type='text', placeholder='Search', name='searchIn')
+            button(class='btn btn-outline-light my-2 my-sm-0') Search
         if !uporabnik
           a(class='navbar-brand', href='/login') Login
         else

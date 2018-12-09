@@ -11,6 +11,25 @@ module.exports.indexPage = function (req, res) {
     } 
 };
       
+module.exports.indexPagePost = function (req, res) {
+    var searchIn=req.body.searchIn;
+    console.log(searchIn)
+    
+    var regIn = new RegExp("^\S+$");
+    
+    if(!regIn.test(searchIn)){
+        if(req.session.user) {
+            res.render("index", {uporabnik: req.session.user})
+            console.log("MA KAAAJ")
+        }
+        else{
+            res.render("index", {uporabnik: null});
+            console.log("......................")
+        } 
+    }
+    
+    
+}
 
 module.exports.loginPage = function (req,res) {
         res.render("login")
@@ -131,3 +150,4 @@ module.exports.registerPagePost = function (req,res) {
     }
 
 };
+
