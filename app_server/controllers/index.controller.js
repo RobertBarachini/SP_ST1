@@ -44,6 +44,7 @@ module.exports.loginPagePost = function (req,res) {
     var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
     //geslo = min 8 znakov, min 1 mala crkam, min 1 velika crka, min 1 stevilka
 
+
     var check1=false;
     var check2=false;
     
@@ -78,6 +79,7 @@ module.exports.loginPagePost = function (req,res) {
         //button.href="#";
         res.redirect('login')
     }
+
 };
 
 
