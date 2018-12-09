@@ -14,7 +14,8 @@ block content
             // left column
             .col-md-3
               .text-center
-                img.rounded-circle.profile-img(src="../../resources/garavi-sokak.jpg" alt="Card image cap")
+                -povezava = '' + uporabnik.profilePicture
+                img.rounded-circle.profile-img(src=povezava, alt="Card image cap")
                 h6 Upload a different photo...
                 div(style="position:relative;")
                   a.btn.btn-primary(href="javascript:;")
