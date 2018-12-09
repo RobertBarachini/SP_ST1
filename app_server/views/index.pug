@@ -37,14 +37,15 @@ block content
                   img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
                 div(class='card-body')
                   a(href='' class='card-user')
-                    h5 #test
+                    h5 #{post.title}
                   p(class='card-text')
                     | #{post.description}
                   p(class='crd-text')
-                    a(href='' class='a-hashtag')
-                      b #blessed
-                    a(href='' class='a-hashtag')
-                      b #travel
+                    b #{post.hashtags}
+                    // a(href='' class='a-hashtag')
+                    //   b #blessed
+                    // a(href='' class='a-hashtag')
+                    //   b #travel
                   div(class='d-flex justify-content-between align-items-center')
                     div(class='btn-group')
                       div(class='btn-circle btn-circle-default')
