@@ -7,11 +7,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var prikaziZacetnePoste = function(req, res, vsebina) {
-    console.log(vsebina)
-    console.log(vsebina.length);
     
         if(req.session.user) {
-        res.render("index", {
+            res.render("index", {
             uporabnik: req.session.user,
             posts: vsebina})
         console.log("MA KAAAJ")
@@ -27,17 +25,31 @@ var prikaziZacetnePoste = function(req, res, vsebina) {
 
 var poglejCeSeLahkoLogina = function(req, res, vsebina) {
     var aJe = false;
-    console.log(req.body.email)
     for (var i = 0; i<vsebina.length; i++){
-         //console.log(vsebina[i]);
          var id = vsebina[i]._id;
          var email = vsebina[i].email;
          var password = vsebina[i].password;
          if(email === req.body.email && password === req.body.password){
-            req.session.user = id
-            res.redirect("/");
-            aJe = true;
-            break;
+            var pot = '/api/users'
+            console.log(pot)
+            var parametriZahteve = {
+                url: apiParametri.streznik + pot,
+                method: 'GET',
+                json: {}
+            };
+            request(parametriZahteve,function(napaka, odgovor,  vs) {
+                for(var j = 0; j<vs.length; j++) {
+                    console.log(vs[j])
+                    if(vs[j].identity === id) {
+                         req.session.user = vs[j]
+                         console.log(req.session.user.profilePicture)
+                    }
+                }
+                res.redirect("/");
+                }
+             );
+             aJe = true;
+             break;
          }
     }
     if(!aJe) {
@@ -61,7 +73,6 @@ module.exports.indexPage = function (req, res) {
       
 module.exports.indexPagePost = function (req, res) {
     var searchIn=req.body.searchIn;
-    console.log(searchIn)
     
     var regIn = new RegExp("^\S+$");
     
@@ -98,9 +109,6 @@ module.exports.loginPagePost = function (req,res) {
 
     var check1=false;
     var check2=false;
-    
-    console.log(username);
-    console.log(password);
     
     if(regUsr.test(username)){
         //username
