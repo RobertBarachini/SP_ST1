@@ -43,3 +43,16 @@ Nov uporabnik najprej pride na index.html. Tam ima na voljo številne druge pove
 * ureja svoje nastavitve
 #### Admin
 * vse kar lahko počne User, a za vse uporabnike (razen spreminjanja uporabnikovih nastavitev)
+
+## Dovoljeni uporabniški vnosi
+Username je dolg med 4 in 20 znakov, ki so lahko velike in male crke, ter stevilke
+Password mora biti dolg najmanj 8 znakov, vsebovati mora 1 malo crko, 1 veliko crko in 1 stevilko. Ne sme vsebovati praznih znakov
+Name je dolg med 1 in 50 znakov, lahko so male in velike crke ter znak '-'
+Bio polje je lahko prazno
+
+Search polje ne sme biti prazno
+
+Tags: v polju se mora vsaka beseda zaceti z znakom '#', potem sledijo male in veliko crke, ter stevilke
+Description polje vsebuje med 1 in 500 znakov
+
+Comments: uporabnik lahko komentira med 1 in 500 znakov
