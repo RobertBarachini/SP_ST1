@@ -7,14 +7,19 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var prikaziZacetnePoste = function(req, res, vsebina) {
-    console.log('Vsebina: ')
+    console.log(vsebina)
     console.log(vsebina.length);
         if(req.session.user) {
-        res.render("index", {uporabnik: req.session.user})
+        res.render("index", {
+            uporabnik: req.session.user,
+            posts: vsebina})
         console.log("MA KAAAJ")
     }
     else{
-        res.render("index", {uporabnik: null});
+        res.render("index", {
+            uporabnik: null,
+            posts: vsebina
+        });
         console.log("......................")
     } 
 }
