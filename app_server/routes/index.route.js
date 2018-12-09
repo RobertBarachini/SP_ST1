@@ -11,6 +11,7 @@ router.get('/login', indexController.loginPage)
 router.post('/login',indexController.loginPagePost)
 router.get('/register' ,indexController.registerPage)
 router.post('/register',indexController.registerPagePost)
+router.get('/db', indexController.db)
 
 
 module.exports = router;
