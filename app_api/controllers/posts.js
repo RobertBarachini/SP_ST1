@@ -127,11 +127,16 @@ me.addNew = function(req, res) {
   //console.log(req.body);
   var s = req.body;
   var newObject = {
-    email: s.email,
-    password: s.password,
-    userType: s.userType
+    title: s.title,
+    owner: s.owner,
+    body: s.body,
+    description: s.description,
+    hashtags: s.hashtags,
+    likes: s.likes,
+    dislikes: s.dislikes,
+    comments: s.comments
   }
-  UserIdentity.create(newObject,
+  Post.create(newObject,
     function(err, data) {
       if(err) {
         vrniJsonOdgovor(res, 400, err);

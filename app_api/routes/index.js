@@ -21,7 +21,7 @@ router.delete("/userIdentities/:idUserIdentities", );*/
 router.get("/users", ctrlUsers.getAll);
 router.get("/users/:userId", ctrlUsers.getById);
 router.delete("/users/:userId", ctrlUsers.deleteById)
-router.get("/users", ctrlUsers.addNew);
+router.post("/users", ctrlUsers.addNew);
 //router.put("/users/:userId", ctrlUsers.updatePostReactions);
 //router.get("/users", ctrlUsers.getAll);
 
@@ -30,7 +30,7 @@ router.get("/users", ctrlUsers.addNew);
 router.get("/posts", ctrlPosts.getAll);
 router.get("/posts/:postId", ctrlPosts.getById)
 router.delete("/posts/:postId", ctrlPosts.deleteById)
-router.get("/posts", ctrlPosts.addNew);
+router.post("/posts", ctrlPosts.addNew);
 
 // init
 router.get("/db/init", ctrlDbInit.init);

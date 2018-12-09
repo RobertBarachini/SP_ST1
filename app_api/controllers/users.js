@@ -100,9 +100,16 @@ me.addNew = function(req, res) {
   //console.log(req.body);
   var s = req.body;
   var newObject = {
-    email: s.email,
-    password: s.password,
-    userType: s.userType
+    identity: s.identity,
+    username: s.username,
+    name: s.name,
+    surname: s.surname,
+    profilePicture: s.profilePicture,
+    posts: s.posts,
+    postReactions: s.postReactions,
+    points: s.points,
+    dateJoined: s.dateJoined,
+    dateLastActive: s.dateLastActive
   }
   User.create(newObject,
     function(err, data) {
