@@ -23,5 +23,6 @@ router.get("/users/:userId", ctrlUsers.getById);
 // posts
 router.get("/posts", ctrlPosts.getAll);
 router.get("/posts/:postId", ctrlPosts.getById)
+router.delete("/posts/:postId", ctrlPosts.deleteById)
 
 module.exports = router;
