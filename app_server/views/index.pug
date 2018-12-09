@@ -14,13 +14,16 @@ block content
           span.caret
         ul.dropdown-menu.dropdown-menu-back.text-center
           li
-            a(href="/users/userID/addPicture") Add Picture
+            -povezava = '/users/' + uporabnik._id +"/addPicture"
+            a(href=povezava) Add Picture
           li.divider
           li
-            a(href="/users/userID/addEmbed") Add Embed
+            -povezava = '/users/' + uporabnik._id +"/addEmbed"
+            a(href=povezava) Add Embed
           li.divider
           li
-            a(href="/users/userID/addText") Add Text
+            -povezava = '/users/' + uporabnik._id +"/addText"
+            a(href=povezava) Add Text
   
   main(role='main')
     div(class='album py-5 bg-light')
