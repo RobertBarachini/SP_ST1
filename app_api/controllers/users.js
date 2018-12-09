@@ -1,7 +1,8 @@
 var me = module.exports;
 
 var mongoose = require('mongoose');
-var UserIdentity = mongoose.model('UserIdentity');
+var User = require('../models/user');
+var User = mongoose.model('User');
 
 var vrniJsonOdgovor = function(odgovor, status, vsebina) {
   odgovor.status(status);
@@ -13,7 +14,7 @@ var vrniJsonOdgovor = function(odgovor, status, vsebina) {
 me.getAll = function(req, res) {
   if(req.params) { // && other checks like req.params.someId
     try {
-      UserIdentity
+      User
         .find()
         .exec(function(err, data) {
           if(!data) {

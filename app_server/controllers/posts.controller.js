@@ -1,3 +1,11 @@
+var request = require('request');
+var apiParametri = {
+  streznik: 'http://localhost:' + process.env.PORT
+};
+if (process.env.NODE_ENV === 'production') {
+  apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/';
+}
+
 module.exports.postPage = function (req, res) {
     if(req.session.user) {
         res.render("postIDPrijavljen", {uporabnik: req.session.user})
