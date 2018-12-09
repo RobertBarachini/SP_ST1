@@ -3,7 +3,7 @@ var apiParametri = {
   streznik: 'http://localhost:' + process.env.PORT
 };
 if (process.env.NODE_ENV === 'production') {
-  apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/';
+  apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/'; //TODO: nastavit na nase ime aplikacije za Heroku
 }
 
 module.exports.postPage = function (req, res) {

@@ -1,7 +1,15 @@
+var request = require('request');
+var apiParametri = {
+  streznik: 'http://localhost:' + process.env.PORT
+};
+if (process.env.NODE_ENV === 'production') {
+  apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/'; //TODO: nastavit na nase ime aplikacije za Heroku
+}
 
-module.exports.indexPage = function (req, res) {
-    
-    if(req.session.user) {
+var prikaziZacetnePoste = function(req, res, vsebina) {
+    console.log('Vsebina: ')
+    console.log(vsebina.length);
+        if(req.session.user) {
         res.render("index", {uporabnik: req.session.user})
         console.log("MA KAAAJ")
     }
@@ -9,6 +17,20 @@ module.exports.indexPage = function (req, res) {
         res.render("index", {uporabnik: null});
         console.log("......................")
     } 
+}
+
+
+module.exports.indexPage = function (req, res) {
+        var pot = '/api/posts'
+    var parametriZahteve = {
+        url: apiParametri.streznik + pot,
+        method: 'GET',
+        json: {}
+    };
+     request(parametriZahteve,function(napaka, odgovor,  vsebina) {
+      prikaziZacetnePoste(req, res, vsebina);    
+    }
+  );
 };
       
 
