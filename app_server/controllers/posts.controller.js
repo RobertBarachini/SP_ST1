@@ -2,21 +2,39 @@ var request = require('request');
 var apiParametri = {
   streznik: 'http://localhost:' + process.env.PORT
 };
+var vsiUporabniki = {
+  streznik: 'http://localhost:' + process.env.PORT + "app_api/db_exports/Users.bson"
+};
 if (process.env.NODE_ENV === 'production') {
   apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/'; //TODO: nastavit na nase ime aplikacije za Heroku
 }
 
 var prikaziPost = function(req, res, vsebina) {
-    console.log()
-    if(req.session.user) {
+    var pot = '/api/users'
+    var parametriZahteve = {
+        url: apiParametri.streznik + pot,
+        method: 'GET',
+        json: {}
+    };
+    
+    request(parametriZahteve,function(napaka, odgovor,  vs){
+    console.log(vs)
+        if(req.session.user) {
         res.render("postIDPrijavljen", {
             uporabnik: req.session.user,
-            post: vsebina})
+            post: vsebina,
+            vsiU: vs
+        })
     }else{
         res.render("postIDPrijavljen", {
             uporabnik: null,
-            post: vsebina})
+            post: vsebina, 
+            vsiU: vs
+            
+        })
     } 
+    });
+    
 }
 
 
