@@ -3,10 +3,17 @@
 
 This is the main repository for a web development class at FRI.
 
+Heroku link: ADD HEROKU LINK
+
 # Setup
-1. Create a Cloud9 project using this repository.
-2. Open settings and change 'Soft tabs' from 4 to 2
-2. npm install bootstrap
+1. Nov c9 projekt s predlogo Node.js (in že nastavljenim mongodb)
+2. npm install
+3. Terminali:
+	(po ukazih in po tem kaj delajo):
+	1. "random ukazi"
+	2. nodemon (zagon aplikacije)
+	3. mongod (mongodb)
+	4. mongo (za gledanje baze)
 
 # Opis projekta, vizije in delovanja strani
 
