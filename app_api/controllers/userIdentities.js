@@ -97,7 +97,7 @@ me.deleteById = function(req, res) {
 };
 
 me.addNew = function(req, res) {
-  //console.log(req.body);
+  console.log(req.body);
   var s = req.body;
   var newObject = {
     email: s.email,
