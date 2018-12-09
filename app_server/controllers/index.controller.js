@@ -33,7 +33,6 @@ module.exports.loginPagePost = function (req,res) {
         res.redirect('/');
     } else res.redirect('login')
 
-    
 };
 
 
