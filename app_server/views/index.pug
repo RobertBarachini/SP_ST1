@@ -25,30 +25,37 @@ block content
   main(role='main')
     div(class='album py-5 bg-light')
       div(class='container')
-        div(class='row')
-          each post in posts
-            div(class='col-md-4')
-              div(class='card mb-4 shadow-sm')
-                -povezava = '/posts/' + post._id
-                a(href=povezava)
-                  img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
-                div(class='card-body')
-                  a(href='' class='card-user')
-                    h5 #{post.title}
-                  p(class='card-text')
-                    | #{post.description}
-                  p(class='crd-text')
-                    b #{post.hashtags}
-                    // a(href='' class='a-hashtag')
-                    //   b #blessed
-                    // a(href='' class='a-hashtag')
-                    //   b #travel
-                  div(class='d-flex justify-content-between align-items-center')
-                    div(class='btn-group')
-                      div(class='btn-circle btn-circle-default')
-                      div(class='btn-circle btn-circle-default')
-                    small(class='text-muted')
-                      | #{post.likes}
+        if posts != undefined && posts.length > 0
+          div(class='row')
+            each post in posts
+              div(class='col-md-4')
+                div(class='card mb-4 shadow-sm')
+                  -povezava = '/posts/' + post._id
+                  a(href=povezava)
+                    img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
+                  div(class='card-body')
+                    a(href='' class='card-user')
+                      h5 #{post.title}
+                    p(class='card-text')
+                      | #{post.description}
+                    p(class='crd-text')
+                      b #{post.hashtags}
+                      // a(href='' class='a-hashtag')
+                      //   b #blessed
+                      // a(href='' class='a-hashtag')
+                      //   b #travel
+                    div(class='d-flex justify-content-between align-items-center')
+                      div(class='btn-group')
+                        div(class='btn-circle btn-circle-default')
+                        div(class='btn-circle btn-circle-default')
+                      small(class='text-muted')
+                        | #{post.likes}
+        else
+          div(class='row')
+            h1 Post you are searching for does not exist :/
+            br
+            h2 BUT YOU FOUND ALEXANDER!
+            img(class='card-img-top', src='https://scontent.flju1-1.fna.fbcdn.net/v/t1.0-9/31664593_10212828619736427_2148876720642457600_n.jpg?_nc_cat=110&_nc_ht=scontent.flju1-1.fna&oh=774c1899b8a7ee4a8063bdc402a27c4c&oe=5CA083B1', alt='Card image cap') 
         
     
 block endSkripti
