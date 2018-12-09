@@ -68,7 +68,7 @@ app.use(express.static(path.join(__dirname, 'node_modules','bootstrap','dist','c
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
-app.use("/userIdentiti", indexApi)
+app.use("/userIdentiti", indexApi);
 
 
 // catch 404 and forward to error handler

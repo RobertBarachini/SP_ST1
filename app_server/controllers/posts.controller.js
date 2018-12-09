@@ -27,9 +27,13 @@ module.exports.editPost = function (req, res) {
     }
 };
 module.exports.addComment = function(req,res) {
+    var regOp= new RegExp("(?=.{1,500}$)");
     var comment = req.body.textarea;
     console.log(comment);
-    res.redirect("")
+    if(regOp.test(comment)){
+        res.redirect("")
+    }
+    
     
 };
 
