@@ -6,7 +6,7 @@ var vsiUporabniki = {
   streznik: 'http://localhost:' + process.env.PORT + "app_api/db_exports/Users.bson"
 };
 if (process.env.NODE_ENV === 'production') {
-  apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/'; //TODO: nastavit na nase ime aplikacije za Heroku
+  apiParametri.streznik = 'https://spherokuapp123.herokuapp.com/'; //TODO: nastavit na nase ime aplikacije za Heroku
 }
 
 var prikaziPost = function(req, res, vsebina) {
