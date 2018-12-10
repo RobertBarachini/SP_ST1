@@ -188,6 +188,7 @@ module.exports.addPicturePost = function(req,res) {
     var pic=req.body.website;
     var tagi = req.body.tagi;
     var textArea = req.body.exampleFormControlTextarea1;
+    var title=req.body.naslov;
     
     var check1=regOp.test(textArea);
     var check2=regTag.test(tagi);
@@ -198,7 +199,7 @@ module.exports.addPicturePost = function(req,res) {
         console.log(iduser)
         var pot = '/api/posts/'
         var posredovaniPodatki = {
-          title: "PUSHI",
+          title: title,
           owner: iduser,
           body: {
             bodyType: 'image',
