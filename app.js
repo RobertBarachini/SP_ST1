@@ -16,6 +16,7 @@ var postsRouter = require('./app_server/routes/posts.route');
 var bodyParser = require('body-parser');
 
 
+
 console.log("app: a");
 var dbVar = require('./app_api/models/db');
 console.log("dbVar");
