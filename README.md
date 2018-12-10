@@ -68,7 +68,7 @@ Nov uporabnik najprej pride na index.html. Tam ima na voljo številne druge pove
 * Username
 je dolg med 4 in 20 znakov, ki so lahko velike in male crke, ter stevilke
 * Password 
-mora biti dolg najmanj 8 znakov, vsebovati mora 1 malo crko, 1 veliko crko in 1 stevilko. Ne sme vsebovati praznih znakov
+je lahk karkoli
 * Name 
 je dolg med 1 in 50 znakov, lahko so male in velike crke ter znak '-'
 * Bio 
