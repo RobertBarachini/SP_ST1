@@ -71,22 +71,57 @@ module.exports.indexPage = function (req, res) {
   );
 };
       
-module.exports.indexPagePost = function (req, res) {
-    var searchIn=req.body.searchIn;
-    
-    var regIn = new RegExp("^\S+$");
-    
-    if(!regIn.test(searchIn)){
+var prikaziZacetnePosteFiltered = function(req, res, vsebina, searchIn) {
+    console.log(vsebina);
+    var posts = undefined;
+    if(vsebina.length > 0){
+        posts = new Array();
+        for(var i=0 ; i<vsebina.length; i++){
+            if(vsebina[i].title.toLowerCase().includes(searchIn.toLowerCase())){
+                posts.push(vsebina[i]);
+            }
+        }
         if(req.session.user) {
-            res.render("index", {uporabnik: req.session.user})
-            console.log("MA KAAAJ")
+            res.render("index", {
+            uporabnik: req.session.user,
+            posts: posts})
         }
         else{
-            res.render("index", {uporabnik: null});
-            console.log("......................")
+            res.render("index", {
+                uporabnik: null,
+                posts: posts
+            });
         } 
     }
+    else {
+        if(req.session.user) {
+            res.render("index", {
+            uporabnik: req.session.user,
+            posts: posts})
+        }
+        else{
+            res.render("index", {
+                uporabnik: null,
+                posts: posts
+            });
+        } 
+    }
+};
+
+module.exports.indexPagePost = function (req, res) {
+    var searchIn=req.body.searchIn;
+    console.log("searchIn = "+searchIn);
+    var regIn = new RegExp("^\S+$");
     
+    var pot = '/api/posts'
+    var parametriZahteve = {
+        url: apiParametri.streznik + pot,
+        method: 'GET',
+        json: {}
+    };
+     request(parametriZahteve,function(napaka, odgovor,  vsebina) {
+      prikaziZacetnePosteFiltered(req, res, vsebina, searchIn);    
+    });
     
 }
 
