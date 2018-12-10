@@ -147,3 +147,45 @@ me.addNew = function(req, res) {
     }
   );
 };
+
+me.updateObject = function(req, res) {
+  var ids = req.params.postId;
+  if (!ids) {
+    vrniJsonOdgovor(res, 400, { "message": "Missing _id parameter."});
+    return;
+  }
+  var s = req.body;
+
+  Post
+    .findById(ids)
+    .exec(
+      function(err, data) {
+        if (!data) {
+          vrniJsonOdgovor(res, 404, { "message": "Data not found" });
+          return;
+        } 
+        else if (err) {
+          vrniJsonOdgovor(res, 500, err);
+          return;
+        }
+        
+        data.title = s.title;
+        data.owner =  s.owner;
+        data.body = s.body;
+        data.description = s.description;
+        data.hashtags = s.hashtags;
+        data.likes = s.likes;
+        data.dislikes = s.dislikes;
+        data.comments = s.comments;
+
+        data.save(function(err, data) {
+          if (err) {
+            vrniJsonOdgovor(res, 400, err);
+          } 
+          else {
+            vrniJsonOdgovor(res, 200, data);
+          }
+        });
+      }
+    );
+}

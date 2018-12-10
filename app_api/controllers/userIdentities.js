@@ -115,3 +115,40 @@ me.addNew = function(req, res) {
     }
   );
 };
+
+me.updateObject = function(req, res) {
+  var ids = req.params.userIdentityId;
+  if (!ids) {
+    vrniJsonOdgovor(res, 400, { "message": "Missing _id parameter."});
+    return;
+  }
+  var s = req.body;
+
+  UserIdentity
+    .findById(ids)
+    .exec(
+      function(err, data) {
+        if (!data) {
+          vrniJsonOdgovor(res, 404, { "message": "Data not found" });
+          return;
+        } 
+        else if (err) {
+          vrniJsonOdgovor(res, 500, err);
+          return;
+        }
+        
+        data.email = s.email;
+        data.password = s.password;
+        data.userType = s.userType;
+
+        data.save(function(err, data) {
+          if (err) {
+            vrniJsonOdgovor(res, 400, err);
+          } 
+          else {
+            vrniJsonOdgovor(res, 200, data);
+          }
+        });
+      }
+    );
+}
