@@ -10,13 +10,14 @@ block content
             div(class='row')
                 div(class='col-md-7')
                     div(class='card mb-4 shadow-sm')
-                        -povezava2 = post.body.content
-                        if !povezava2 
-                            img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
-                        else
-                            img(class='card-img-top', src=povezava2, alt='Card image cap')
-                        //a(href='../resources/A_01.jpg', target='_blank')
-                          //  img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
+                        if post.body.content != undefined
+                            -povezava2 = post.body.content
+                            if !povezava2 
+                                img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
+                            else
+                                img(class='card-img-top', src=povezava2, alt='Card image cap')
+                            //a(href='../resources/A_01.jpg', target='_blank')
+                              //  img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
                             
                     div(class='card-body', style='background-color: #ffffff;')
                         a(href='', class="card-user")
