@@ -73,9 +73,10 @@ block content
                                         button(type='button', class='btn btn-info', data-dismiss='modal')
                                             | Cancel
                                         -povezava= '/posts/' + post._id
-                                        form(method='DELETE' action=povezava)
-                                            button.btn.btn-primary(type='submit')
-                                                | Delete
+                                        form(method='DELETE' action="javascript:void(0);")
+                                            a(href = "javascript:void(0);")
+                                                button.btn.btn-primary(type='submit')
+                                                    | Delete
                         p
                             h4 Comments
                         div

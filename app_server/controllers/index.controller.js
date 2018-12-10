@@ -197,18 +197,22 @@ module.exports.registerPagePost = function (req,res) {
     var email = req.body.email;
     var password = req.body.password;
     var password2 = req.body.password2;
+    var profilna = req.body.profilna;
     console.log(name)
     console.log(username)
     console.log(email)
     console.log(password)
     console.log(password2)
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    console.log(profilna)
     
      //validacija
     var regUsr = new RegExp("^(?=.{4,20}$)[a-zA-Z0-9-]+$");
     //username = med 4 in 32 znakov, zgoraj nasteti znaki
     var regEm = new RegExp("^(?![\.])(?!.*[\.]{2})[a-zA-Z0-9\.!#$%&'*+-=?^_`{|}~]+(?![\.])@(?![-])[a-zA-Z0-9-]+(?![-])\.(?![\.])(?!.*[\.]{2})[a-zA-Z0-9\.]+(?![\.])$");
     //email = (. ni na zaceetku in koncu, in se ne sme podvajat znotraj gor nastetih znakov v []) @ (- ni na zactku in koncu) . (. ni na zactku, koncu in se ne podvaja)
-    var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+    //var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+    var regPass = new RegExp(".");
     //geslo = min 8 znakov, min 1 mala crkam, min 1 velika crka, min 1 stevilka
     
     var check1=false;
@@ -228,10 +232,59 @@ module.exports.registerPagePost = function (req,res) {
     console.log(check1+" "+check2+" "+check3+" "+check4);
     
     if(check1 && check2 && check3 && check4){
-        console.log("TRU");
-        //TODO dodaj v bazo
-        res.redirect('login')
+        var mongoose = require('mongoose');
+        var ObjectId = new mongoose.Types.ObjectId()
+        console.log(ObjectId)
+        var pot = '/api/users/'
+        var posredovaniPodatki = {
+            identity: ObjectId,
+            username: username,
+            name: name,
+            surname: name,
+            profilePicture: profilna,
+            posts:[],
+            postReactions:[],
+            points:0,
+            dateJoined: null,
+            dateLastActive: null
+        };
+        
+        var parametriZahteve = {
+          url: apiParametri.streznik + pot,
+          method: 'POST',
+          json: posredovaniPodatki
+        };
+        request(
+        parametriZahteve,
+        function(napaka, odgovor, vsebina) {
+          if (odgovor.statusCode === 201) {
+              var pot2 = '/api/userIdentities/'
+             var posredovaniPodatki2 = {
+                 email: email,
+                 password: password,
+                 userType: "user"
+             };
+              var parametriZahteve2 = {
+               url: apiParametri.streznik + pot2,
+               method: 'POST',
+               json: posredovaniPodatki2
+             };
+             request(
+             parametriZahteve2,
+             function(napakaa, odgovorr, vs) {
+               if (odgovorr.statusCode === 201) {
+                 res.redirect('/login');
+               }
+        }
+        );
+          }
+        }
+        );
+        
+        
+        
     } else {
+        res.redirect("");
     }
 
 };

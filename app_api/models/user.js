@@ -12,7 +12,7 @@ var userShema = new mongoose.Schema({
   posts: [ObjectId],
   postReactions: [ObjectId],
   points: {type: Number, "default": 0},
-  dateJoined: {type: Date, required: true},
+  dateJoined: {type: Date, required: false},
   dateLastActive: {type: Date, required: false}
 });
 
