@@ -76,13 +76,22 @@ module.exports.editPost = function (req, res) {
 };
 
 module.exports.deletePost = function (req, res) {
-    console.log("DELETE!!!!!!!!!*********************")
-    if(req.session.user) {
-        res.redirect("")
-    }
+    var postID = req.params.postID;
+    var pot = '/api/posts/' +postID
+    var parametriZahteve = {
+        url: apiParametri.streznik + pot,
+        method: 'DELETE',
+        json: {}
+    };
+    
+     request(parametriZahteve,function(napaka, odgovor) {
+      if(req.session.user) {
+        res.redirect("/")
+        }
     else{
-        res.redirect("")
-    }
+        res.redirect("/")
+        }
+    });
 };
 
 module.exports.addComment = function(req,res) {

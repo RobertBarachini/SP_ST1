@@ -7,19 +7,16 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var prikaziZacetnePoste = function(req, res, vsebina) {
-    console.log(vsebina);
         if(req.session.user) {
             res.render("index", {
             uporabnik: req.session.user,
             posts: vsebina})
-        console.log("MA KAAAJ")
     }
     else{
         res.render("index", {
             uporabnik: null,
             posts: vsebina
         });
-        console.log("......................")
     } 
 };
 
@@ -72,7 +69,6 @@ module.exports.indexPage = function (req, res) {
 };
       
 var prikaziZacetnePosteFiltered = function(req, res, vsebina, searchIn) {
-    console.log(vsebina);
     var posts = undefined;
     if(vsebina.length > 0){
         posts = new Array();
