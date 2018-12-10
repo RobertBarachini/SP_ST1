@@ -18,7 +18,6 @@ var prikaziPost = function(req, res, vsebina) {
     };
     
     request(parametriZahteve,function(napaka, odgovor,  vs){
-    console.log(vs)
         if(req.session.user) {
         res.render("postIDPrijavljen", {
             uporabnik: req.session.user,
@@ -75,6 +74,17 @@ module.exports.editPost = function (req, res) {
         console.log("......................")
     }
 };
+
+module.exports.deletePost = function (req, res) {
+    console.log("DELETE!!!!!!!!!*********************")
+    if(req.session.user) {
+        res.redirect("")
+    }
+    else{
+        res.redirect("")
+    }
+};
+
 module.exports.addComment = function(req,res) {
     var regOp= new RegExp("(?=.{1,500}$)");
     var comment = req.body.textarea;
