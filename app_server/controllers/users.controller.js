@@ -208,7 +208,10 @@ module.exports.addPicturePost = function(req,res) {
           hashtags:[tagi],
           likes: null,
           dislikes: null,
-          comments: null
+          comments: {
+            owner: iduser,
+            content: "Tukaj postajte komentarje!"
+          }
         };
         
         var parametriZahteve = {
