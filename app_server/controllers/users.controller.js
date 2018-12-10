@@ -59,6 +59,7 @@ var prikaziUserPage = function(req, res, vsebina) {
 }
 
 module.exports.userPage = function (req, res) {
+    console.log(req.session.use)
     var pot = '/api/users' + req.url;
   //  console.log("userPage -> pot : " + pot)
     var parametriZahteve = {

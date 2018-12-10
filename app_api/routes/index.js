@@ -22,7 +22,7 @@ router.get("/users", ctrlUsers.getAll);
 router.get("/users/:userId", ctrlUsers.getById);
 router.delete("/users/:userId", ctrlUsers.deleteById)
 router.post("/users", ctrlUsers.addNew);
-//router.put("/users/:userId", ctrlUsers.updatePostReactions);
+//router.put("/users/:userId", ctrlUsers.updatePosts);
 //router.get("/users", ctrlUsers.getAll);
 
 
