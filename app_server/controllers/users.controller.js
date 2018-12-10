@@ -295,8 +295,10 @@ module.exports.addEmbedPost = function(req,res) {
 module.exports.addTextPost = function(req,res) {
   var textarea = req.body.textarea
   var tags = req.body.tags;
+  var title=req.body.naslov;
   console.log(textarea);
   console.log(tags);
+  console.log(title);
   
   var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
   var regOp= new RegExp("(?=.{1,500}$)");
@@ -306,7 +308,40 @@ module.exports.addTextPost = function(req,res) {
     
     if(check1 && check2){
         console.log("TRU")
-        res.redirect('/')
-    }
+        var iduser = req.session.user._id;
+        console.log(iduser)
+        var pot = '/api/posts/'
+        var posredovaniPodatki = {
+          title: title,
+          owner: iduser,
+          body: {
+            bodyType: 'text',
+            content: 'aa'
+          },
+          description: textarea,
+          hashtags:[tags],
+          likes: null,
+          dislikes: null,
+          comments: {
+            owner: iduser,
+            content: "Tukaj postajte komentarje!"
+          }
+        };
+        
+        var parametriZahteve = {
+          url: apiParametri.streznik + pot,
+          method: 'POST',
+          json: posredovaniPodatki
+        };
+        
+        request(
+        parametriZahteve,
+        function(napaka, odgovor, vsebina) {
+          if (odgovor.statusCode === 201) {
+            res.redirect('/');
+          }
+        }
+        );
+      } else res.redirect("");
   
 };
