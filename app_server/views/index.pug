@@ -36,10 +36,16 @@ block content
                   -povezava = '/posts/' + post._id
                   -povezava2 = post.body.content
                   a(href=povezava)
-                    if !povezava2
-                      img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
-                    else
-                      img(class='card-img-top', src=povezava2, alt='Card image cap')
+                    if post.body.bodyType == 'image'
+                      if !povezava2
+                        img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
+                      else
+                        img(class='card-img-top', src=povezava2, alt='Card image cap')
+                    else if post.body.bodyType == 'embed'
+                      if povezava2
+                        iframe(width="100%", height="120", src=povezava2, frameborder="0")
+                      else
+                        iframe(width="100%", height="120", src="https://www.youtube.com/watch?v=iTYwhD09IU4", frameborder="0")
                   div(class='card-body')
                     a(href='' class='card-user')
                       h5 #{post.title}

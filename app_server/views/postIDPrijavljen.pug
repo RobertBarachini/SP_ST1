@@ -11,7 +11,7 @@ block content
                 div(class='col-md-7')
                     div(class='card mb-4 shadow-sm')
                         -povezava2 = post.body.content
-                        if !povezava2
+                        if !povezava2 
                             img(class='card-img-top', src='../../resources/A_01.jpg', alt='Card image cap')
                         else
                             img(class='card-img-top', src=povezava2, alt='Card image cap')
@@ -72,8 +72,9 @@ block content
                                     div(class='text-center')
                                         button(type='button', class='btn btn-info', data-dismiss='modal')
                                             | Cancel
-                                        a(href='userID.html')
-                                            button(type='button', class='btn btn-danger')
+                                        -povezava= '/posts/' + post._id
+                                        form(method='DELETE' action=povezava)
+                                            button.btn.btn-primary(type='submit')
                                                 | Delete
                         p
                             h4 Comments
