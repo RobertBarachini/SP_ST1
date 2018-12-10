@@ -234,9 +234,10 @@ module.exports.addPicturePost = function(req,res) {
 };
 
 module.exports.addEmbedPost = function(req,res) {
-    var textarea = req.body.textarea
+  var textarea = req.body.textarea
   var tags = req.body.tags;
   var website = req.body.website;
+  var title=req.body.naslov;
   console.log(textarea);
   console.log(tags);
   console.log(website);
@@ -251,8 +252,41 @@ module.exports.addEmbedPost = function(req,res) {
     
     if(check1 && check2 && check3){
         console.log("TRU")
-        res.redirect('/')
-    }
+        var iduser = req.session.user._id;
+        console.log(iduser)
+        var pot = '/api/posts/'
+        var posredovaniPodatki = {
+          title: title,
+          owner: iduser,
+          body: {
+            bodyType: 'embed',
+            content: website
+          },
+          description: textarea,
+          hashtags:[tags],
+          likes: null,
+          dislikes: null,
+          comments: {
+            owner: iduser,
+            content: "Tukaj postajte komentarje!"
+          }
+        };
+        
+        var parametriZahteve = {
+          url: apiParametri.streznik + pot,
+          method: 'POST',
+          json: posredovaniPodatki
+        };
+        
+        request(
+        parametriZahteve,
+        function(napaka, odgovor, vsebina) {
+          if (odgovor.statusCode === 201) {
+            res.redirect('/');
+          }
+        }
+        );
+      } else res.redirect("");
     
   //res.redirect('/')
 };
