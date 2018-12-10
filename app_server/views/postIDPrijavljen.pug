@@ -72,8 +72,9 @@ block content
                                     div(class='text-center')
                                         button(type='button', class='btn btn-info', data-dismiss='modal')
                                             | Cancel
-                                        a(href='userID.html')
-                                            button(type='button', class='btn btn-danger')
+                                        -povezava= '/posts/' + post._id
+                                        form(method='DELETE' action=povezava)
+                                            button.btn.btn-primary(type='submit')
                                                 | Delete
                         p
                             h4 Comments
