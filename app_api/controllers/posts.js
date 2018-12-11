@@ -189,3 +189,80 @@ me.updateObject = function(req, res) {
       }
     );
 }
+
+me.addComment = function(req, res){
+  var ids = req.params.postId;
+  if (!ids) {
+    vrniJsonOdgovor(res, 400, { "message": "Missing _id parameter."});
+    return;
+  }
+  var s = req.body;
+
+  Post
+    .findById(ids)
+    .exec(
+      function(err, data) {
+        if (!data) {
+          vrniJsonOdgovor(res, 404, { "message": "Data not found" });
+          return;
+        } 
+        else if (err) {
+          vrniJsonOdgovor(res, 500, err);
+          return;
+        }
+        
+        var newObject = {
+          _id: mongoose.Types.ObjectId(),  
+          owner: s.owner,
+          content: s.content
+        };
+
+        data.comments.push(newObject);
+        
+        data.save(function(err, data) {
+          if (err) {
+            console.log("ERROR\n" + err);
+            vrniJsonOdgovor(res, 400, err);
+          } 
+          else {
+            vrniJsonOdgovor(res, 200, data);
+          }
+        });
+      }
+    );
+}
+
+me.removeComments = function(req, res){
+  var ids = req.params.postId;
+  if (!ids) {
+    vrniJsonOdgovor(res, 400, { "message": "Missing _id parameter."});
+    return;
+  }
+
+  Post
+    .findById(ids)
+    .exec(
+      function(err, data) {
+        if (!data) {
+          vrniJsonOdgovor(res, 404, { "message": "Data not found" });
+          return;
+        } 
+        else if (err) {
+          vrniJsonOdgovor(res, 500, err);
+          return;
+        }
+        
+        data.comments = [];
+        
+        data.save(function(err, data) {
+          if (err) {
+            console.log("ERROR\n" + err);
+            vrniJsonOdgovor(res, 400, err);
+          } 
+          else {
+            vrniJsonOdgovor(res, 200, data);
+          }
+        });
+      }
+    );
+}

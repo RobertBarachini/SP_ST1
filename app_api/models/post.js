@@ -3,7 +3,7 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var postBodyShema = new mongoose.Schema({
   bodyType: {type: String, required: true},
-  content: {type: String, required: true}
+  content: {type: String, required: false}
 });
 
 var postCommentShema = new mongoose.Schema({

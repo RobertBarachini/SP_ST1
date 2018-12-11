@@ -27,6 +27,9 @@ router.get("/posts/:postId", ctrlPosts.getById)
 router.delete("/posts/:postId", ctrlPosts.deleteById)
 router.post("/posts", ctrlPosts.addNew);
 router.put("/posts/:postId", ctrlPosts.updateObject);
+router.put("/posts/:postId/addComment", ctrlPosts.addComment);
+router.delete("/posts/:postId/removeComments", ctrlPosts.removeComments);
+//router.delete("/posts/:postId", ctrlPosts.removeUsersComments);
 
 // init
 router.get("/db/init", ctrlDbInit.init);
