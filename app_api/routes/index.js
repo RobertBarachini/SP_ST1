@@ -20,6 +20,8 @@ router.get("/users/:userId", ctrlUsers.getById);
 router.delete("/users/:userId", ctrlUsers.deleteById)
 router.post("/users", ctrlUsers.addNew);
 router.put("/users/:userId", ctrlUsers.updateObject);
+router.post("/users/:userId/reactToPost/:postId", ctrlUsers.addPostReaction);
+router.delete("/users/:userId/reactToPost/:postId", ctrlUsers.removePostReaction);
 
 // posts
 router.get("/posts", ctrlPosts.getAll);
