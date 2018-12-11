@@ -174,7 +174,7 @@ me.addPostReaction = function(req, res) {
     vrniJsonOdgovor(res, 400, { "message": "Missing _id parameter."});
     return;
   }
-  console.log("Sem v dodajanju reactiona");
+  //console.log("Sem v dodajanju reactiona");
   User
     .findById(ids)
     .exec(
@@ -196,10 +196,10 @@ me.addPostReaction = function(req, res) {
           }
         }
         
-        //if(includesId == false)
+        if(includesId == false)
         {
           data.postReactions.push(idPost);
-          console.log("Dodan reaction userju");
+          //console.log("Dodan reaction userju");
           
           Post
             .findById(idPost)
@@ -214,10 +214,10 @@ me.addPostReaction = function(req, res) {
                   //return;
                 }
                 
-                console.log(JSON.stringify(dataPost, null, 2));
+                //console.log(JSON.stringify(dataPost, null, 2));
                 dataPost.likes++;
-                console.log(JSON.stringify(dataPost, null, 2));
-                console.log("Postu povecani lajki");
+                //console.log(JSON.stringify(dataPost, null, 2));
+                //console.log("Postu povecani lajki");
                 
                 // Add points to owner of the post
                 User
@@ -233,10 +233,10 @@ me.addPostReaction = function(req, res) {
                         //return;
                       }
                       
-                      console.log(JSON.stringify(dataPostOwner, null, 2));
+                      //console.log(JSON.stringify(dataPostOwner, null, 2));
                       dataPostOwner.points++;
-                      console.log(JSON.stringify(dataPostOwner, null, 2));
-                      console.log("Lastniku posta povecani pointi");
+                      //console.log(JSON.stringify(dataPostOwner, null, 2));
+                      //console.log("Lastniku posta povecani pointi");
                       
                       dataPostOwner.save(function(err, dataPostOwner) {
                         if (err) {
@@ -287,7 +287,7 @@ me.removePostReaction = function(req, res) {
     vrniJsonOdgovor(res, 400, { "message": "Missing _id parameter."});
     return;
   }
-  
+  console.log("Sem v odstranjevanju reactiona");
   User
     .findById(ids)
     .exec(
@@ -301,14 +301,98 @@ me.removePostReaction = function(req, res) {
           return;
         }
         
-        //data.postReactions.push(idPost);
+        var includesId = false;
+        var idAt = 0;
+        for(var i = 0; i < data.postReactions.length; i++){
+          if(data.postReactions[i] == idPost){
+            includesId = true;
+            break;
+          }
+          idAt++;
+        }
+        
+        if(includesId)
+        {
+          data.postReactions.splice(idAt, 1);
+          console.log("Odstranjen reaction userju");
+          
+          Post
+            .findById(idPost)
+            .exec(
+              function(err, dataPost) {
+                if (!dataPost) {
+                  //vrniJsonOdgovor(res, 404, { "message": "Data not found" });
+                  //return;
+                } 
+                else if (err) {
+                  //vrniJsonOdgovor(res, 500, err);
+                  //return;
+                }
+                
+                console.log(JSON.stringify(dataPost, null, 2));
+                if(dataPost.likes > 0){
+                  dataPost.likes--;
+                }
+                console.log(JSON.stringify(dataPost, null, 2));
+                console.log("Postu povecani lajki");
+                
+                // Add points to owner of the post
+                User
+                  .findById(dataPost.owner)
+                  .exec(
+                    function(err, dataPostOwner) {
+                      if (!dataPostOwner) {
+                        //vrniJsonOdgovor(res, 404, { "message": "Data not found" });
+                        //return;
+                      } 
+                      else if (err) {
+                        //vrniJsonOdgovor(res, 500, err);
+                        //return;
+                      }
+                      
+                      console.log(JSON.stringify(dataPostOwner, null, 2));
+                      if(dataPostOwner.points > 0){
+                        dataPostOwner.points--;
+                      }
+                      console.log(JSON.stringify(dataPostOwner, null, 2));
+                      console.log("Lastniku posta povecani pointi");
+                      
+                      dataPostOwner.save(function(err, dataPostOwner) {
+                        if (err) {
+                          //vrniJsonOdgovor(res, 400, err);
+                          //return;
+                        } 
+                        else {
+                          //vrniJsonOdgovor(res, 200, data);
+                          //return;
+                        }
+                      });
+                    }
+                  );
+                  
+                
+                dataPost.save(function(err, dataPostOwner) {
+                  if (err) {
+                    //vrniJsonOdgovor(res, 400, err);
+                    //return;
+                  } 
+                  else {
+                    //vrniJsonOdgovor(res, 200, data);
+                    //return;
+                  }
+                });
+              }
+            );
+        }
 
         data.save(function(err, data) {
           if (err) {
             vrniJsonOdgovor(res, 400, err);
+            return;
           } 
           else {
             vrniJsonOdgovor(res, 200, data);
+            return;
           }
         });
       }
