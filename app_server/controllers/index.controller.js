@@ -38,6 +38,7 @@ var poglejCeSeLahkoLogina = function(req, res, vsebina) {
                 for(var j = 0; j<vs.length; j++) {
                     console.log(vs[j])
                     if(vs[j].identity === id) {
+                        console.log("OVO "+ vs[j])
                          req.session.user = vs[j]
                          console.log(req.session.user.profilePicture)
                     }
@@ -164,6 +165,7 @@ module.exports.loginPagePost = function (req,res) {
             json: {}
          };
         request(parametriZahteve,function(napaka, odgovor,  vsebina) {
+            console.log("HEREEEEEEEE "+vsebina)
         poglejCeSeLahkoLogina(req, res, vsebina);    
             }
         );
@@ -254,6 +256,7 @@ module.exports.registerPagePost = function (req,res) {
         parametriZahteve,
         function(napaka, odgovor, vsebina) {
           if (odgovor.statusCode === 201) {
+              console.log("AAAAAAAAAAAAAA")
               var pot2 = '/api/userIdentities/'
              var posredovaniPodatki2 = {
                  email: email,
