@@ -2,9 +2,11 @@ var request = require('request');
 var apiParametri = {
   streznik: 'http://localhost:' + process.env.PORT
 };
-if (process.env.NODE_ENV === 'production') {
-  apiParametri.streznik = 'https://{ime-aplikacije}.herokuapp.com/'; //TODO: nastavit na nase ime aplikacije za Heroku
+if (process.env.NODE_ENV === 'production') { 
+    console.log("index controller: production")
+  apiParametri.streznik = 'https://spherokuapp123.herokuapp.com'; //TODO: nastavit na nase ime aplikacije za Heroku
 }
+console.log("index controller: " + apiParametri.streznik)
 
 var prikaziZacetnePoste = function(req, res, vsebina) {
         if(req.session.user) {

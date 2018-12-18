@@ -12,8 +12,21 @@ Heroku link: ADD HEROKU LINK
 	(po ukazih in po tem kaj delajo):
 	1. "random ukazi"
 	2. nodemon (zagon aplikacije)
-	3. mongod (mongodb)
+	3. mongod (mongodb)(Zagon baze: cd ~/workspace/mongodb in nato ./mongod)
 	4. mongo (za gledanje baze)
+
+## Za primer potrebe po namestitvi MongoDB:
+Namestitev MongoDB:
+sudo apt-get remove mongodb-org mongodb-org-server
+sudo apt-get autoremove
+sudo rm -rf /usr/bin/mongo*
+sudo rm /etc/apt/sources.list.d/mongodb*.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+sudo apt-get update
+sudo apt-get install mongodb-org mongodb-org-server
+sudo touch /etc/init.d/mongod
+sudo apt-get install mongodb-org-server
 
 # Opis projekta, vizije in delovanja strani
 
@@ -55,7 +68,7 @@ Nov uporabnik najprej pride na index.html. Tam ima na voljo številne druge pove
 * Username
 je dolg med 4 in 20 znakov, ki so lahko velike in male crke, ter stevilke
 * Password 
-mora biti dolg najmanj 8 znakov, vsebovati mora 1 malo crko, 1 veliko crko in 1 stevilko. Ne sme vsebovati praznih znakov
+je lahko karkoli
 * Name 
 je dolg med 1 in 50 znakov, lahko so male in velike crke ter znak '-'
 * Bio 

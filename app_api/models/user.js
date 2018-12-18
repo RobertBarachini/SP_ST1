@@ -14,6 +14,6 @@ var userShema = new mongoose.Schema({
   points: {type: Number, "default": 0},
   dateJoined: {type: Date, required: false},
   dateLastActive: {type: Date, required: false}
-});
+}, { versionKey: false });
 
 mongoose.model("User", userShema, "Users");

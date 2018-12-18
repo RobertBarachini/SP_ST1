@@ -6,9 +6,6 @@ require('./userIdentity');
 console.log("b")
 
 var dbURI = 'mongodb://localhost/sp';
-if (process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MLAB_URI;
-}
 mongoose.connect(dbURI, { useNewUrlParser: true, useCreateIndex: true });
 
 console.log("c")

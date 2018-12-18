@@ -11,6 +11,10 @@ var Post = mongoose.model('Post');
 var execSync = require('child_process').execSync;
 var cmdRestore = "mongorestore -d sp ~/workspace/app_api/db_exports/sp";
 var cmdDrop = "mongo sp --eval 'db.dropDatabase()'"
+if (process.env.NODE_ENV === 'production') {
+  cmdRestore = "mongorestore -h ds129914.mlab.com:29914 -d sp -u user -p user123 ~/workspace/mongodb/dump/sp"
+  cmdDrop = "mongo ds129914.mlab.com:29914/sp -u user -p user123 sp --eval 'db.dropDatabase()'"
+}
 
 var options = {
   encoding: 'utf8'
