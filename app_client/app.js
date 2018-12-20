@@ -5,7 +5,13 @@
         templateUrl: "components/index.controller.html",
         controller: "indexCtrl",
         controllerAs: "vm"
-      }).otherwise({ redirectTo: "/" });
+      })
+      .when('/posts/:id', {
+        templateUrl:"posts/post.controller.html",
+        controller:"postsCtrl",
+        controllerAs:"vm"
+      })
+      .otherwise({ redirectTo: "/" });
       
     $locationProvider.html5Mode(true);
   }

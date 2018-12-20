@@ -1,12 +1,13 @@
+ <glava></glava>
  <main role="main">
+   <br><br>
    <div class="album py-5 bg-light">
      <div class="container">
        <div ng-if="vm.posts != undefined && vm.posts.length > 0">
          <div class="row">
              <div ng-repeat="post in vm.posts" class="col-md-4" >
                <div class="card mb-4 shadow-sm">
-                 <a href="#/photo/{{posts._id}}">
-                   
+                 <a href="/posts/{{post._id}}">
                    <div ng-if="post.body.content">
                       <div ng-if = " post.body.bodyType == 'image' ">
                         <img class="card-img-top" src="{{post.body.content}}" alt="Card image cap">
