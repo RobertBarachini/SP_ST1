@@ -14,14 +14,51 @@
               <div ng-if="vm.post.body.content">
                 <img class='card-img-top', src="{{vm.post.body.content}}", alt='Card image cap'>
               </div>
+              <div class='card-body', style='background-color: #ffffff;'>
+                <h3> {{vm.post.title}} </h3> 
+                <div ng-repeat="up in vm.users">
+                  <div ng-if="up._id == vm.post.owner">
+                    <a href = '/users'+{{up._id}}, class="card-user">
+                      <h5>{{up.username}}</h5>
+                    </a>
+                  </div>
+                </div>
+                <p class='card-text'>
+                  {{vm.post.description}}
+                </p>
+                <p class='card-text'>
+                  <div ng-repeat="tags in vm.post.hashtags">
+                    <b>{{tags}}</b>
+                  </div>
+                </p>
+                <p>
+                  <h4>Comments</h4>
+                </p>
+                <div>
+                  <hr></hr>
+                  <div ng-if="vm.post.comments != undefined && vm.post.comments.length > 0">
+                    <div ng-repeat="comm in vm.post.comments">
+                      <div ng-repeat="up in vm.users">
+                        <div ng-if="up._id == comm.owner">
+                          <a href='/users/'+{{comm.owner}}, class="card-user">
+                            <h6>{{up.username}}</h6>
+                          </a>
+                          <p>{{comm.content}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            
           </div>
           <div ng-if="vm.post.body.bodyType == 'embed'">
             
           </div>
           <div ng-if="vm.post.body.bodyType == 'text'">
-            
           </div>
+          
         </div>
       </div>
     </div>

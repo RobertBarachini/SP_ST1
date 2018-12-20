@@ -11,6 +11,11 @@
         controller:"postsCtrl",
         controllerAs:"vm"
       })
+      .when('/users/:id', {
+        templateUrl:"users/user.controller.html",
+        controller:"usersCtrl",
+        controllerAs:"vm"
+      })
       .otherwise({ redirectTo: "/" });
       
     $locationProvider.html5Mode(true);
