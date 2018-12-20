@@ -6,6 +6,7 @@
     aggAppPosts.getPosts().then(
       function success(res){
         vm.posts = res.data;
+        console.log(res)
       },
       function error(er){
         console.error(er);
