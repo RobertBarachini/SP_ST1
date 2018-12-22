@@ -16,6 +16,11 @@
         controller:"usersCtrl",
         controllerAs:"vm"
       })
+      .when('/login', {
+        templateUrl:"login/login.controller.html",
+        controller:"loginCtrl",
+        controllerAs:"vm"
+      })
       .otherwise({ redirectTo: "/" });
       
     $locationProvider.html5Mode(true);
