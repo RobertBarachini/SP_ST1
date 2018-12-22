@@ -1,0 +1,92 @@
+ <glava></glava>
+ <br><br>
+ <main role="main">
+      <header class="py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <img src="{{vm.user.profilePicture}}" alt="Card image cap" class="rounded-circle profile-img">
+            </div>
+            <div class="col-md-9">
+              <section>
+                <div>
+                  <div class="mb-3">
+                    <h5 class="profile-h5">{{vm.user.username}}</h5>
+                    <div ng-if="rootUser">
+                      <div ng-if="vm.user._id == rootUser._id">
+                        <a href="editProfile.html">
+                          <button class="btn btn-outline-dark my-2 my-sm-0" type="button" >Edit profile</button>
+                        </a>
+                        <a href="index.html">
+                          <button class="btn btn-outline-dark my-2 my-sm-0" type="button">Sign out</button> <br/>
+                        </a>
+                      </div>
+                    </div>
+
+                  </div>
+                  <h6>{{vm.user.name}} {{vm.user.surname}}</h6>
+                  <ul style="padding-left:15px">
+                    <li>priden</li>
+                    <li>pošten</li>
+                    <li>delaven</li>
+                  </ul>
+                  <a href="">www.{{vm.user.username}}.si<a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav>
+        <ul class="nav nav-pills justify-content-center  py-5 bg-light">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Posts</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div ng-if="vm.userPosts != undefined && vm.userPosts.length > 0">
+            <div class="row">
+            <!-- BEGIN CONTENT -->
+              <div ng-repeat = "post in vm.userPosts" class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <div ng-if="post.body.bodyType == 'image' "> 
+                    <a href="/posts/{{post._id}}">
+                      <div ng-if="post.body.content">
+                        <img class="card-img-top" src="{{post.body.content}}" alt="Card image cap">
+                      </div>
+                      <div ng-if="!post.body.content">
+                        <img class="card-img-top" src="../../resources/A_01.jpg" alt="Card image cap">
+                      </div>
+                    </a>
+                  </div>
+                  <div ng-if="post.body.bodyType == 'text' "> 
+                  </div>
+                  <div ng-if="post.body.bodyType == 'embed' "> 
+                    <iframe width="100%" height="120" src="{{post.body.content}}" frameborder="0" ></iframe>
+                  </div>
+                  <div class="card-body">
+                    <a href="" class="card-user"><h5>{{post.title}}</h5></a>
+                    <p class="card-text">{{post.description}}</p>
+                    <p class="card-text">
+                      <div >
+                        <b ng-repeat ="tags in post.hashtags">{{tags}} </b>
+                      </div>
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <div class="btn-circle btn-circle-success"></div>
+                        <div class="btn-circle btn-circle-default"></div>
+                      </div>
+                      <small class="text-muted">{{post.likes}}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+</main>

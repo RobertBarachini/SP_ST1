@@ -24,7 +24,7 @@
             function success(res) {
               for(var uporabnik in res.data){
                 if(res.data[uporabnik].identity === vm.usersIdentity[up]._id) {
-                  $rootScope.user = res.data[uporabnik];
+                  $rootScope.rootUser = res.data[uporabnik];
                   $location.path("/");
                 }
               }

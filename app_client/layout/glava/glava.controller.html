@@ -15,13 +15,13 @@
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
           </form>
         </ul>
-        <div ng-if="user">
-          <a class='navbar-brand', href='/users/' + {{uporabnik._id}}>
-            {{user.name}}
-             <img src='{{user.profilePicture}}', style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;'>
+        <div ng-if="rootUser">
+          <a class='navbar-brand', href='/users/{{rootUser._id}}'>
+            {{rootUser.username}}
+             <img src='{{rootUser.profilePicture}}', style='height: 50px; width: 50px; margin-left: 5px; border-radius: 50%;'>
           </a>
         </div>
-        <div ng-if="!user">
+        <div ng-if="!rootUser">
           <a class='navbar-brand', href='/login'>Login</a>
         </div>
       </div>

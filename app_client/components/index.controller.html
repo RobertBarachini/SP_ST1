@@ -13,7 +13,7 @@
                         <img class="card-img-top" src="{{post.body.content}}" alt="Card image cap">
                       </div>
                       <div ng-if = " post.body.bodyType == 'embed' ">
-                        <iframe width="100%" height="120" src="post.body.content" frameborder="0" ></iframe>
+                        <iframe width="100%" height="120" src="{{post.body.content}}" frameborder="0" ></iframe>
                       </div>
                    </div>
                    <div ng-if="!post.body.content">
@@ -28,8 +28,8 @@
                     <a href="" class="card-user"><h5>{{post.title}}</h5></a>
                     <p class="card-text"> {{post.description}}</p>
                     <p class="card-text">
-                      <div ng-repeat ="tags in post.hashtags">
-                        {{tags}} 
+                      <div>
+                        <b ng-repeat ="tags in post.hashtags">{{tags}} </b> 
                       </div>
                     </p>
                     <div class="d-flex justify-content-between align-items-center">

@@ -18,7 +18,7 @@
                 <h3> {{vm.post.title}} </h3> 
                 <div ng-repeat="up in vm.users">
                   <div ng-if="up._id == vm.post.owner">
-                    <a href = '/users'+{{up._id}}, class="card-user">
+                    <a href = '/users/{{up._id}}', class="card-user">
                       <h5>{{up.username}}</h5>
                     </a>
                   </div>
@@ -40,7 +40,7 @@
                     <div ng-repeat="comm in vm.post.comments">
                       <div ng-repeat="up in vm.users">
                         <div ng-if="up._id == comm.owner">
-                          <a href='/users/'+{{comm.owner}}, class="card-user">
+                          <a href='/users/{{comm.owner}}', class="card-user">
                             <h6>{{up.username}}</h6>
                           </a>
                           <p>{{comm.content}}</p>
