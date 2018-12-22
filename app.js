@@ -62,6 +62,7 @@ app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules','bootstrap','dist','css')));
+app.use(express.static(path.join(__dirname, 'app_client')));
 
 //Login ses
 /*app.get('*',function (req,res,next) {
@@ -73,13 +74,16 @@ app.use(express.static(path.join(__dirname, 'node_modules','bootstrap','dist','c
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/posts', postsRouter);
+//app.use('/', indexRouter);
+//app.use('/users', usersRouter);
+//app.use('/posts', postsRouter);
 
 app.use("/api", indexApi)
 app.use("/userIdenty", indexApi);
 
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

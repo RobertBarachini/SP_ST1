@@ -1,0 +1,56 @@
+ <glava></glava>
+ <main role="main">
+   <div class="album py-5 bg-light">
+     <div class="container">
+       <div ng-if="vm.posts != undefined && vm.posts.length > 0">
+         <div class="row">
+             <div ng-repeat="post in vm.posts" class="col-md-4" >
+               <div class="card mb-4 shadow-sm">
+                 <a href="/posts/{{post._id}}">
+                   <div ng-if="post.body.content">
+                      <div ng-if = " post.body.bodyType == 'image' ">
+                        <img class="card-img-top" src="{{post.body.content}}" alt="Card image cap">
+                      </div>
+                      <div ng-if = " post.body.bodyType == 'embed' ">
+                        <iframe width="100%" height="120" src="{{post.body.content}}" frameborder="0" ></iframe>
+                      </div>
+                   </div>
+                   <div ng-if="!post.body.content">
+                      <div ng-if = " post.body.bodyType == 'text' ">
+                      </div>
+                      <div ng-if = " post.body.bodyType != 'text' ">
+                        <img class="card-img-top" src='../../resources/A_01.jpg' alt="Card image cap"> 
+                      </div>
+                   </div>
+                   
+                   <div class="card-body">
+                    <a href="/posts/{{post._id}}" class="card-user"><h5>{{post.title}}</h5></a>
+                    <p class="card-text"> {{post.description}}</p>
+                    <p class="card-text">
+                      <div>
+                        <b ng-repeat ="tags in post.hashtags">{{tags}} </b> 
+                      </div>
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <div class="btn-circle btn-circle-success"></div>
+                        <div class="btn-circle btn-circle-default"></div>
+                      </div>
+                      <small class="text-muted">{{post.likes}}</small>
+                    </div>
+                  </div>
+                 </a>
+               </div>
+             </div>
+          </div>
+        </div>
+        <div ng-if="vm.posts == undefined || vm.posts < 1">
+          <div class='row'>
+            <h1>Post you are searching for does not exist :/</h1>
+            <br/>
+            <h2>BUT YOU FOUND ALEKSANDAR! </h2>
+          </div>
+        </div>
+      </div>
+   </div>
+</main>
