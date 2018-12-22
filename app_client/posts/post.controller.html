@@ -1,7 +1,6 @@
 <glava></glava>
 
 <main role='main', style='background-color: #ffffff'>
-  <br><br><br>
   <div class='container'>
     <div class='row'>
       <div class='col-md-7'>
@@ -27,8 +26,8 @@
                   {{vm.post.description}}
                 </p>
                 <p class='card-text'>
-                  <div ng-repeat="tags in vm.post.hashtags">
-                    <b>{{tags}}</b>
+                  <div >
+                    <b ng-repeat="tags in vm.post.hashtags">{{tags}} </b>
                   </div>
                 </p>
                 <p>
