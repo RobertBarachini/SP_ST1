@@ -1,5 +1,5 @@
 (function(){
-  function usersCtrl($scope,$routeParams,aggAppPosts,aggAppUsers){
+  function usersCtrl($rootScope,$routeParams,$location,$route, aggAppPosts,aggAppUsers){
     var vm = this;
     vm.userID = $routeParams.id;
     aggAppUsers.getUserByID(vm.userID).then(
@@ -23,10 +23,16 @@
       } 
       );
       
+    vm.logout = function(){
+      $rootScope.rootUser = null;
+      $location.path("/");
+      $route.reload();
+    }
+      
    
   }
   
-  usersCtrl.$inject = ['$scope','$routeParams','aggAppPosts','aggAppUsers'];
+  usersCtrl.$inject = ['$rootScope','$routeParams','$location','$route','aggAppPosts','aggAppUsers'];
   
   /* global angular */
   angular
