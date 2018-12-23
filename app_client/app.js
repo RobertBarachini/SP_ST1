@@ -16,6 +16,11 @@
         controller:"usersCtrl",
         controllerAs:"vm"
       })
+      .when('/users/:id/:idd', {
+        templateUrl:"addPosts/addPost.controller.html",
+        controller:"addPostsCtrl",
+        controllerAs:"vm"
+      })
       .when('/login', {
         templateUrl:"login/login.controller.html",
         controller:"loginCtrl",

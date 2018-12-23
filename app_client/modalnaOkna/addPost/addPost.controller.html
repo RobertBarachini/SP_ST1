@@ -1,0 +1,22 @@
+<div class="modal-content">
+  <form id="modalOkno" name="modalOkno" role="form" class="form-horizontal">
+    <div class="modal-header">
+      <h4 id="oznakaModalnegaOkna" class="modal-title">What do you want to add? </h4>
+      <button type="button" ng-click="vm.modalnoOkno.preklici()" class="close">
+        <span aria-hidden="true">x</span><span class="sr-only">Zapri</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class= "text-center">
+        <a href= '/users/{{rootUser._id}}/1'> Add Image </a>
+        <hr>
+        <a href='/users/{{rootUser._id}}/2'> Add Embed </a>
+        <hr>
+        <a href='/users/{{rootUser._id}}/3'> Add Story </a>
+        <br><br>
+      </div>
+    <div class="modal-footer">
+      <button ng-click="vm.modalnoOkno.preklici()" type="button" class="btn btn-default btn-sm"> Cancel </button>
+    </div>
+  </form>
+</div>
