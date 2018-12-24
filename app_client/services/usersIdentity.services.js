@@ -6,10 +6,14 @@
     function getUserIdentityByID(id){
       return $http.get("/api/userIdentities/" + id)
     };
+    function postUserIdentity(email, password, userType){
+      return $http.post("/api/userIdentities/",{email:email, password:password, userType:userType})
+    }
     
     return {
       getUsersIdentity: getUsersIdentity,
-      getUserIdentityByID: getUserIdentityByID
+      getUserIdentityByID: getUserIdentityByID,
+      postUserIdentity:postUserIdentity
     }
   }
   aggAppUsersIdentity.$inject = ['$http'];

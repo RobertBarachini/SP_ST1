@@ -26,6 +26,11 @@
         controller:"loginCtrl",
         controllerAs:"vm"
       })
+      .when('/register',{
+        templateUrl:"register/register.controller.html",
+        controller: "registerCtrl",
+        controllerAs:"vm"
+      })
       .otherwise({ redirectTo: "/" });
       
     $locationProvider.html5Mode(true);
