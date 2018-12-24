@@ -6,10 +6,14 @@
     function getUserByID(id){
       return $http.get("/api/users/" + id)
     };
+    function updateUser(id,uporabnik){
+      return $http.put("/api/users/" + id, uporabnik)
+    };
     
     return {
       getUsers: getUsers,
-      getUserByID: getUserByID
+      getUserByID: getUserByID,
+      updateUser: updateUser
     }
   }
   aggAppUsers.$inject = ['$http'];

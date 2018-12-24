@@ -29,6 +29,9 @@
       .otherwise({ redirectTo: "/" });
       
     $locationProvider.html5Mode(true);
+     $sceDelegateProvider.resourceUrlWhitelist([
+      'self', 'https://www.youtube.com/**'
+    ]);
   }
    /* global angular */
   angular

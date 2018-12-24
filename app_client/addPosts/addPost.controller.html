@@ -15,35 +15,48 @@
               <h1 class="jumbotron-heading">Share your Story</h1>
             </div>            
             <br>
-            <p>
-              <div ng-if="vm.typeID == 1 || vm.typeID == 2">
+            <form ng-submit="vm.dodajPost()" method="POST">
+              <p>
                 <div class="form-group">
-                  <label for="url">URL:</label> <br>
-                  <input class ="form-control" type="url" name="url" id="url" placeholder="https://example.com" required>
+                    <label for="title">Title:</label> <br>
+                    <input ng-model = "vm.title" class ="form-control" type="text" name="title" id="title" required>
+                  </div>
+                <div ng-if="vm.typeID == 1 || vm.typeID == 2">
+                  <div class="form-group">
+                    <label for="url">URL:</label> <br>
+                    <input ng-model = "vm.url" class ="form-control" type="url" name="url" id="url" placeholder="https://example.com" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea ng-model="vm.description" class="form-control" id="description" name="description" rows="5" required></textarea>
+                  </div>
+                </div>
+                <div ng-if="vm.typeID == 3">
+                  <div class="form-group">
+                    <label for="description">Your Story</label>
+                    <textarea ng-model ="vm.description" class="form-control" id="description" name="description" rows="5" required></textarea>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Description</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    <label for="tags">Tags</label>
+                    <input ng-model ="vm.tags" class="form-control" id="tags" name="tags" required></input>
                 </div>
-              </div>
-              <div ng-if="vm.typeID == 3">
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Your Story</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <div ng-if="vm.typeID == 1">
+                  <button type="submit" class="btn btn-primary my-2">Share Image</button>
                 </div>
-              </div>
-              <a>Tags</a> 
-              <input class="form-control mr-sm-2" type="text" placeholder = "#Sun">
-              <div ng-if="vm.typeID == 1">
-                <a href="indexPrijavljen.html" class="btn btn-primary my-2">Share Image</a>
-              </div>
-              <div ng-if="vm.typeID == 2">
-                <a href="indexPrijavljen.html" class="btn btn-primary my-2">Share Embed</a>
-              </div>
-              <div ng-if="vm.typeID == 3">
-                <a href="indexPrijavljen.html" class="btn btn-primary my-2">Share Story</a>
-              </div>
-            </p>
+                <div ng-if="vm.typeID == 2">
+                  <button type="submit" class="btn btn-primary my-2">Share Embed</button>
+                </div>
+                <div ng-if="vm.typeID == 3">
+                  <button type="submit" class="btn btn-primary my-2">Share Story</button>
+                </div>
+              </p>
+            </form>
+            <div ng-if="vm.response == 'success'" class="alert alert-info">Post je bil dodan!</div>
+            <div ng-if="vm.response == 'errorAdd'" class="alert alert-danger">Ne veljaven link!</div>
+            <div ng-if="vm.response == 'errorGet'" class="alert alert-danger">Ne veljaven uporabnik!</div>
+            <div ng-if="vm.response == 'errorPost'" class="alert alert-danger">Pri posodabljanju uporabnika je prislo do napake!</div>
+            
           </div>
       </div>
     </div>
