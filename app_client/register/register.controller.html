@@ -1,0 +1,41 @@
+<glava></glava>
+<main role="main">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div ng-if="vm.response == 'success'" class="alert alert-info">Registracija je bila uspešna!</div>
+        <div ng-if="vm.response == 'errorUser'" class="alert alert-danger">Nemorem dodat UserIdentity!</div>
+        <div ng-if="vm.response == 'errorUserIdentity'" class="alert alert-danger">Nemorem dodat User!</div>
+        <section class="jumbotron container text-left">
+          <div class="container">
+            <h1 class="jumbotron-heading">Create a new account</h1>
+            <div>
+              <form ng-submit="vm.register()" method="POST">
+                <label>Name</label><br>
+                <input class="form-control mr-sm-2" type="tekst" name = "name" id="name" ng-model="vm.prijavniPodatki.name">
+                <label>Surname</label><br>
+                <input class="form-control mr-sm-2" type="tekst" name = "surname" id="surname" ng-model="vm.prijavniPodatki.surname">
+                <label>Username</label><br>
+                <input class="form-control mr-sm-2" type="tekst" name = "username" id="username" ng-model="vm.prijavniPodatki.username">
+                <label>Email</label><br>
+                <input class="form-control mr-sm-2" type="email" name = "email" id="email" ng-model="vm.prijavniPodatki.email">
+                <label>Password</label><br>
+                <input class="form-control mr-sm-2" type="password" name = "password" id="password" ng-model="vm.prijavniPodatki.password">
+                <label>Confirm Password</label><br>
+                <input class="form-control mr-sm-2" type="password" name = "password2" id="password2" ng-model="vm.prijavniPodatki.password2">
+                <label>Profile Picture</label><br>
+                <input class="form-control mr-sm-2" type="url" name = "url" id="url" placeholder="https://example.com" ng-model="vm.prijavniPodatki.profilePic">
+                <button type="submit" class="btn btn-primary my-2">Register</button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <section class="jumbotron container text-center" style="border: 1px">
+          <div>
+             <p style="font-size: 25px"><a href="/login">Log into existing account</a></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

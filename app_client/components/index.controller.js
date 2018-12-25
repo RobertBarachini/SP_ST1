@@ -1,5 +1,5 @@
 (function(){
-  function indexCtrl($scope,aggAppPosts){
+  function indexCtrl($scope,$uibModal, aggAppPosts){
     var vm = this;
     vm.naslov = "Laka";
     vm.posts = [];
@@ -11,10 +11,19 @@
       function error(er){
         console.error(er);
       } 
-      )
+      );
+      
+    vm.modalOkno= function(){
+     $uibModal.open({
+        templateUrl:'/modalnaOkna/addPost/addPost.controller.html',
+        controller: 'addPostCtrl',
+        controllerAs: 'vm'
+      });
+    };
+    
   }
   
-  indexCtrl.$inject = ['$scope','aggAppPosts'];
+  indexCtrl.$inject = ['$scope','$uibModal','aggAppPosts'];
   
   /* global angular */
   angular

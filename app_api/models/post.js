@@ -7,8 +7,8 @@ var postBodyShema = new mongoose.Schema({
 });
 
 var postCommentShema = new mongoose.Schema({
-  owner: {type: ObjectId, required: true},
-  content: {type: String, required: true}
+  owner: {type: ObjectId},
+  content: {type: String}
 });
 
 var postShema = new mongoose.Schema({
