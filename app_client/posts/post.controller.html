@@ -47,6 +47,14 @@
             <p>
               <h4>Comments</h4>
             </p>
+            <div ng-if="rootUser">
+              <form ng-submit="vm.dodajComment(rootUser)" method="PUT">
+                <!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>-->
+                <textarea ng-model="vm.comment" class="form-control" id="comment" name="comment" rows="3"></textarea> 
+                <br/>
+                <button class="btn" id="gumb" type="submit" style="align: left;">Post</button>
+              </form>
+            </div>
             <div>
               <hr></hr>
               <div ng-if="vm.post.comments != undefined && vm.post.comments.length > 0">

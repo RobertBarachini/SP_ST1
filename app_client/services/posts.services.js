@@ -9,11 +9,15 @@
     function addPost(title,owner,body,description,hashtags,likes,dislikes,comments){
       return $http.post("/api/posts",{title:title,owner:owner,body:body,description:description,hashtags:hashtags,likes:likes,dislikes:dislikes,comments:comments});
     };
+    function addComm(id,title,owner,body,description,hashtags,likes,dislikes,comments){
+      return $http.put("/api/posts/" + id, {title:title,owner:owner,body:body,description:description,hashtags:hashtags,likes:likes,dislikes:dislikes,comments:comments})
+    };
     
     return {
       getPosts: getPosts,
       getPostByID: getPostByID,
-      addPost:addPost
+      addPost:addPost,
+      addComm: addComm
     }
   }
   aggAppPosts.$inject = ['$http'];
