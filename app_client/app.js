@@ -31,6 +31,11 @@
         controller: "registerCtrl",
         controllerAs:"vm"
       })
+      .when('/editProfile/:id',{
+        templateUrl:"editProfile/editProfile.controller.html",
+        controller: "editProfileCtrl",
+        controllerAs:"vm"
+      })
       .otherwise({ redirectTo: "/" });
       
     $locationProvider.html5Mode(true);

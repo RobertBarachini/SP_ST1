@@ -32,7 +32,6 @@
         aggAppPosts.addComm(vm.postID,vm.post.title,vm.post.owner,vm.post.body,vm.post.description,vm.post.hashtags,vm.post.likes,vm.post.dislikes,vm.post.comments).then(
           function success(res) {
           vm.response = 'success'
-          console.log($routeParams)
           console.log(res);
         },
         function error(err) {

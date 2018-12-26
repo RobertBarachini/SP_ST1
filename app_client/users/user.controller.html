@@ -13,7 +13,7 @@
                     <h5 class="profile-h5">{{vm.user.username}}</h5>
                     <div ng-if="rootUser">
                       <div ng-if="vm.user._id == rootUser._id">
-                        <a href="editProfile.html">
+                        <a href="/editProfile/{{rootUser._id}}">
                           <button class="btn btn-outline-dark my-2 my-sm-0" type="button" >Edit profile</button>
                         </a>
                         <a ng-click="vm.logout()">
