@@ -39,7 +39,7 @@
       username: vm.novUsername, //sssss
       name: vm.novName,
       surname: vm.novSurname,
-      profilePicture: vm.user.profilePicture,
+      profilePicture: vm.url,
       dateLastActive: vm.user.dateLastActive
     };
     
@@ -50,7 +50,7 @@
     }
     
       console.log("tuu")
-      console.log(vm.novName+" "+vm.novUsername+" "+vm.novWebsite+" "+vm.novBio+" "+vm.novEmail+" "+vm.novTZ+" "+vm.novPassword+" "+vm.novPassword2+" ")
+      console.log(vm.novName+" "+vm.novUsername+" "+vm.novWebsite+" "+vm.novBio+" "+vm.novEmail+" "+vm.novTZ+" "+vm.novPassword+" "+vm.novPassword2+" "+vm.url)
       console.log("zvei")
       console.log(vm)
     console.log("BBBBBBBB")
@@ -60,6 +60,7 @@
       //email password _id
       
       //user - vse drugo
+      
       
       aggAppUsersIdentity.getUsersIdentity().then(
       function success(res) {
@@ -71,7 +72,13 @@
       }
     );
     
-    aggAppUsers.updateUser(vm.noviUser._id, vm.noviUser).then(
+    
+    if(!vm.url){
+      vm.noviUser.profilePicture = vm.user.profilePicture;
+    }
+    
+    if(vm.novUsername && vm.novName && vm.novSurname ){
+      aggAppUsers.updateUser(vm.noviUser._id, vm.noviUser).then(
       function success(res) {
           vm.response = 'success'
           console.log(res);
@@ -81,6 +88,9 @@
           vm.response = 'errorAdd'
         }  
       );
+    }
+      
+    
       
     }
    

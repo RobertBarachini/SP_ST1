@@ -10,9 +10,8 @@
                     <div class="text-center">
                         <img src="{{vm.user.profilePicture}}" class="rounded-circle profile-img" alt="Card image cap" />
                         <h6>Upload a different photo...</h6>
-                        <div style="position:relative;"><a class="btn btn-primary" href="javascript:;">Choose File<input type="file" style="position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:&quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=0)&quot;;opacity:0;background-color:transparent;color:transparent;" name="file_source" size="40" onchange="$(&quot;#upload-file-info&quot;).html($(this).val());"/></a>
-                            <span
-                                class="label label-info" id="upload-file-info"></span>
+                        <div style="position:relative;">
+                        <input ng-model = "vm.url" class ="form-control" type="url" name="url" id="url" placeholder="https://example.com">
                         </div>
                     </div>
                 </div>
