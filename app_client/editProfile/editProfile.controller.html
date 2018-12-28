@@ -56,7 +56,9 @@
                                 <a href='/users/{{rootUser._id}}' >Cancel </a>
                             </label>
                         </div>
-                        
+                        <div ng-if="vm.response == 'success'" class="alert alert-info">Podatki so uspesno spremenjeni!</div>
+                        <div ng-if="vm.response == 'errorAdd'" class="alert alert-danger">Napaka!</div>
+                        <div ng-if="vm.response == 'brezp'" class="alert alert-danger">Izpolni podatke!</div>
                 </div>
             </div>
         </div>

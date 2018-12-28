@@ -3,9 +3,6 @@
     var vm = this;
     vm.userID = $routeParams.id;
     
-    console.log("AAAAAAAA")
-    console.log(vm)
-    
     aggAppUsers.getUserByID(vm.userID).then(
       function success(res){
         vm.user = res.data;
@@ -44,23 +41,10 @@
     };
     
     vm.noviIdentity = {
-      _id: vm.user._id,
+      _id: vm.noviUser.identity,
       email: vm.novEmail,
       password: vm.novPassword
     }
-    
-      console.log("tuu")
-      console.log(vm.novName+" "+vm.novUsername+" "+vm.novWebsite+" "+vm.novBio+" "+vm.novEmail+" "+vm.novTZ+" "+vm.novPassword+" "+vm.novPassword2+" "+vm.url)
-      console.log("zvei")
-      console.log(vm)
-    console.log("BBBBBBBB")
-    console.log(vm)
-      
-      //userIdentities
-      //email password _id
-      
-      //user - vse drugo
-      
       
       aggAppUsersIdentity.getUsersIdentity().then(
       function success(res) {
@@ -77,9 +61,18 @@
       vm.noviUser.profilePicture = vm.user.profilePicture;
     }
     
-    if(vm.novUsername && vm.novName && vm.novSurname ){
+    if(vm.novUsername && vm.novName && vm.novSurname && vm.noviIdentity.email && vm.noviIdentity.password){
       aggAppUsers.updateUser(vm.noviUser._id, vm.noviUser).then(
       function success(res) {
+        aggAppUsersIdentity.putUserIdentity(vm.noviIdentity._id, vm.noviIdentity.email, vm.noviIdentity.password).then(
+          function success(ress){
+            
+          },
+        function error(er) {
+          console.error(er);
+          vm.response = 'errorAdd'
+        }  
+          );
           vm.response = 'success'
           console.log(res);
         },
@@ -88,6 +81,8 @@
           vm.response = 'errorAdd'
         }  
       );
+    } else {
+      vm.response= 'brezp'
     }
       
     
