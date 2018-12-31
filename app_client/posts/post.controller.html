@@ -44,6 +44,48 @@
                 <b ng-repeat="tags in vm.post.hashtags">{{tags}} </b>
               </div>
             </p>
+            <div ng-if="rootUser">
+              <a href="/editPost/{{vm.post._id}}" >Edit</a>
+              <!--<button href="/editPost/{{vm.post._id}}" class="btn btn-outline-dark my-2 my-sm-0" type="button"> Edit
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="button"> Delete
+               
+               <div class="dropdown">
+                <button class="btn" type="button" data-toggle="dropdown" style="background-color: #ffffff;">
+                  Options
+                  <span class="glyphicon glyphicon-option-horizontal"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#myModal" data-toggle="modal">Delete</a></li>
+                    <li><a href="/posts/postID/editPost">Edit</a></li>
+                </ul>
+              </div>
+             <div class="modal fade" id="myModal">
+                  <div class="modal-dialog modal-confirm">
+                      <div class="modal-content">
+                          <div class="text-center">
+                              <h4 class="modal-title">Are you sure?</h4><button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button></div>
+                          <div class="modal-body">
+                              <p>Do you really want to delete this picture? This process cannot be undone.</p>
+                          </div>
+                          <div class="text-center"><button class="btn btn-info" type="button" data-dismiss="modal">Cancel</button>
+                              <form method="POST" action="povezava"><button class="btn btn-danger" type="submit">Delete</button></form>
+                          </div>
+                      </div>
+                  </div>
+              </div>-->
+              
+              <!--<div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">HTML</a></li>
+                  <li><a href="#">CSS</a></li>
+                  <li><a href="#">JavaScript</a></li>
+                </ul>
+              </div>-->
+            
+            </div>
+            
             <p>
               <h4>Comments</h4>
             </p>

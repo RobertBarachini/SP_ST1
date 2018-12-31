@@ -1,0 +1,37 @@
+<glava></glava>
+<main role="main">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <section class="jumbotron container text-center">
+            <div class="container">
+              <h1 class="jumbotron-heading">Edit your picture</h1>
+              <b>&nbsp;</b>
+              <p>
+                    <div style="position:relative;">
+                        <img class="card-img-top" src="{{vm.post.body.content}}" alt="Card image cap" />
+                    </div>
+                    <div><b>&nbsp;</b></div>
+                    <form ng-submit="vm.editPo()" method="PUT">
+                        <div class="form-group">
+                            <label for="textarea">Description</label>
+                            <textarea ng-model="vm.novDescription" class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>
+                        </div>
+                        <a>Tags</a>
+                        <labels for="tags"></labels>
+                        <input ng-model="vm.novTags" class="form-control mr-sm-2" type="text" placeholder="#ravnica" name="tags" />
+                        <button class="btn btn-primary" id="gumb" type="submit">Save</button>
+                        
+                    </form>
+                    <div ng-if="vm.response == 'success'" class="alert alert-info">Vspeh!</div>
+                        <div ng-if="vm.response == 'errorAdd'" class="alert alert-danger">Napaka!</div>
+                        <div ng-if="vm.response == 'brezp'" class="alert alert-danger">Izpolni podatke!</div>
+                </p>
+              
+                
+            </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
