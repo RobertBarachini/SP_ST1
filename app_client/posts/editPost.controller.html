@@ -5,11 +5,32 @@
       <div class="row">
         <section class="jumbotron container text-center">
             <div class="container">
-              <h1 class="jumbotron-heading">Edit your picture</h1>
+              <h1 class="jumbotron-heading">Edit your post</h1>
               <b>&nbsp;</b>
               <p>
                     <div style="position:relative;">
-                        <img class="card-img-top" src="{{vm.post.body.content}}" alt="Card image cap" />
+                        <div ng-if="vm.post.body.bodyType == 'image'">
+                          <div ng-if="vm.post.body.content != undefined">
+                            <div ng-if="vm.post.body.content == '' ">
+                              <img class='card-img-top', src='../resources/A_01.jpg', alt='Card image cap'>
+                            </div>
+                            <div ng-if="vm.post.body.content">
+                              <img class='card-img-top', src="{{vm.post.body.content}}", alt='Card image cap'>
+                            </div>
+                          </div>
+                        </div>
+                        <div ng-if="vm.post.body.bodyType == 'embed'">
+                          <div ng-if="vm.post.body.content != undefined">
+                            <div ng-if="vm.post.body.content == '' ">
+                              <img class='card-img-top', src='../resources/A_01.jpg', alt='Card image cap'>
+                            </div>
+                            <div ng-if="vm.post.body.content">
+                              <iframe width="100%" height="120" src="{{vm.post.body.content}}" frameborder="0" ></iframe>
+                            </div>
+                          </div>
+                        </div>
+                        <div ng-if="vm.post.body.bodyType == 'text'">
+                        </div>
                     </div>
                     <div><b>&nbsp;</b></div>
                     <form ng-submit="vm.editPo()" method="PUT">
@@ -23,9 +44,9 @@
                         <button class="btn btn-primary" id="gumb" type="submit">Save</button>
                         
                     </form>
-                    <div ng-if="vm.response == 'success'" class="alert alert-info">Vspeh!</div>
-                        <div ng-if="vm.response == 'errorAdd'" class="alert alert-danger">Napaka!</div>
-                        <div ng-if="vm.response == 'brezp'" class="alert alert-danger">Izpolni podatke!</div>
+                    <div ng-if="vm.response == 'success'" class="alert alert-info">Podatki spremenjeni!</div>
+                    <div ng-if="vm.response == 'errorAdd'" class="alert alert-danger">Napaka!</div>
+                    <div ng-if="vm.response == 'brezp'" class="alert alert-danger">Izpolni vsa polja!</div>
                 </p>
               
                 

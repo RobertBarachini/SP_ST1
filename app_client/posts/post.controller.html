@@ -45,7 +45,31 @@
               </div>
             </p>
             <div ng-if="rootUser">
-              <a href="/editPost/{{vm.post._id}}" >Edit</a>
+              <div ng-if="rootUser._id == vm.post.owner">
+                <a href="/editPost/{{vm.post._id}}" >Edit</a>
+                <a href="#myModal" data-toggle="modal">Delete</a>
+                
+              
+            </div>
+              <div id="myModal" class="modal fade">
+                  	<div class="modal-dialog modal-confirm">
+                  		<div class="modal-content">
+                  			<div class="text-center">
+                  				<h4 class="modal-title">Are you sure?</h4>	
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  			</div>
+                  			<div class="modal-body">
+                  				<p>Do you really want to delete this picture? This process cannot be undone.</p>
+                  			</div>
+                  			<div class="text-center">
+                  				<form ng-submit="vm.izbrisiPost(rootUser)" method="DELETE">
+                  				  <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                  				  <button id="gumb" type="submit" class="btn btn-danger">Delete</button>
+                  				</form>
+                  			</div>
+                  		</div>
+                  	</div>
+                  </div> 
               <!--<button href="/editPost/{{vm.post._id}}" class="btn btn-outline-dark my-2 my-sm-0" type="button"> Edit
               <button class="btn btn-outline-dark my-2 my-sm-0" type="button"> Delete
                
@@ -83,7 +107,8 @@
                   <li><a href="#">JavaScript</a></li>
                 </ul>
               </div>-->
-            
+             <div ng-if="vm.response == 'success'" class="alert alert-info">Post izbrisan!</div>
+            <div ng-if="vm.response == 'error'" class="alert alert-danger">Napaka!</div>
             </div>
             
             <p>

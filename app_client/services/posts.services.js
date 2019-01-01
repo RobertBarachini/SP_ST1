@@ -15,13 +15,17 @@
     function editPost(id,title,owner,body,description,hashtags,likes,dislikes,comments){
       return $http.put("/api/posts/"+id,{title:title,owner:owner,body:body,description:description,hashtags:hashtags,likes:likes,dislikes:dislikes,comments:comments});
     };
+    function deletePost(id){
+      return $http.delete("/api/posts/" + id)
+    };
     
     return {
       getPosts: getPosts,
       getPostByID: getPostByID,
       addPost:addPost,
       addComm: addComm,
-      editPost: editPost
+      editPost: editPost,
+      deletePost: deletePost
     }
   }
   aggAppPosts.$inject = ['$http'];

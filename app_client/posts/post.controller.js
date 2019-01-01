@@ -43,6 +43,22 @@
       
       
     }
+    
+    vm.izbrisiPost = function(rUser){
+      console.log("TU ");
+      console.log(vm);
+      console.log("rrr ");
+      console.log(rUser);
+      aggAppPosts.deletePost(vm.post._id).then(
+          function success(res) {
+          vm.response = 'success'
+        },
+        function error(err) {
+          console.error(err);
+          vm.response = 'error'
+        }  
+        );
+    }
    
   }
   
