@@ -62,7 +62,7 @@
                   				<p>Do you really want to delete this picture? This process cannot be undone.</p>
                   			</div>
                   			<div class="text-center">
-                  				<form ng-submit="vm.izbrisiPost(rootUser)" method="DELETE">
+                  				<form ng-submit="vm.izbrisiPost(rootUser._id)" method="DELETE">
                   				  <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
                   				  <button id="gumb" type="submit" class="btn btn-danger">Delete</button>
                   				</form>
@@ -107,8 +107,9 @@
                   <li><a href="#">JavaScript</a></li>
                 </ul>
               </div>-->
-             <div ng-if="vm.response == 'success'" class="alert alert-info">Post izbrisan!</div>
-            <div ng-if="vm.response == 'error'" class="alert alert-danger">Napaka!</div>
+              <div ng-if="vm.response == 'success'" class="alert alert-info">Post izbrisan!</div>
+              <div ng-if="vm.response == 'error'" class="alert alert-danger">Napaka pri brisanju!</div>
+              <div ng-if="vm.response == 'errorUser'" class="alert alert-danger">Napaka pri posodabljanju uporabnika!</div>
             </div>
             
             <p>
