@@ -75,7 +75,13 @@
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
-                        <div ng-click="vm.reactP(post._id)" class="{{vm.checkBtn(post._id)}}" ></div>
+                        <div ng-if="rootUser" class="btn-group">
+                          <div ng-click="vm.reactP(post._id)" class="{{vm.checkBtn(post._id)}}" ></div>
+                        </div>
+                        <div ng-if="!rootUser" class="btn-group">
+                          <div class="btn-circle btn-circle-default"></div>
+                        </div>
+                        
                       </div>
                       <small class="text-muted">{{post.likes}}</small>
                     </div>

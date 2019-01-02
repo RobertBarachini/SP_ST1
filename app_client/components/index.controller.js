@@ -31,7 +31,6 @@
     };
     
     vm.checkBtn = function(posId){
-      console.log("bbbb")
         var ind = $rootScope.rootUser.postReactions.indexOf(posId);
         if(ind==-1){
           return "btn-circle btn-circle-default";
