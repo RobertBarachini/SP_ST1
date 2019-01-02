@@ -28,7 +28,7 @@
           <div ng-if="vm.post.body.bodyType == 'text'">
           </div>
           <div class='card-body', style='background-color: #ffffff;'>
-            <h3> {{vm.post.title}} </h3> 
+            <h3> {{vm.post.title}} </h3>
             <div ng-repeat="up in vm.users">
               <div ng-if="up._id == vm.post.owner">
                 <a href = '/users/{{up._id}}', class="card-user">
