@@ -28,7 +28,11 @@
           <div ng-if="vm.post.body.bodyType == 'text'">
           </div>
           <div class='card-body', style='background-color: #ffffff;'>
-            <h3> {{vm.post.title}} </h3>
+            <div class="d-flex justify-content-between align-items-center">
+              <h3> {{vm.post.title}} </h3>
+              <small class="text-muted">{{vm.post.likes}}</small>
+            </div>
+            
             <div ng-repeat="up in vm.users">
               <div ng-if="up._id == vm.post.owner">
                 <a href = '/users/{{up._id}}', class="card-user">
@@ -48,9 +52,8 @@
               <div ng-if="rootUser._id == vm.post.owner">
                 <a href="/editPost/{{vm.post._id}}" >Edit</a>
                 <a href="#myModal" data-toggle="modal">Delete</a>
-                
-              
             </div>
+                      
               <div id="myModal" class="modal fade">
                   	<div class="modal-dialog modal-confirm">
                   		<div class="modal-content">
