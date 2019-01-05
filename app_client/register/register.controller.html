@@ -12,21 +12,30 @@
             <div>
               <form ng-submit="vm.register()" method="POST">
                 <label>Name</label><br>
-                <input class="form-control mr-sm-2" type="tekst" name = "name" id="name" ng-model="vm.prijavniPodatki.name">
+                <input class="form-control mr-sm-2" type="tekst" name = "name" id="name" ng-model="vm.prijavniPodatki.name" required>
+                <div ng-if="vm.nameRes == 'true'" class="alert alert-warning">Neveljaven format</div>
                 <label>Surname</label><br>
-                <input class="form-control mr-sm-2" type="tekst" name = "surname" id="surname" ng-model="vm.prijavniPodatki.surname">
+                <input class="form-control mr-sm-2" type="tekst" name = "surname" id="surname" ng-model="vm.prijavniPodatki.surname" required>
+                <div ng-if="vm.surnameRes == 'true'" class="alert alert-warning">Neveljaven format</div>
                 <label>Username</label><br>
-                <input class="form-control mr-sm-2" type="tekst" name = "username" id="username" ng-model="vm.prijavniPodatki.username">
+                <input class="form-control mr-sm-2" type="tekst" name = "username" id="username" ng-model="vm.prijavniPodatki.username" required>
+                <div ng-if="vm.usernameRes == 'true'" class="alert alert-warning">aA-žŽ, 0-9, -, 4 do 20 znakov</div>
                 <label>Email</label><br>
-                <input class="form-control mr-sm-2" type="email" name = "email" id="email" ng-model="vm.prijavniPodatki.email">
+                <input class="form-control mr-sm-2" type="email" name = "email" id="email" ng-model="vm.prijavniPodatki.email" required>
+                <div ng-if="vm.emailRes == 'true'" class="alert alert-warning">Neveljaven format</div>
                 <label>Password</label><br>
-                <input class="form-control mr-sm-2" type="password" name = "password" id="password" ng-model="vm.prijavniPodatki.password">
+                <input class="form-control mr-sm-2" type="password" name = "password" id="password" ng-model="vm.prijavniPodatki.password" required>
+                <div ng-if="vm.passRes == 'true'" class="alert alert-warning">min 8 znakov, ena majhna, ena velika crka in ena stevilka</div>
                 <label>Confirm Password</label><br>
-                <input class="form-control mr-sm-2" type="password" name = "password2" id="password2" ng-model="vm.prijavniPodatki.password2">
+                <input class="form-control mr-sm-2" type="password" name = "password2" id="password2" ng-model="vm.prijavniPodatki.password2" required>
+                <div ng-if="vm.pass2Res == 'true'" class="alert alert-warning">Gesli nista isti</div>
                 <label>Profile Picture</label><br>
-                <input class="form-control mr-sm-2" type="url" name = "url" id="url" placeholder="https://example.com" ng-model="vm.prijavniPodatki.profilePic">
-                <button type="submit" class="btn btn-primary my-2">Register</button>
+                <input class="form-control mr-sm-2" type="url" name = "url" id="url" placeholder="https://example.com" ng-model="vm.prijavniPodatki.profilePic" required>
+                <div ng-if="vm.urlRes == 'true'" class="alert alert-warning">Neveljaven format</div>
+                <button ng-if="vm.response != 'success'" type="submit" class="btn btn-primary my-1">Register</button>
+                <button ng-if="vm.response == 'success'" type="submit" class="btn btn-primary my-1" disabled>Register</button>
               </form>
+                
             </div>
           </div>
         </section>

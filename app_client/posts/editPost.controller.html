@@ -36,11 +36,13 @@
                     <form ng-submit="vm.editPo()" method="PUT">
                         <div class="form-group">
                             <label for="textarea">Description</label>
-                            <textarea ng-model="vm.novDescription" class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>
+                            <textarea ng-model="vm.novDescription" class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea" required></textarea>
+                            <div ng-if="vm.desRes == 'true'" class="alert alert-warning">Med 1 in 500 znakov</div>
                         </div>
                         <a>Tags</a>
                         <labels for="tags"></labels>
-                        <input ng-model="vm.novTags" class="form-control mr-sm-2" type="text" placeholder="#ravnica" name="tags" />
+                        <input ng-model="vm.novTags" class="form-control mr-sm-2" type="text" placeholder="#ravnica" name="tags" required/>
+                        <div ng-if="vm.tagsRes == 'true'" class="alert alert-warning">Neveljaven format</div>
                         <button class="btn btn-primary" id="gumb" type="submit">Save</button>
                         
                     </form>

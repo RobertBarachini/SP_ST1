@@ -65,6 +65,32 @@
         content: vm.url
         }
       }
+      vm.titleRes='false'
+      vm.urlRes='false'
+      vm.desRes='false'
+      vm.tagsRes='false'
+      var ch=0;
+      var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
+      if(!regTag.test(vm.tags)){
+        ch=1;
+        vm.tagsRes='true'
+      }
+      var regOp= new RegExp("^(?=.{1,500}$)");
+      if(!regOp.test(vm.description)){
+        ch=1;
+        vm.desRes='true'
+      }
+      var regWbL= new RegExp("^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$");
+      if(vm.typeID3 && !regWbL.test(vm.url)){
+        ch=1;
+        vm.urlRes='true'
+      }
+      var regTitle= new RegExp("^(?=.{1,20}$)");
+      if(!regTitle.test(vm.title)){
+        ch=1;
+        vm.titleRes='true'
+      }
+      if(ch==0){
       aggAppPosts.addPost(vm.title,vm.userID,body,vm.description,vm.tags,0,0,{}).then(
         function success(res) {
           aggAppUsers.getUserByID(vm.userID).then( 
@@ -96,6 +122,7 @@
         vm.response = 'errorAdd'
       }  
       );
+    }
     }
   }
   

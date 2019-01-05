@@ -1,8 +1,6 @@
 (function(){
   function editPostCtrl($scope,$routeParams,aggAppPosts,aggAppUsers){
     var vm = this;
-    console.log("OVDEEE")
-    console.log(vm)
     vm.postID = $routeParams.id;
     aggAppPosts.getPostByID(vm.postID).then(
       function success(res){
@@ -24,10 +22,20 @@
       );
       
       vm.editPo = function() {
-          console.log("tuu")
-          console.log(vm.novDescription+" "+vm.novTags)
           
           if(vm.novDescription && vm.novTags){
+            var ch=0;
+            var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
+            if(!regTag.test(vm.novTags)){
+              ch=1;
+              vm.tagsRes='true'
+            }
+            var regOp= new RegExp("^(?=.{1,500}$)");
+            if(!regOp.test(vm.novDescription)){
+              ch=1;
+              vm.desRes='true'
+            }
+          if(ch==0){
             aggAppPosts.editPost(vm.post._id,vm.post.title,vm.post.owner,vm.post.body,vm.novDescription,vm.novTags,vm.post.likes,vm.post.dislikes,vm.post.comments).then(
                 function success(res) {
                 vm.response = 'success'
@@ -38,6 +46,7 @@
                 vm.response = 'errorAdd'
               }  
             );
+          }
           } else {
             vm.response = 'brezp'
           }

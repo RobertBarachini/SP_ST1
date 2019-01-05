@@ -22,31 +22,31 @@
       );
       
     vm.dodajComment = function(idU) {
+      vm.desRes=false;
       var novKomentar = {"owner":idU._id, "content":vm.comment}
-      var regOp= new RegExp("(?=.{1,500}$)");
+      var regOp= new RegExp("^(?=.{1,500}$)");
       if(novKomentar.content && regOp.test(novKomentar.content)){
         vm.post.comments.push(novKomentar)
       
         aggAppPosts.addComm(vm.postID,vm.post.title,vm.post.owner,vm.post.body,vm.post.description,vm.post.hashtags,vm.post.likes,vm.post.dislikes,vm.post.comments).then(
           function success(res) {
-          vm.response = 'success'
+          vm.desRes = 'success'
+          vm.comment=''
           console.log(res);
         },
         function error(err) {
           console.error(err);
-          vm.response = 'errorAdd'
+          vm.desRes = 'err'
         }  
         );
+      } else {
+        vm.desRes='true'
       }
       
       
     }
     
     vm.izbrisiPost = function(rUserId){
-      console.log("TU ");
-      console.log(vm);
-      console.log("vmmm ");
-      console.log(vm.post.owner);
       
       aggAppUsers.getUserByID(vm.post.owner).then(
       function success(res){
