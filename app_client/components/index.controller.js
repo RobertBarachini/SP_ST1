@@ -3,6 +3,7 @@
     var vm = this;
     vm.naslov = "Laka";
     vm.posts = [];
+      
     aggAppPosts.getPosts().then(
       function success(res){
         vm.posts = res.data;
@@ -31,6 +32,8 @@
     };
     
     vm.checkBtn = function(posId){
+      
+    console.log($scope.seIn)
         var ind = $rootScope.rootUser.postReactions.indexOf(posId);
         if(ind==-1){
           return "btn-circle btn-circle-default";

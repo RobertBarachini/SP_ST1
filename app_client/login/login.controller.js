@@ -36,7 +36,10 @@
           break;
         }
       }
-      if(!loginan) $location.path("/login");
+      if(!loginan){
+        vm.response='failure'
+        //$location.path("/login");
+      } 
     };
     
   }
