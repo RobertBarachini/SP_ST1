@@ -10,8 +10,8 @@
       <br>
       <div>
         <form ng-submit="vm.login()">
-          <input class="form-control mr-sm-2" type="email" name = "email" id="email" placeholder="Email" ng-model="vm.prijavniPodatki.email">
-          <input class="form-control mr-sm-2" type="password" name = "password" id="password" placeholder="Password" ng-model="vm.prijavniPodatki.password">
+          <input class="form-control mr-sm-2" type="email" name = "email" id="email" placeholder="Email" ng-model="vm.prijavniPodatki.email" required>
+          <input class="form-control mr-sm-2" type="password" name = "password" id="password" placeholder="Password" ng-model="vm.prijavniPodatki.password" required>
           <br>
           <button type="submit" class="btn btn-primary my-2">Login</button>
         </form>
