@@ -33,7 +33,6 @@
     
     vm.checkBtn = function(posId){
       
-    console.log($scope.seIn)
         var ind = $rootScope.rootUser.postReactions.indexOf(posId);
         if(ind==-1){
           return "btn-circle btn-circle-default";
@@ -106,6 +105,54 @@
                 vm.response = 'errorPost'
               } 
             );
+      }
+    }
+    
+    vm.search = function(loT){
+      var celStr=vm.searchStr;
+      if(loT==1 && celStr!=undefined && celStr!=''){
+      var words=vm.searchStr.split(" ");
+      aggAppPosts.getPosts().then(
+      function success(res){
+        vm.posts=[]
+        vm.postsTemp = res.data;
+        for(var i=0; i<vm.postsTemp.length; i++){
+          var com=celStr.localeCompare(vm.postsTemp[i].title)
+          if(com==0 ){ // || (com!=1 && celStr.length <= vm.postsTemp[i].title.length)
+            vm.posts.push(vm.postsTemp[i]);
+          } else {
+            for(var j=0; j<vm.postsTemp[i].hashtags.length; j++){
+              for(var k=0; k<words.length; k++){
+                var tempH=words[k];
+                if(words[k].charAt(0)!="#"){
+                  tempH="#"+words[k];
+                }
+                
+                if(tempH==vm.postsTemp[i].hashtags[j]){
+                  vm.posts.push(vm.postsTemp[i]);
+                  break;
+                }
+              }
+            }
+          }
+        }
+        console.log(res)
+      },
+      function error(er){
+        console.error(er);
+      } 
+      );
+      } else {
+        vm.searchStr=undefined;
+        aggAppPosts.getPosts().then(
+          function success(res){
+            vm.posts = res.data;
+            console.log(res)
+          },
+          function error(er){
+            console.error(er);
+          } 
+          );
       }
     }
     
