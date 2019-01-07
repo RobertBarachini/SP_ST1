@@ -12,31 +12,51 @@ var vrniJsonOdgovor = function(odgovor, status, vsebina) {
 
 //implementacija metode za registracijo uporabnika TODO: ko se registrira nastavi privzeto vlogo!
 module.exports.registracija = function(zahteva, odgovor) {
-  if (!zahteva.body.name || !zahteva.body.email || !zahteva.body.password) {
+  if (!zahteva.body.email || 
+  !zahteva.body.password || 
+  !zahteva.body.username ||
+  !zahteva.body.name ||
+  !zahteva.body.surname ||
+  !zahteva.body.profilePicture
+  ) {
     console.log(zahteva.body);
     vrniJsonOdgovor(odgovor, 400, {
-      "sporočilo": "Zahtevani so vsi podatki"
+      "message": "Missing data"
     });
   }
-  var user = new User();
-  var userIdentity = new UserIdentity();
-  user.identity = userIdentity;
-  user.name = zahteva.body.ime;
-  user.username = zahteva.body.email;
   
+  var userIdentity = new UserIdentity();
+  var id = mongoose.Types.ObjectId();
+  userIdentity._id = id;
   userIdentity.email = zahteva.body.email;
-  user.nastaviGeslo(zahteva.body.password);
-  console.log('nastavil geslo');
-  user.save(function(napaka) {
-   if (napaka) {
+  userIdentity.nastaviGeslo(zahteva.body.password);
+  console.log("New identity:\n" + userIdentity + "\n");
+  
+  userIdentity.save(function(napaka) {
+    if (napaka) {
      vrniJsonOdgovor(odgovor, 500, napaka);
-   } else {
-     vrniJsonOdgovor(odgovor, 200, {
-       "zeton": user.generirajJwt()
-     });
-   }
+    } else {
+      var user = new User();
+      user.identity = userIdentity._id;
+      user.username = zahteva.body.username;
+      user.name = zahteva.body.name;
+      user.surname = zahteva.body.password;
+      user.profilePicture = zahteva.body.profilePicture;
+      console.log("New user:\n" + user + "\n");
+      
+      user.save(function(napaka) {
+        if (napaka) {
+         vrniJsonOdgovor(odgovor, 500, napaka);
+        } else {
+         vrniJsonOdgovor(odgovor, 200, {
+           "zeton": user.generirajJwt()
+         });
+        }
+      });
+    }
   });
 };
+
 //implementacija metode za prijavo
 module.exports.prijava = function(zahteva, odgovor) {
   if (!zahteva.body.email || !zahteva.body.password) {

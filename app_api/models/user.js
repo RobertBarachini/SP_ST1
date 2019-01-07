@@ -18,18 +18,6 @@ var userShema = new mongoose.Schema({
   dateLastActive: {type: Date, required: false}
 }, { versionKey: false });
 
-userShema.methods.nastaviGeslo = function(geslo) {
-  console.log('Nastavi geslo');
-  this.identity.salt = crypto.randomBytes(16).toString('hex');
-  this.identity.password = crypto.pbkdf2Sync(geslo, this.identity.salt, 1000, 64, 'sha512').toString('hex');
-};
-
-//preveri geslo tako da dešifrira shranjeno geslo
-userShema.methods.preveriGeslo = function(geslo) {
-  var password = crypto.pbkdf2Sync(geslo, this.identity.salt, 1000, 64, 'sha512').toString('hex');
-  return this.identity.password == password;
-};
-
 //generiranje JWT
 userShema.methods.generirajJwt = function() {
   var datumPoteka = new Date();
@@ -37,8 +25,7 @@ userShema.methods.generirajJwt = function() {
   
   return jwt.sign({
     _id: this._id,
-    email: this.identity.email,
-    name: this.name,
+    identity: this.identity,
     datumPoteka: parseInt(datumPoteka.getTime() / 1000, 10)
   }, process.env.JWT_GESLO);
 };

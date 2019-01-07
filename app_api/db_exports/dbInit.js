@@ -1,7 +1,7 @@
-db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e82"), "email" : "rb@gmail.com", "password" : "123" })
-db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e83"), "email" : "ah@gmail.com", "password" : "234" })
-db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e84"), "email" : "av@gmail.com", "password" : "345" })
-db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e85"), "email" : "rm@gmail.com", "password" : "456" })
+db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e82"), "email" : "rb@gmail.com", "password" : "123", "type" : "admin" })
+db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e83"), "email" : "ah@gmail.com", "password" : "234", "type" : "user"  })
+db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e84"), "email" : "av@gmail.com", "password" : "345", "type" : "user"  })
+db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e85"), "email" : "rm@gmail.com", "password" : "456", "type" : "mod"  })
 
 db.Users.save({
   "_id" : ObjectId("5c0d165a29324abcde4e2e89"),
