@@ -125,7 +125,7 @@ module.exports.indexPagePost = function (req, res) {
 }
 
 module.exports.loginPage = function (req,res) {
-        res.render("login")
+        res.render("login");
     };
 
 module.exports.loginPagePost = function (req,res) {

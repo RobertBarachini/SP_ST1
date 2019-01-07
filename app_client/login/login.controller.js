@@ -6,6 +6,7 @@
       email: "",
       password: ""
     };
+    // pridobi vse uporabnika, da potem ko stisne login lahko primerja ce ustreza keremu. TODO!!!! naredit ustrezn login
     aggAppUsersIdentity.getUsersIdentity().then(
       function success(res) {
         vm.usersIdentity = res.data;
@@ -16,7 +17,7 @@
       }
     );
     var loginan = false;
-    vm.login = function(){
+    vm.login = function(){  //ko stisne login lahko primerja ce ustreza keremu. TODO!!!! naredit ustrezn login
       for(var up in vm.usersIdentity) {
         if(vm.prijavniPodatki.email === vm.usersIdentity[up].email && vm.prijavniPodatki.password ===  vm.usersIdentity[up].password) {
           loginan = true;
