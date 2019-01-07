@@ -68,6 +68,16 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Obvladovanje napak zaradi avtentikacije
+app.use(function(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({
+      "sporočilo": err.name + ": " + err.message
+    });
+  }
+});
+
 //Login ses
 /*app.get('*',function (req,res,next) {
     res.locals.user  = req.user || null;
