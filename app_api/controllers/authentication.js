@@ -22,9 +22,11 @@ module.exports.registracija = function(zahteva, odgovor) {
   var userIdentity = new UserIdentity();
   user.identity = userIdentity;
   user.name = zahteva.body.ime;
+  user.username = zahteva.body.email;
   
   userIdentity.email = zahteva.body.email;
   user.nastaviGeslo(zahteva.body.password);
+  console.log('nastavil geslo');
   user.save(function(napaka) {
    if (napaka) {
      vrniJsonOdgovor(odgovor, 500, napaka);

@@ -19,13 +19,14 @@ var userShema = new mongoose.Schema({
 }, { versionKey: false });
 
 userShema.methods.nastaviGeslo = function(geslo) {
+  console.log('Nastavi geslo');
   this.identity.salt = crypto.randomBytes(16).toString('hex');
-  this.identity.password = crypto.pbkdf2Sync(geslo, this.salt, 1000, 64, 'sha512').toString('hex');
+  this.identity.password = crypto.pbkdf2Sync(geslo, this.identity.salt, 1000, 64, 'sha512').toString('hex');
 };
 
 //preveri geslo tako da dešifrira shranjeno geslo
 userShema.methods.preveriGeslo = function(geslo) {
-  var password = crypto.pbkdf2Sync(geslo, this.salt, 1000, 64, 'sha512').toString('hex');
+  var password = crypto.pbkdf2Sync(geslo, this.identity.salt, 1000, 64, 'sha512').toString('hex');
   return this.identity.password == password;
 };
 
