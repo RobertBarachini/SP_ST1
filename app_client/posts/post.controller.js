@@ -24,7 +24,8 @@
     vm.dodajComment = function(idU) {
       vm.desRes=false;
       var novKomentar = {"owner":idU._id, "content":vm.comment}
-      var regOp= new RegExp("^(?=.{1,500}$)");
+      //var regOp= new RegExp("^(?=.{1,500}$)");
+      var regOp= new RegExp("^(?=.{1,500}$)[a-zA-Z0-9#-.!?]+$");
       if(novKomentar.content && regOp.test(novKomentar.content)){
         vm.post.comments.push(novKomentar)
       

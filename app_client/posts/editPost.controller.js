@@ -30,7 +30,7 @@
               ch=1;
               vm.tagsRes='true'
             }
-            var regOp= new RegExp("^(?=.{1,500}$)");
+            var regOp= new RegExp("^(?=.{1,500}$)[a-zA-Z0-9#-.!?]+$");
             if(!regOp.test(vm.novDescription)){
               ch=1;
               vm.desRes='true'

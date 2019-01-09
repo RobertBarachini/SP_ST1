@@ -110,7 +110,8 @@
     
     vm.search = function(loT){
       var celStr=vm.searchStr;
-      if(loT==1 && celStr!=undefined && celStr!=''){
+      var regSrc=new RegExp("^(?=.{1,50}$)[a-zA-Z0-9#]+$");
+      if(loT==1 && celStr!=undefined && celStr!='' && regSrc.test(celStr)){
       var words=vm.searchStr.split(" ");
       aggAppPosts.getPosts().then(
       function success(res){

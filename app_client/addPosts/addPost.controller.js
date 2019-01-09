@@ -75,7 +75,9 @@
         ch=1;
         vm.tagsRes='true'
       }
-      var regOp= new RegExp("^(?=.{1,500}$)");
+      //var regSrc=new RegExp("^(?=.{1,50}$)[a-zA-Z0-9#]+$");
+      //var regOp= new RegExp("^(?=.{1,500}$)");
+      var regOp= new RegExp("^(?=.{1,500}$)[a-zA-Z0-9#-.!?]+$");
       if(!regOp.test(vm.description)){
         ch=1;
         vm.desRes='true'
@@ -85,7 +87,8 @@
         ch=1;
         vm.urlRes='true'
       }
-      var regTitle= new RegExp("^(?=.{1,20}$)");
+      //var regTitle= new RegExp("^(?=.{1,20}$)");
+      var regTitle= new RegExp("^(?=.{1,20}$)[a-zA-Z0-9]+$");
       if(!regTitle.test(vm.title)){
         ch=1;
         vm.titleRes='true'

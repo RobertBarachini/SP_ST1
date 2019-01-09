@@ -17,6 +17,9 @@
     );
     var loginan = false;
     vm.login = function(){
+      var regEm = new RegExp("^(?![.])(?!.*[.]{2})[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+(?<![.])@(?![-])[a-zA-Z0-9-]+(?<![-])\.(?![.])(?!.*[.]{2})[a-zA-Z0-9.]+(?<![.])$");
+      var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+      if(regPass.test(vm.prijavniPodatki.password) && regEm.test(vm.prijavniPodatki.email)){
       for(var up in vm.usersIdentity) {
         if(vm.prijavniPodatki.email === vm.usersIdentity[up].email && vm.prijavniPodatki.password ===  vm.usersIdentity[up].password) {
           loginan = true;
@@ -35,6 +38,7 @@
           );
           break;
         }
+      }
       }
       if(!loginan){
         vm.response='failure'
