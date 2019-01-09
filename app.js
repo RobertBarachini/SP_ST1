@@ -1,3 +1,4 @@
+require('dotenv').load();
 require('log-timestamp');
 
 
@@ -19,6 +20,7 @@ var bodyParser = require('body-parser');
 
 console.log("app: a");
 var dbVar = require('./app_api/models/db');
+require('./app_api/config/passport');
 console.log("dbVar");
 console.log("app: b")
 
@@ -55,14 +57,26 @@ app.use((req, res, next) => {
     }
     next();
 });
-//passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules','bootstrap','dist','css')));
 app.use(express.static(path.join(__dirname, 'app_client')));
+
+
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Obvladovanje napak zaradi avtentikacije
+app.use(function(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({
+      "sporočilo": err.name + ": " + err.message
+    });
+  }
+});
 
 //Login ses
 /*app.get('*',function (req,res,next) {
