@@ -135,7 +135,8 @@
       console.log("blaa");
       var celStr=vm.searchStr;
       var regSrc=new RegExp("^(?=.{1,50}$)[a-zA-Z0-9#]+$");
-      if(loT==1 && celStr!=undefined && celStr!='' && regSrc.test(celStr)){
+      if(regSrc.test(celStr)){
+      if(loT==1 && celStr!=undefined && celStr!=''){
       var words=vm.searchStr.split(" ");
       aggAppPosts.getPosts().then(
       function success(res){
@@ -179,6 +180,7 @@
           } 
           );
       }
+    }else vm.searchStr=undefined;
     }
     
     vm.newPage = function(p){

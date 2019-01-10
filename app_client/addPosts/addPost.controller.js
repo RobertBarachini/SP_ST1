@@ -104,6 +104,10 @@
               aggAppUsers.updateUser(vm.userID, rezultat.data).then(
                function success(r) {
                  vm.response = 'success'
+                  vm.title = undefined
+                  vm.url = undefined
+                  vm.description = undefined
+                  vm.tags = undefined
                  console.log(r)
                },
                function error(e) {
@@ -125,6 +129,7 @@
         vm.response = 'errorAdd'
       }  
       );
+      
     }
     }
   }

@@ -71,11 +71,13 @@
         console.error(err);
       }
     );
-    
+    var regWbL= new RegExp("^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$");
     var checkEr=0;
     if(vm.novUsername && vm.novName && vm.novSurname && vm.noviIdentity.email && vm.noviIdentity.password){
       if(!vm.url){
         vm.noviUser.profilePicture = vm.user.profilePicture;
+      } else if(regWbL.test(vm.url)){
+        checkEr=1;
       }
       if(!regUsr.test(vm.novUsername)){
         vm.usernameRes = 'true'
