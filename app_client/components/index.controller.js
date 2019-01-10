@@ -3,11 +3,34 @@
     var vm = this;
     vm.naslov = "Laka";
     vm.posts = [];
+    vm.pages=0;
+    vm.maxNaStran=10;
       
     aggAppPosts.getPosts().then(
       function success(res){
-        vm.posts = res.data;
+        //vm.posts = res.data;
+        //console.log(vm.posts)
+        
+        vm.posts = [];
+        var tempPosts=[]
+        tempPosts = res.data;
+        vm.pages=tempPosts.length;
+        vm.strani=Math.ceil(vm.pages/vm.maxNaStran);
+        vm.trenStran=1;
+        var trenLen =  vm.pages;
+        var j=0;
+          var zac=(vm.trenStran-1)*vm.maxNaStran
+          var kon=zac+vm.maxNaStran
+          
+          if(vm.trenStran*vm.maxNaStran > trenLen){
+            kon = kon - (vm.trenStran*vm.maxNaStran - trenLen)
+          }
+          for(var i=zac; i<kon; i++){
+            vm.posts.push(tempPosts[i])
+            j++;
+          }
         console.log(res)
+        tempPosts=[]
       },
       function error(er){
         console.error(er);
@@ -109,6 +132,7 @@
     }
     
     vm.search = function(loT){
+      console.log("blaa");
       var celStr=vm.searchStr;
       var regSrc=new RegExp("^(?=.{1,50}$)[a-zA-Z0-9#]+$");
       if(loT==1 && celStr!=undefined && celStr!='' && regSrc.test(celStr)){
@@ -154,6 +178,38 @@
             console.error(er);
           } 
           );
+      }
+    }
+    
+    vm.newPage = function(p){
+      if(p>0 && p<=vm.strani && p!=vm.trenStran){
+        vm.trenStran=p;
+        aggAppPosts.getPosts().then(
+        function success(res){
+          var tempPosts=[]
+          tempPosts = res.data;
+          vm.posts=[]
+          var trenLen = tempPosts.length;
+          
+          var j=0;
+          var zac=(vm.trenStran-1)*vm.maxNaStran
+          var kon=zac+vm.maxNaStran
+          
+          if(vm.trenStran*vm.maxNaStran > trenLen){
+            kon = kon - (vm.trenStran*vm.maxNaStran - trenLen)
+          }
+          for(var i=zac; i<kon; i++){
+            vm.posts.push(tempPosts[i])
+            j++;
+          }
+          tempPosts=[]
+          
+          console.log(res)
+        },
+        function error(er){
+          console.error(er);
+        } 
+        );
       }
     }
     
