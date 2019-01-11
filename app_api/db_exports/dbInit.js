@@ -75,6 +75,29 @@ db.Users.save({
 //
 
 db.Posts.save({
+  "_id" : ObjectId("5c0d25bc080e4ba7e0389392"),
+  title: "Top sunset",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/90a5c4428d32aafd2ac6a7c1bb25ff1e/5CB4A610/t51.2885-15/e35/46262396_2217871091599117_9142800276601607707_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "I kinda borrowed this one from the internet for some unspecified time...",
+  hashtags: ["#nature", "#wanderlust", "#home"],
+  likes: 0,
+  dislikes: 0,
+  comments: [
+    {
+      owner: ObjectId("5c0d165a29324abcde4e2e8a"),
+      content: "Wow, you really are something else, aren't ya?"
+    },
+    {
+      owner: ObjectId("5c0d165a29324abcde4e2e89"),
+      content: "Thank you for your kind comments :)"
+    }
+  ]
+})
+db.Posts.save({
   "_id" : ObjectId("5c0d25ba080e4ba7e0389391"),
   title: "Live love laugh",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
@@ -83,37 +106,434 @@ db.Posts.save({
     content: ""
   },
   description: "Life's like a box of chocolates - you never know what you are going to get!",
-  hashtags: ["#natural", "#nofilter"],
+  hashtags: ["#inspirational", "#moviequotes"],
   likes: 0,
   dislikes: 0,
   comments: [
     {
       owner: ObjectId("5c0d165a29324abcde4e2e8a"),
-      content: "Hvala Robert, zelo kul!"
+      content: "Thank you Robert, very cool!"
     }
   ]
 })
 db.Posts.save({
-  "_id" : ObjectId("5c0d25bc080e4ba7e0389392"),
-  title: "Top sončni zahod",
+  "_id" : ObjectId("5c389a49cd49801331ce25c2"),
+  title: "Winter infinity",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
     bodyType: "image",
-    content: ""
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/ebe2623fedfcc5f7abc7ef3bbfc4341c/5CB2CC32/t51.2885-15/e35/47691768_269107543785473_1678044848587153476_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
   },
-  description: "To sliko sem si za nedoločen čas izposodil iz interneta.",
-  hashtags: ["#nature", "#wanderlust", "#home"],
+  description: "Walking through the frozen and really brings me peace.",
+  hashtags: ["#frozen", "#winter", "#peace", "#muytranquilo"],
   likes: 0,
   dislikes: 0,
-  comments: [
-    {
-      owner: ObjectId("5c0d165a29324abcde4e2e8a"),
-      content: "Ti si res poseben orešček."
-    },
-    {
-      owner: ObjectId("5c0d165a29324abcde4e2e89"),
-      content: "Hvala za lepe misli"
-    }
-  ]
+  comments: []
+})
+// row 2
+db.Posts.save({
+  "_id" : ObjectId("5c389a49cd49801331ce25c3"),
+  title: "Daddy Solomun",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "embed",
+    content: "https://www.youtube.com/embed/bk6Xst6euQk"
+  },
+  description: "This set was out of this world!",
+  hashtags: ["#music", "#is", "#my", "#life"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  "_id" : ObjectId("5c389a49cd49801331ce25c4"),
+  title: "I ❤️ RH 202",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "embed",
+    content: "https://www.youtube.com/embed/bk6Xst6euQk"
+  },
+  description: "This set was out of this world!",
+  hashtags: ["#music", "#is", "#my", "#life"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  "_id" : ObjectId("5c389a49cd49801331ce25c5"),
+  title: "Marko Nastić is the best vinyl DJ",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "embed",
+    content: "https://www.youtube.com/embed/bk6Xst6euQk"
+  },
+  description: "This set was out of this world!",
+  hashtags: ["#music", "#is", "#my", "#life"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+
+// generic images 1_1
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/8a17ddfecb692e9420f3074147478d41/5CCC758D/t51.2885-15/e35/47692915_169874300650109_312716175337510543_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/4771e9e8a99800337b558c4dfbd4bb08/5CBDC630/t51.2885-15/e35/49302090_551958628602242_678487439384333697_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/d85c35c1fa8ae78c2241aca8bf0277ea/5CCEAB9C/t51.2885-15/e35/49847797_276308726369590_6063637205383340675_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+// generic images 1_2
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/4039235ce7d1f90f125fb0434bfb5dd5/5CB90341/t51.2885-15/e35/49906750_796357957423599_4513143945494444939_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/07399a8a3c1bd28b7f2b9af99901793f/5CB5236C/t51.2885-15/e35/49656667_2438564909548527_5182355836713141275_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/467ba3b12047a0bc0adb3c58bb565fea/5CB90CA8/t51.2885-15/e35/47693977_347557386079755_258520124842861999_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+// generic images 1_3
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/b74d30ec404c4d6c9a03c787414f8b93/5CBEC260/t51.2885-15/e35/49718064_808341482835699_2010571301432658150_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/c2a93636400f0b20a93b7a04a7eed3b1/5CCDB9DB/t51.2885-15/e35/47693217_2120364778274280_555830605975792709_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/f93e4904aa7b86cbe991ca76ccc6609c/5CB32F01/t51.2885-15/e35/p1080x1080/47693675_286058221976445_5619134012466431151_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+
+// generic images 2_1
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/8a17ddfecb692e9420f3074147478d41/5CCC758D/t51.2885-15/e35/47692915_169874300650109_312716175337510543_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/4771e9e8a99800337b558c4dfbd4bb08/5CBDC630/t51.2885-15/e35/49302090_551958628602242_678487439384333697_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/d85c35c1fa8ae78c2241aca8bf0277ea/5CCEAB9C/t51.2885-15/e35/49847797_276308726369590_6063637205383340675_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+// generic images 2_2
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/4039235ce7d1f90f125fb0434bfb5dd5/5CB90341/t51.2885-15/e35/49906750_796357957423599_4513143945494444939_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/07399a8a3c1bd28b7f2b9af99901793f/5CB5236C/t51.2885-15/e35/49656667_2438564909548527_5182355836713141275_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/467ba3b12047a0bc0adb3c58bb565fea/5CB90CA8/t51.2885-15/e35/47693977_347557386079755_258520124842861999_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+// generic images 2_3
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/b74d30ec404c4d6c9a03c787414f8b93/5CBEC260/t51.2885-15/e35/49718064_808341482835699_2010571301432658150_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/c2a93636400f0b20a93b7a04a7eed3b1/5CCDB9DB/t51.2885-15/e35/47693217_2120364778274280_555830605975792709_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/f93e4904aa7b86cbe991ca76ccc6609c/5CB32F01/t51.2885-15/e35/p1080x1080/47693675_286058221976445_5619134012466431151_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+
+// generic images 3_1
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/8a17ddfecb692e9420f3074147478d41/5CCC758D/t51.2885-15/e35/47692915_169874300650109_312716175337510543_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/4771e9e8a99800337b558c4dfbd4bb08/5CBDC630/t51.2885-15/e35/49302090_551958628602242_678487439384333697_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/d85c35c1fa8ae78c2241aca8bf0277ea/5CCEAB9C/t51.2885-15/e35/49847797_276308726369590_6063637205383340675_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+// generic images 3_2
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/4039235ce7d1f90f125fb0434bfb5dd5/5CB90341/t51.2885-15/e35/49906750_796357957423599_4513143945494444939_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/07399a8a3c1bd28b7f2b9af99901793f/5CB5236C/t51.2885-15/e35/49656667_2438564909548527_5182355836713141275_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/467ba3b12047a0bc0adb3c58bb565fea/5CB90CA8/t51.2885-15/e35/47693977_347557386079755_258520124842861999_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+// generic images 3_3
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/b74d30ec404c4d6c9a03c787414f8b93/5CBEC260/t51.2885-15/e35/49718064_808341482835699_2010571301432658150_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/c2a93636400f0b20a93b7a04a7eed3b1/5CCDB9DB/t51.2885-15/e35/47693217_2120364778274280_555830605975792709_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
+})
+db.Posts.save({
+  title: "Generic title",
+  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  body: {
+    bodyType: "image",
+    content: "https://instagram.flju1-1.fna.fbcdn.net/vp/f93e4904aa7b86cbe991ca76ccc6609c/5CB32F01/t51.2885-15/e35/p1080x1080/47693675_286058221976445_5619134012466431151_n.jpg?_nc_ht=instagram.flju1-1.fna.fbcdn.net"
+  },
+  description: "Generic inspirational description...",
+  hashtags: ["#generictag"],
+  likes: 0,
+  dislikes: 0,
+  comments: []
 })
 
