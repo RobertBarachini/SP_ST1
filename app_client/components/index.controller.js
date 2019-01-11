@@ -168,7 +168,7 @@
         console.error(er);
       } 
       );
-      } else {
+      } /*else {
         vm.searchStr=undefined;
         aggAppPosts.getPosts().then(
           function success(res){
@@ -179,12 +179,15 @@
             console.error(er);
           } 
           );
-      }
+      }*/
     }else vm.searchStr=undefined;
     }
     
     vm.newPage = function(p){
-      if(p>0 && p<=vm.strani && p!=vm.trenStran){
+      if(p>=0 && p<=vm.strani && p!=vm.trenStran){
+        if(p==0){
+          p=1;
+        }
         vm.trenStran=p;
         aggAppPosts.getPosts().then(
         function success(res){

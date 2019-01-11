@@ -30,6 +30,7 @@
               ch=1;
               vm.tagsRes='true'
             }
+            vm.novTags=vm.novTags.split(" ")
             var regOp= new RegExp("^(?=.{1,500}$)[a-žA-Ž0-9#-.!?(\ )]+$");
             if(!regOp.test(vm.novDescription)){
               ch=1;
