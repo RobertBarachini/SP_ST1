@@ -1,0 +1,656 @@
+{
+	"info": {
+		"_postman_id": "c0547439-ff15-4df5-bd3f-d8b4aaf14c56",
+		"name": "SP Projekt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserIdentity",
+			"item": [
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/userIdentities",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"userIdentities"
+							]
+						},
+						"description": "Gets all userIdentities."
+					},
+					"response": []
+				},
+				{
+					"name": "GET byId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/userIdentities/5c0d0e2329324abcde4e2e82",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"userIdentities",
+								"5c0d0e2329324abcde4e2e82"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST create new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "novi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "userType",
+									"value": "user",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/userIdentities",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"userIdentities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"novi@gmail.com\",\n    \"password\": \"123\",\n    \"userType\": \"user\"\n}"
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/userIdentities/5c0d0e2329324abcde4e2e82",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"userIdentities",
+								"5c0d0e2329324abcde4e2e82"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/users",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/users/5c0d165a29324abcde4e2e89",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"users",
+								"5c0d165a29324abcde4e2e89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identity\": \"5c0d0e2329324abcde4e2e82\",\n  \"username\": \"keyser_soze\",\n  \"name\": \"Neki\",\n  \"surname\": \"Novi\",\n  \"profilePicture\": \"https://scontent.flju1-1.fna.fbcdn.net/v/t1.0-9/12065810_569066336579254_5384630105462652888_n.jpg?_nc_cat=106&_nc_ht=scontent.flju1-1.fna&oh=d5df1d6367f8c3e2c875bc2e645b7edd&oe=5CB25848\",\n  \"posts\": [\"5c0d25ba080e4ba7e0389391\", \"5c0d25bc080e4ba7e0389392\"],\n  \"postReactions\": [],\n  \"points\": 0,\n  \"dateJoined\": \"2018-12-09T13:00:06.968Z\",\n  \"dateLastActive\": \"2018-12-09T13:00:06.968Z\"\n}"
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/users",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identity\": \"5c0d0e2329324abcde4e2e82\",\n  \"username\": \"keyser_soze\",\n  \"name\": \"Neki\",\n  \"surname\": \"Novi\",\n  \"profilePicture\": \"https://scontent.flju1-1.fna.fbcdn.net/v/t1.0-9/12065810_569066336579254_5384630105462652888_n.jpg?_nc_cat=106&_nc_ht=scontent.flju1-1.fna&oh=d5df1d6367f8c3e2c875bc2e645b7edd&oe=5CB25848\",\n  \"posts\": [\"5c0d25ba080e4ba7e0389391\", \"5c0d25bc080e4ba7e0389392\"],\n  \"postReactions\": [],\n  \"points\": 0,\n  \"dateJoined\": \"2018-12-09T13:00:06.968Z\",\n  \"dateLastActive\": \"2018-12-09T13:00:06.968Z\"\n}"
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/users/5c0d165a29324abcde4e2e89",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"users",
+								"5c0d165a29324abcde4e2e89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add post reaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/users/5c0d165a29324abcde4e2e89/reactToPost/5c0d25bc080e4ba7e0389392",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"users",
+								"5c0d165a29324abcde4e2e89",
+								"reactToPost",
+								"5c0d25bc080e4ba7e0389392"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove post reaction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/users/5c0d165a29324abcde4e2e89/reactToPost/5c0d25bc080e4ba7e0389392",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"users",
+								"5c0d165a29324abcde4e2e89",
+								"reactToPost",
+								"5c0d25bc080e4ba7e0389392"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/posts",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET byId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/posts/5c0d25bc080e4ba7e0389392",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5c0d25bc080e4ba7e0389392"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE byId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/posts/5c0d25ba080e4ba7e0389391",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5c0d25ba080e4ba7e0389391"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Top sončni zahod\",\n  \"owner\": \"5c0d165a29324abcde4e2e8a\",\n  \"body\": {\n    \"bodyType\": \"image\",\n    \"content\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Googleplex-Patio-Aug-2014.JPG/1920px-Googleplex-Patio-Aug-2014.JPG\"\n  },\n  \"description\": \"To sliko sem si za nedoločen čas izposodil iz interneta.\",\n  \"hashtags\": [\"#nature\", \"#wanderlust\", \"#home\"],\n  \"likes\": 0,\n  \"dislikes\": 0,\n  \"comments\": [\n    {\n      \"owner\": \"5c0d165a29324abcde4e2e8a\",\n      \"content\": \"Thank you Kanye, very cool!\"\n    },\n    {\n      \"owner\": \"5c0d165a29324abcde4e2e89\",\n      \"content\": \"Hvala za lepe misli\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/posts",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Nova objava\",\n  \"owner\": \"5c0d165a29324abcde4e2e89\",\n  \"body\": {\n    \"bodyType\": \"embeded\",\n    \"content\": \"<iframe width='560' height='315' src='https://www.youtube.com/embed/bk6Xst6euQk' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>\"\n  },\n  \"description\": \"<iframe width='560' height='315' src='https://www.youtube.com/embed/bk6Xst6euQk' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>\",\n  \"hashtags\": [\"#nature\", \"#wanderlust\", \"#home\"],\n  \"likes\": 0,\n  \"dislikes\": 0,\n  \"comments\": [\n    {\n      \"owner\": \"5c0d165a29324abcde4e2e8a\",\n      \"content\": \"Thank you Kanye, very cool!\"\n    },\n    {\n      \"owner\": \"5c0d165a29324abcde4e2e89\",\n      \"content\": \"Hvala za lepe misli\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/posts/5c0d25ba080e4ba7e0389391",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5c0d25ba080e4ba7e0389391"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add comment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"owner\": \"5c0d165a29324abcde4e2e89\",\n\t\"content\": \"To je nov, dinamično dodan komentar.\"\n}"
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/posts/5c0d25ba080e4ba7e0389391/addComment",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5c0d25ba080e4ba7e0389391",
+								"addComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove comments",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/posts/5c0d25ba080e4ba7e0389391/removeComments",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5c0d25ba080e4ba7e0389391",
+								"removeComments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Init",
+			"item": [
+				{
+					"name": "INIT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/db/init",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"db",
+								"init"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DROP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/db/drop",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"db",
+								"drop"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Heroku",
+			"item": [
+				{
+					"name": "GET posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://spherokuapp123.herokuapp.com/api/posts",
+							"protocol": "https",
+							"host": [
+								"spherokuapp123",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "POST new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"novimail@gmail.com\",\n  \"password\": \"rmPASS12345\",\n  \"username\": \"keyser_soze\",\n  \"name\": \"Neki\",\n  \"surname\": \"Novi\",\n  \"profilePicture\": \"https://scontent.flju1-1.fna.fbcdn.net/v/t1.0-9/12065810_569066336579254_5384630105462652888_n.jpg?_nc_cat=106&_nc_ht=scontent.flju1-1.fna&oh=d5df1d6367f8c3e2c875bc2e645b7edd&oe=5CB25848\"\n}"
+						},
+						"url": {
+							"raw": "https://sp-st-2-3-robert-barachini.c9users.io/api/registracija",
+							"protocol": "https",
+							"host": [
+								"sp-st-2-3-robert-barachini",
+								"c9users",
+								"io"
+							],
+							"path": [
+								"api",
+								"registracija"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
