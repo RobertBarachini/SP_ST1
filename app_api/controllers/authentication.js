@@ -64,14 +64,14 @@ module.exports.prijava = function(zahteva, odgovor) {
       "sporočilo": "Zahtevani so vsi podatki"
     });
   }
-  passport.authenticate('local', function(napaka, uporabnik, podatki) {
-    if (napaka) {
-      vrniJsonOdgovor(odgovor, 404, napaka);
+  passport.authenticate('local', function(error, user, podatki) {
+    if (error) {
+      vrniJsonOdgovor(odgovor, 404, error);
       return;
     }
-    if (uporabnik) {
+    if (user) {
       vrniJsonOdgovor(odgovor, 200, {
-        "zeton": uporabnik.generirajJwt()
+        "zeton": user.generirajJwt()
       });
     } else {
       vrniJsonOdgovor(odgovor, 401, podatki);

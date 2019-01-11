@@ -44,8 +44,8 @@
           var koristnaVsebina = JSON.parse($window.atob(zeton.split('.')[1]));
           return {
               //TODO: dobit podatke ki rabis iz tokena
-            email: koristnaVsebina.email,
-            name: koristnaVsebina.name
+            _id: koristnaVsebina._id,
+            identity: koristnaVsebina.identity,
           };
         }
       };

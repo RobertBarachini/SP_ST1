@@ -1,45 +1,43 @@
 (function(){
-  function loginCtrl($rootScope,$location,aggAppUsersIdentity,aggAppUsers){
+  function loginCtrl($rootScope,$location,aggAppUsersIdentity,aggAppUsers, auth){
     var vm = this;
     
     vm.prijavniPodatki = {
       email: "",
       password: ""
     };
-    // pridobi vse uporabnika, da potem ko stisne login lahko primerja ce ustreza keremu. TODO!!!! naredit ustrezn login
-    aggAppUsersIdentity.getUsersIdentity().then(
-      function success(res) {
-        vm.usersIdentity = res.data;
-        console.log(vm.usersIdentity)
-      },
-      function error(err) {
-        console.error(err);
-      }
-    );
+    
     var loginan = false;
     vm.login = function(){ //ko stisne login lahko primerja ce ustreza keremu. TODO!!!! naredit ustrezn login
       var regEm = new RegExp("^(?![.])(?!.*[.]{2})[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+(?<![.])@(?![-])[a-zA-Z0-9-]+(?<![-])\.(?![.])(?!.*[.]{2})[a-zA-Z0-9.]+(?<![.])$");
       var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
       if(regPass.test(vm.prijavniPodatki.password) && regEm.test(vm.prijavniPodatki.email)){
-      for(var up in vm.usersIdentity) {
-        if(vm.prijavniPodatki.email === vm.usersIdentity[up].email && vm.prijavniPodatki.password ===  vm.usersIdentity[up].password) {
-          loginan = true;
-          aggAppUsers.getUsers().then(
-            function success(res) {
-              for(var uporabnik in res.data){
-                if(res.data[uporabnik].identity === vm.usersIdentity[up]._id) {
-                  $rootScope.rootUser = res.data[uporabnik];
-                  $location.path("/");
-                }
+        
+        auth.login(vm.prijavniPodatki).then(
+          //po uspesni prijavi, klici servis za pridobitev uporabnika, ki se je identificiral
+            function(success) {
+              var userIdAndIdentity = auth.currentUser();
+              if(!userIdAndIdentity){
+                console.log('NI PRIJAVLJENEGA UPORABNIKA!')
+              }else {
+                aggAppUsers.getUserByID(userIdAndIdentity._id).then(
+                  function success(res) {
+                    $rootScope.rootUser = res.data;
+                    loginan = true;
+                    console.log('Nastavil uporabnika v root scope---------------');
+                    console.log(res.data)
+                    $location.path("/");
+                  },
+                  function error(err) {
+                    console.error(err);
+                  }
+                );
               }
             },
-            function error(err) {
-              console.error(err);
+            function(napaka) {
+              vm.napakaNaObrazcu = napaka.data.sporocilo;
             }
           );
-          break;
-        }
-      }
       }
       if(!loginan){
         vm.response='failure'
@@ -49,7 +47,7 @@
     
   }
   
-  loginCtrl.$inject = ['$rootScope','$location','aggAppUsersIdentity','aggAppUsers'];
+  loginCtrl.$inject = ['$rootScope','$location','aggAppUsersIdentity','aggAppUsers', 'auth'];
   
   /* global angular */
   angular
