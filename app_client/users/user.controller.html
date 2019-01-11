@@ -24,12 +24,12 @@
 
                   </div>
                   <h6>{{vm.user.name}} {{vm.user.surname}}</h6>
-                  <ul style="padding-left:15px">
+                  <!--<ul style="padding-left:15px">
                     <li>priden</li>
                     <li>pošten</li>
                     <li>delaven</li>
                   </ul>
-                  <a href="">www.{{vm.user.username}}.si<a>
+                  <a href="">www.{{vm.user.username}}.si<a>-->
                 </div>
               </section>
             </div>
@@ -75,8 +75,13 @@
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
-                        <div class="btn-circle btn-circle-success"></div>
-                        <div class="btn-circle btn-circle-default"></div>
+                        <div ng-if="rootUser" class="btn-group">
+                          <div ng-click="vm.reactP(post._id)" class="{{vm.checkBtn(post._id)}}" ></div>
+                        </div>
+                        <div ng-if="!rootUser" class="btn-group">
+                          <div class="btn-circle btn-circle-default"></div>
+                        </div>
+                        
                       </div>
                       <small class="text-muted">{{post.likes}}</small>
                     </div>

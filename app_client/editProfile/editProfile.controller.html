@@ -1,5 +1,5 @@
  <glava></glava>
- <main role="main">
+ <main ng-if="rootUser"  role="main">
     <div class="album py-5 bg-light">
         <div class="container">
             <h1>Edit Profile</h1>
@@ -22,22 +22,24 @@
                     <!--<form method="POST" action="/users/userID/editProfile"> -->
                     <form ng-submit="vm.editP(rootUser)" method="PUT">
                         <div class="form-group"><label class="col-lg-3 control-label" for="name">Name:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novName" class="form-control" id="name" type="text" placeholder="Bane" name="name" /></div>
+                            <div class="col-lg-8"><input ng-model="vm.novName" class="form-control" id="name" type="text" placeholder="Bane" name="name" />
+                                <div ng-if="vm.nameRes == 'true'" class="alert alert-warning">Neveljaven format</div>
+                            </div>
                         </div>
                         <div class="form-group"><label class="col-lg-3 control-label" for="surname">Surname:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novSurname" class="form-control" id="surname" type="text" placeholder="Krstič" name="surname" /></div>
+                            <div class="col-lg-8"><input ng-model="vm.novSurname" class="form-control" id="surname" type="text" placeholder="Krstič" name="surname" />
+                                <div ng-if="vm.surnameRes == 'true'" class="alert alert-warning">Neveljaven format</div>
+                            </div>
                         </div>
                         <div class="form-group"><label class="col-lg-3 control-label" for="username">Username:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novUsername" class="form-control" id="username" type="text" placeholder="BaneK" name="username" /></div>
-                        </div>
-                        <div class="form-group"><label class="col-lg-3 control-label" for="website">Website:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novWebsite" class="form-control" id="website" type="text" placeholder="www.BaneKrstič.si" name="website" /></div>
-                        </div>
-                        <div class="form-group"><label class="col-lg-3 control-label" for="textArea">Bio</label>
-                            <div class="col-lg-8"><textarea ng-model="vm.novBio" class="form-control" id="textArea" form="usrform" rows="3" placeholder="priden                pošten                delaven" name="textArea"></textarea></div>
+                            <div class="col-lg-8"><input ng-model="vm.novUsername" class="form-control" id="username" type="text" placeholder="BaneK" name="username" />
+                                <div ng-if="vm.usernameRes == 'true'" class="alert alert-warning">aA-žŽ, 0-9, -, 4 do 20 znakov</div>
+                            </div>
                         </div>
                         <div class="form-group"><label class="col-lg-3 control-label" for="email">Email:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novEmail" class="form-control" id="email" type="email" placeholder="banekrstic@gmail.com" name="email" /></div>
+                            <div class="col-lg-8"><input ng-model="vm.novEmail" class="form-control" id="email" type="email" placeholder="banekrstic@gmail.com" name="email" />
+                                <div ng-if="vm.emailRes == 'true'" class="alert alert-warning">Neveljaven format</div>
+                            </div>
                         </div>
                         <div class="form-group"><label class="col-lg-3 control-label">Time Zone:</label>
                             <div class="col-lg-8">
@@ -45,20 +47,24 @@
                             </div>
                         </div>
                         <div class="form-group"><label class="col-md-3 control-label" for="password">Password:</label>
-                            <div class="col-md-8"><input ng-model="vm.novPassword" class="form-control" id="password" type="password" placeholder="password" name="password" /></div>
+                            <div class="col-md-8"><input ng-model="vm.novPassword" class="form-control" id="password" type="password" placeholder="password" name="password" />
+                                <div ng-if="vm.passRes == 'true'" class="alert alert-warning">min 8 znakov, ena majhna, ena velika crka in ena stevilka</div>
+                            </div>
                         </div>
                         <div class="form-group"><label class="col-md-3 control-label" for="password2">Confirm password:</label>
-                            <div class="col-md-8"><input ng-model="vm.novPassword2" class="form-control" id="password2" type="password" placeholder="password" name="password2" /></div>
+                            <div class="col-md-8"><input ng-model="vm.novPassword2" class="form-control" id="password2" type="password" placeholder="password" name="password2" />
+                                <div ng-if="vm.pass2Res == 'true'" class="alert alert-warning">Gesli nista isti</div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">
-                                <button class="btn btn-primary" id="gumb" type="submit" style="align: left;">Save Changes</button>
+                                <button  class="btn btn-primary" id="gumb" type="submit" style="align: left;">Save Changes</button>
                                 <a href='/users/{{rootUser._id}}' >Cancel </a>
                             </label>
                         </div>
                         <div ng-if="vm.response == 'success'" class="alert alert-info">Podatki so uspesno spremenjeni!</div>
                         <div ng-if="vm.response == 'errorAdd'" class="alert alert-danger">Napaka!</div>
-                        <div ng-if="vm.response == 'brezp'" class="alert alert-danger">Izpolni podatke!</div>
+                        <div ng-if="vm.response == 'brezp'" class="alert alert-danger">Izpolni vsa polja!</div>
                 </div>
             </div>
         </div>

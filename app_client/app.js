@@ -36,6 +36,11 @@
         controller: "editProfileCtrl",
         controllerAs:"vm"
       })
+      .when('/editPost/:id',{
+        templateUrl:"posts/editPost.controller.html",
+        controller: "editPostCtrl",
+        controllerAs:"vm"
+      })
       .otherwise({ redirectTo: "/" });
       
     $locationProvider.html5Mode(true);

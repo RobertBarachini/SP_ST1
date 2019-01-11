@@ -1,7 +1,21 @@
-db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e82"), "email" : "rb@gmail.com", "password" : "123" })
-db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e83"), "email" : "ah@gmail.com", "password" : "234" })
-db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e84"), "email" : "av@gmail.com", "password" : "345" })
-db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e85"), "email" : "rm@gmail.com", "password" : "456" })
+//  TEST PASSWORDS
+//  rb: rbPASS12345
+//  ah: ahPASS12345
+//  av: avPASS12345
+//  rm: rmPASS12345
+
+//
+////  USER IDENTITIES
+//
+
+db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e82"), "email" : "rb@gmail.com", "password" : "72984d93835e8730ffa6ff544e99220bc584af89028655798c63886bcc5d43b6aa167655a95376165cac8bbedd1afb545245d1c2041066bf56f60370094098f3", "userType" : "admin", "salt" : "03b926c2fc1c6275a845e3283389076a" })
+db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e83"), "email" : "ah@gmail.com", "password" : "6819cbba1499a0a60e604711a676a7ce04ecb1ebaafc8b8ca32820bd5c9a85f4b7b8b732ff6bf20c689556f3db97aac7b14d03af1f7c7c4c2a0042170a67e510", "userType" : "user", "salt" : "d550bea24425283c43668a253cbb43ad"  })
+db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e84"), "email" : "av@gmail.com", "password" : "c08c56840dbfd85028904afa47191273ec52860f32fbee631c542ee19e648ffc40b56a3eb1546ca39a41f89e56a10dcc65816e7942a0808cb5a920b157e64bc4", "userType" : "user", "salt" : "09e49d646b7ce35a5962a4f5fe3350fe"  })
+db.UserIdentities.save({ "_id" : ObjectId("5c0d0e2329324abcde4e2e85"), "email" : "rm@gmail.com", "password" : "cec94f6c2234192920e781adc64f24757f756eb59e39160e18c33777aa514f38509cb9b343057b4e69bb4e5ed9bc6f90cf9395d5b40433dd1faab561b597b3e3", "userType" : "user", "salt" : "32a850f0114dc2ef062e0887acfabb66"  })
+
+//
+////  USERS
+//
 
 db.Users.save({
   "_id" : ObjectId("5c0d165a29324abcde4e2e89"),
@@ -56,6 +70,10 @@ db.Users.save({
   dateLastActive: ISODate("2018-12-09T13:00:09.968Z")
 })
 
+//
+////  POSTS
+//
+
 db.Posts.save({
   "_id" : ObjectId("5c0d25ba080e4ba7e0389391"),
   title: "Live love laugh",
@@ -98,3 +116,4 @@ db.Posts.save({
     }
   ]
 })
+

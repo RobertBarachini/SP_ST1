@@ -6,6 +6,7 @@
       email: "",
       password: ""
     };
+    // pridobi vse uporabnika, da potem ko stisne login lahko primerja ce ustreza keremu. TODO!!!! naredit ustrezn login
     aggAppUsersIdentity.getUsersIdentity().then(
       function success(res) {
         vm.usersIdentity = res.data;
@@ -16,7 +17,10 @@
       }
     );
     var loginan = false;
-    vm.login = function(){
+    vm.login = function(){ //ko stisne login lahko primerja ce ustreza keremu. TODO!!!! naredit ustrezn login
+      var regEm = new RegExp("^(?![.])(?!.*[.]{2})[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+(?<![.])@(?![-])[a-zA-Z0-9-]+(?<![-])\.(?![.])(?!.*[.]{2})[a-zA-Z0-9.]+(?<![.])$");
+      var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+      if(regPass.test(vm.prijavniPodatki.password) && regEm.test(vm.prijavniPodatki.email)){
       for(var up in vm.usersIdentity) {
         if(vm.prijavniPodatki.email === vm.usersIdentity[up].email && vm.prijavniPodatki.password ===  vm.usersIdentity[up].password) {
           loginan = true;
@@ -36,7 +40,11 @@
           break;
         }
       }
-      if(!loginan) $location.path("/login");
+      }
+      if(!loginan){
+        vm.response='failure'
+        //$location.path("/login");
+      } 
     };
     
   }

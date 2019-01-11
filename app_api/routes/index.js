@@ -5,6 +5,7 @@ var ctrlUserIdentities = require('../controllers/userIdentities');
 var ctrlUsers = require('../controllers/users');
 var ctrlPosts = require('../controllers/posts');
 var ctrlDbInit = require("../controllers/dbInit");
+var ctrlAuthentication = require('../controllers/authentication');
 //var ctrlUsers = require("../controllers/users");
 
 // userIdentitites
@@ -13,6 +14,12 @@ router.get("/userIdentities/:userIdentityId", ctrlUserIdentities.getById);
 router.delete("/userIdentities/:userIdentityId", ctrlUserIdentities.deleteById)
 router.post("/userIdentities", ctrlUserIdentities.addNew);
 router.put("/userIdentities/:userIdentityId", ctrlUserIdentities.updateObject);
+
+/* Avtentikacija 
+    ZAENKRAT ZA TESTIRANJE, POTEM POTREBNO ZAMENJAT LOGIN IN REGISTRATION!!! TODO:
+*/
+router.post('/registracija', ctrlAuthentication.registracija);
+router.post('/prijava', ctrlAuthentication.prijava);
 
 // users
 router.get("/users", ctrlUsers.getAll);

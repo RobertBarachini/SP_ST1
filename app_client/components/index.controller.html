@@ -39,17 +39,33 @@
                       </div>
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <div class="btn-circle btn-circle-success"></div>
+                      <div ng-if="rootUser" class="btn-group">
+                        
+                       <div ng-click="vm.reactP(post._id)" class="{{vm.checkBtn(post._id)}}" ></div>
+
+                      </div>
+                      <div ng-if="!rootUser" class="btn-group">
                         <div class="btn-circle btn-circle-default"></div>
                       </div>
-                      <small class="text-muted">{{post.likes}}</small>
                     </div>
                   </div>
                  </a>
                </div>
              </div>
           </div>
+        
+        <div ng-if="vm.strani>1">
+            <button class="btn btn-secondary" ng-click="vm.newPage(1)">First</button>
+            <button class="btn btn-secondary"  ng-click="vm.newPage(vm.trenStran-1)">Previous</button>
+            <b ng-if="(vm.trenStran-2)>0">...</b>
+            <button class="btn btn-primary"  ng-if="(vm.trenStran-1)>0" ng-click="vm.newPage(vm.trenStran-1)">{{vm.trenStran-1}}</button>
+            <button class="btn btn-secondary" disabled>{{vm.trenStran}}</button>
+            <button class="btn btn-primary"  ng-if="(vm.trenStran+1)<=vm.strani" ng-click="vm.newPage(vm.trenStran+1)">{{vm.trenStran+1}}</button>
+            <b ng-if="(vm.trenStran+2)<=vm.strani">...</b>
+            <button class="btn btn-secondary"  ng-click="vm.newPage(vm.trenStran+1)">Next</button>
+            <button class="btn btn-secondary"  ng-click="vm.newPage(vm.strani)">Last</button>
+        </div>
+        
         </div>
         <div ng-if="vm.posts == undefined || vm.posts < 1">
           <div class='row'>
