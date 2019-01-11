@@ -1,7 +1,6 @@
 require('dotenv').load();
 require('log-timestamp');
 
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -11,11 +10,40 @@ var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var indexRouter = require('./app_server/routes/index.route');
+//var indexRouter = require('./app_server/routes/index.route');
 var usersRouter = require('./app_server/routes/users.route');
 var postsRouter = require('./app_server/routes/posts.route');
 var bodyParser = require('body-parser');
 
+
+
+var uglifyJs = require('uglify-js');
+var fs = require('fs');
+var zdruzeno = uglifyJs.minify({
+  'app.js': fs.readFileSync('app_client/app.js', 'utf-8'),
+  'index.controller.js' : fs.readFileSync('app_client/components/index.controller.js', 'utf-8'),
+  'glava.controller.js' : fs.readFileSync('app_client/layout/glava/glava.controller.js', 'utf-8'),
+  'post.controller.js' : fs.readFileSync('app_client/posts/post.controller.js', 'utf-8'),
+  'users.services.js' : fs.readFileSync('app_client/services/users.services.js', 'utf-8'),
+  'user.controller.js' : fs.readFileSync('app_client/users/user.controller.js', 'utf-8'),
+  'login.controller.js' : fs.readFileSync('app_client/login/login.controller.js', 'utf-8'),
+  'register.controller.js' : fs.readFileSync('app_client/register/register.controller.js', 'utf-8'),
+  'usersIdentity.services.js' : fs.readFileSync('app_client/services/usersIdentity.services.js', 'utf-8'),
+  'addPost.controller.js' : fs.readFileSync('app_client/modalnaOkna/addPost/addPost.controller.js', 'utf-8'),
+  'addPost.controller.js' : fs.readFileSync('app_client/addPosts/addPost.controller.js', 'utf-8'),
+  'editProfile.controller.js' : fs.readFileSync('app_client/editProfile/editProfile.controller.js', 'utf-8'),
+  'editPost.controller.js' : fs.readFileSync('app_client/posts/editPost.controller.js', 'utf-8'),
+  'posts.services.js' : fs.readFileSync('app_client/services/posts.services.js', 'utf-8'),
+  'users.services.js' : fs.readFileSync('app_client/services/users.services.js', 'utf-8'),
+  'usersIdentity.services.js' : fs.readFileSync('app_client/services/usersIdentity.services.js', 'utf-8'),
+  'auth.services.js' : fs.readFileSync('app_client/services/auth.services.js', 'utf-8')
+});
+fs.writeFile('public/angular/aggApp.min.js', zdruzeno.code, function(napaka) {
+  if (napaka)
+    console.log(napaka);
+  else
+    console.log('Skripta je zgenerirana in shranjena v "aggApp.min.js".');
+});
 
 
 console.log("app: a");
@@ -91,6 +119,7 @@ app.use(bodyParser.json())
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 //app.use('/posts', postsRouter);
+
 
 app.use("/api", indexApi)
 app.use("/userIdenty", indexApi);
