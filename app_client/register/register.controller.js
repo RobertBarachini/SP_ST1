@@ -12,7 +12,7 @@
       profilePic:""
     }
   vm.register = function() {
-    var regUsr = new RegExp("^(?=.{4,20}$)[a-zA-Z0-9-]+$");
+    var regUsr = new RegExp("^(?=.{4,20}$)[a-žA-Ž0-9-(\)]+$");
     //username = med 4 in 32 znakov, zgoraj nasteti znaki
     var regEm = new RegExp("^(?![.])(?!.*[.]{2})[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+(?<![.])@(?![-])[a-zA-Z0-9-]+(?<![-])\.(?![.])(?!.*[.]{2})[a-zA-Z0-9.]+(?<![.])$");
     //email = (. ni na zaceetku in koncu, in se ne sme podvajat znotraj gor nastetih znakov v []) @ (- ni na zactku in koncu) . (. ni na zactku, koncu in se ne podvaja)

@@ -134,7 +134,7 @@
     vm.search = function(loT){
       console.log("blaa");
       var celStr=vm.searchStr;
-      var regSrc=new RegExp("^(?=.{1,50}$)[a-zA-Z0-9#]+$");
+      var regSrc=new RegExp("^(?=.{1,50}$)[a-žA-Ž0-9#(\ )]+$");
       if(regSrc.test(celStr)){
       if(loT==1 && celStr!=undefined && celStr!=''){
       var words=vm.searchStr.split(" ");

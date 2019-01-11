@@ -25,12 +25,12 @@
           
           if(vm.novDescription && vm.novTags){
             var ch=0;
-            var regTag = new RegExp("^(#[a-zA-Z0-9]+(\ )?)+$");
+            var regTag = new RegExp("^(#[a-žA-Ž0-9]+(\ )?)+$");
             if(!regTag.test(vm.novTags)){
               ch=1;
               vm.tagsRes='true'
             }
-            var regOp= new RegExp("^(?=.{1,500}$)[a-zA-Z0-9#-.!?]+$");
+            var regOp= new RegExp("^(?=.{1,500}$)[a-žA-Ž0-9#-.!?(\ )]+$");
             if(!regOp.test(vm.novDescription)){
               ch=1;
               vm.desRes='true'
