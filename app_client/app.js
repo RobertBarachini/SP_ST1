@@ -45,7 +45,7 @@
       
     $locationProvider.html5Mode(true);
      $sceDelegateProvider.resourceUrlWhitelist([
-      'self', 'https://www.youtube.com/**'
+      'self', 'https://www.youtube.com/**', 'https://www.mixcloud.com/**', 'https://www.soundcloud.com/**', 'https://w.soundcloud.com/**'
     ]);
   }
    /* global angular */
