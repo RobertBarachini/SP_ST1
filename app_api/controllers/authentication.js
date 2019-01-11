@@ -40,7 +40,7 @@ module.exports.registracija = function(zahteva, odgovor) {
       user.identity = userIdentity._id;
       user.username = zahteva.body.username;
       user.name = zahteva.body.name;
-      user.surname = zahteva.body.password;
+      user.surname = zahteva.body.surname;
       user.profilePicture = zahteva.body.profilePic;
       console.log("New user:\n" + user + "\n");
       
