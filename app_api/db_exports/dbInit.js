@@ -151,7 +151,7 @@ db.Posts.save({
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
     bodyType: "embed",
-    content: "https://www.youtube.com/embed/bk6Xst6euQk"
+    content: "https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Frh202%2Frh-202-199-with-tim-urbanya-val-202-26102018%2F"
   },
   description: "This set was out of this world!",
   hashtags: ["#music", "#is", "#my", "#life"],
@@ -165,7 +165,7 @@ db.Posts.save({
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
     bodyType: "embed",
-    content: "https://www.youtube.com/embed/bk6Xst6euQk"
+    content: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/523127844&color=%234c3c36&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   description: "This set was out of this world!",
   hashtags: ["#music", "#is", "#my", "#life"],
