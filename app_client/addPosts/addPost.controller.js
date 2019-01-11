@@ -94,6 +94,7 @@
         vm.titleRes='true'
       }
       if(ch==0){
+        vm.tags=vm.tags.split(" ")
       aggAppPosts.addPost(vm.title,vm.userID,body,vm.description,vm.tags,0,0,{}).then(
         function success(res) {
           aggAppUsers.getUserByID(vm.userID).then( 

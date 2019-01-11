@@ -156,7 +156,7 @@
                 
                 if(tempH==vm.postsTemp[i].hashtags[j]){
                   vm.posts.push(vm.postsTemp[i]);
-                  break;
+                  j=vm.postsTemp[i].hashtags.length
                 }
               }
             }
