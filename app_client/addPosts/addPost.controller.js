@@ -51,13 +51,14 @@
             console.warn("YouTubeUrlNormalize getVidId not a youTube Video: "+vm.url);
             vidId = null;
         }
-   
-        if(vidId.indexOf("&") !== -1)
-        {
-            vidId = vidId.substr(0, vidId.indexOf("&") );
-        }
         if(vidId != null) {
-          vm.url = "https://www.youtube.com/embed/"+vidId;
+          if(vidId.indexOf("&") !== -1)
+          {
+              vidId = vidId.substr(0, vidId.indexOf("&") );
+          }
+          if(vidId != null) {
+            vm.url = "https://www.youtube.com/embed/"+vidId;
+          }
         }
        
         body = {
