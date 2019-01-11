@@ -1,5 +1,5 @@
 (function(){
-  function registerCtrl($rootScope,$location, authorization){
+  function registerCtrl($rootScope,$location, auth){
     var vm = this;
     
     vm.prijavniPodatki = {
@@ -49,7 +49,7 @@
         checkEr=1;
       }
       if(checkEr==0){
-      authorization.registration(vm.prijavniPodatki).then(
+      auth.registration(vm.prijavniPodatki).then(
           function(success) {
             $location.search('stran', null);
             $location.path(vm.prvotnaStran);
@@ -64,7 +64,7 @@
       
 };
   
-  registerCtrl.$inject = ['$rootScope','$location', 'authorization'];
+  registerCtrl.$inject = ['$rootScope','$location', 'auth'];
   
   /* global angular */
   angular

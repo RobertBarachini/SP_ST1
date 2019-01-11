@@ -1,5 +1,5 @@
 (function() {
-  function authorization($window, $http) {
+  function auth($window, $http) {
     var saveToken = function(zeton) {
       $window.localStorage['Aggregate-token'] = zeton;
     };
@@ -60,10 +60,10 @@
       currentUser: currentUser
     }
   }
-  authorization.$inject = ['$window', '$http'];
+  auth.$inject = ['$window', '$http'];
   
   /* global angular */
   angular
     .module('aggApp')
-    .service('authorization', authorization);
+    .service('auth', auth);
 })();
