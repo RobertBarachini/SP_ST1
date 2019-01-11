@@ -17,7 +17,7 @@ module.exports.registracija = function(zahteva, odgovor) {
   !zahteva.body.username ||
   !zahteva.body.name ||
   !zahteva.body.surname ||
-  !zahteva.body.profilePicture
+  !zahteva.body.profilePic
   ) {
     console.log(zahteva.body);
     vrniJsonOdgovor(odgovor, 400, {
@@ -41,7 +41,7 @@ module.exports.registracija = function(zahteva, odgovor) {
       user.username = zahteva.body.username;
       user.name = zahteva.body.name;
       user.surname = zahteva.body.password;
-      user.profilePicture = zahteva.body.profilePicture;
+      user.profilePicture = zahteva.body.profilePic;
       console.log("New user:\n" + user + "\n");
       
       user.save(function(napaka) {

@@ -1,5 +1,5 @@
 (function() {
-  function auth($window, $http) {
+  function authorization($window, $http) {
     var saveToken = function(zeton) {
       $window.localStorage['Aggregate-token'] = zeton;
     };
@@ -11,6 +11,8 @@
     var registration = function(user) {
       return $http.post('/api/registracija', user).then(
         function success(odgovor) {
+          console.log('Shranim zeton');
+          console.log(odgovor.data.zeton);
           saveToken(odgovor.data.zeton);
         });
     };
@@ -34,8 +36,9 @@
         } else {
           return false;
         }
-        
-      var currentUser = function() {
+     };
+     
+        var currentUser = function() {
         if (isLoggedIn()) {
           var zeton = getToken();
           var koristnaVsebina = JSON.parse($window.atob(zeton.split('.')[1]));
@@ -46,7 +49,6 @@
           };
         }
       };
-  };
     
     return {
       saveToken: saveToken,
@@ -56,12 +58,12 @@
       logout: logout,
       isLoggedIn: isLoggedIn,
       currentUser: currentUser
-    };
+    }
   }
-  auth.$inject = ['$window', '$http'];
+  authorization.$inject = ['$window', '$http'];
   
   /* global angular */
   angular
     .module('aggApp')
-    .service('auth', auth);
+    .service('authorization', authorization);
 })();

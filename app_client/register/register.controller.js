@@ -1,5 +1,5 @@
 (function(){
-  function registerCtrl($rootScope,$location,aggAppUsersIdentity,aggAppUsers){
+  function registerCtrl($rootScope,$location, authorization){
     var vm = this;
     
     vm.prijavniPodatki = {
@@ -11,6 +11,8 @@
       password2: "",
       profilePic:""
     }
+    vm.prvotnaStran = '/';
+    
   vm.register = function() {
     var regUsr = new RegExp("^(?=.{4,20}$)[a-žA-Ž0-9-(\)]+$");
     //username = med 4 in 32 znakov, zgoraj nasteti znaki
@@ -47,33 +49,22 @@
         checkEr=1;
       }
       if(checkEr==0){
-    aggAppUsersIdentity.postUserIdentity(vm.prijavniPodatki.email, vm.prijavniPodatki.password, "user").then(
-      function success(rezultat) {
-        console.log("UserIdentititeta POST")
-        console.log(rezultat.data)
-        aggAppUsers.postUser(rezultat.data._id, vm.prijavniPodatki.username, vm.prijavniPodatki.name,vm.prijavniPodatki.surname,vm.prijavniPodatki.profilePic,[],[],0,null,null).then(
-          function success(rez) {
-            vm.response="success"
-            console.log(rez)
+      authorization.registration(vm.prijavniPodatki).then(
+          function(success) {
+            $location.search('stran', null);
+            $location.path(vm.prvotnaStran);
           },
-          function error(err) {
-            vm.response="errorUser"
-            console.log(err);
+          function(napaka) {
+            vm.napakaNaObrazcu = napaka.data.sporocilo;
           }
-        )
-      },
-      function error(error) {
-        vm.response = "errorUserIdentity"
-        console.log(error);
-      }
-    )
+        );
       }
   }
   
       
 };
   
-  registerCtrl.$inject = ['$rootScope','$location','aggAppUsersIdentity','aggAppUsers'];
+  registerCtrl.$inject = ['$rootScope','$location', 'authorization'];
   
   /* global angular */
   angular

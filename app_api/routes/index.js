@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+var jwt = require('express-jwt');
+var authentication = jwt({
+  secret: process.env.JWT_GESLO,
+  userProperty: 'payload'
+});
+
 var ctrlUserIdentities = require('../controllers/userIdentities');
 var ctrlUsers = require('../controllers/users');
 var ctrlPosts = require('../controllers/posts');
