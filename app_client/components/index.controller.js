@@ -143,7 +143,7 @@
         vm.posts=[]
         vm.postsTemp = res.data;
         for(var i=0; i<vm.postsTemp.length; i++){
-          var com=celStr.localeCompare(vm.postsTemp[i].title)
+          var com=celStr.toLowerCase().localeCompare(vm.postsTemp[i].title.toLowerCase())
           if(com==0 ){ // || (com!=1 && celStr.length <= vm.postsTemp[i].title.length)
             vm.posts.push(vm.postsTemp[i]);
           } else {
@@ -154,7 +154,7 @@
                   tempH="#"+words[k];
                 }
                 
-                if(tempH==vm.postsTemp[i].hashtags[j]){
+                if(tempH.toLowerCase()==vm.postsTemp[i].hashtags[j].toLowerCase()){
                   vm.posts.push(vm.postsTemp[i]);
                   j=vm.postsTemp[i].hashtags.length
                 }
