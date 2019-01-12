@@ -41,6 +41,11 @@
         controller: "editPostCtrl",
         controllerAs:"vm"
       })
+      .when('/db',{
+        templateUrl:"dbt/dbt.controller.html",
+        controller: "dbtCtrl",
+        controllerAs:"vm"
+      })
       .otherwise({ redirectTo: "/" });
       
     $locationProvider.html5Mode(true);

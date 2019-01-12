@@ -92,6 +92,8 @@
                 vm.response = 'error'
               }  
             );
+          } else {
+            console.log("tuu")
           }
       },
       function error(er){

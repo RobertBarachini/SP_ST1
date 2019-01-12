@@ -36,7 +36,8 @@ var zdruzeno = uglifyJs.minify({
   'posts.services.js' : fs.readFileSync('app_client/services/posts.services.js', 'utf-8'),
   'users.services.js' : fs.readFileSync('app_client/services/users.services.js', 'utf-8'),
   'usersIdentity.services.js' : fs.readFileSync('app_client/services/usersIdentity.services.js', 'utf-8'),
-  'auth.services.js' : fs.readFileSync('app_client/services/auth.services.js', 'utf-8')
+  'auth.services.js' : fs.readFileSync('app_client/services/auth.services.js', 'utf-8'),
+  'dbt.controller.js' : fs.readFileSync('app_client/dbt/dbt.controller.js', 'utf-8')
 });
 fs.writeFile('public/angular/aggApp.min.js', zdruzeno.code, function(napaka) {
   if (napaka)
