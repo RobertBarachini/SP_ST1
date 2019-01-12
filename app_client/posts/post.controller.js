@@ -22,6 +22,7 @@
       } 
       );
       
+      if($rootScope.rootUser){
         aggAppUsersIdentity.getUserIdentityByID($rootScope.rootUser.identity).then(
           function success(res) {
             console.log("break")
@@ -35,6 +36,8 @@
             console.error(err);
           }
         );
+      }
+        
       
       
       

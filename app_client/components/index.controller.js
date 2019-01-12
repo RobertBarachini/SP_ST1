@@ -5,6 +5,7 @@
     vm.posts = [];
     vm.pages=0;
     vm.maxNaStran=10;
+    vm.lahkS=true;
       
     aggAppPosts.getPosts().then(
       function success(res){
