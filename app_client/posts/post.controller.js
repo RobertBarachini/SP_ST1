@@ -24,7 +24,12 @@
       
         aggAppUsersIdentity.getUserIdentityByID($rootScope.rootUser.identity).then(
           function success(res) {
-            vm.adUs = true;
+            console.log("break")
+            console.log(res.data)
+            if(res.data.userType=='admin'){
+              console.log("add")
+              vm.adUs = true;
+            }
           },
           function error(err) {
             console.error(err);
