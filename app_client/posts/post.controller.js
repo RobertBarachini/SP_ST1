@@ -1,7 +1,8 @@
 (function(){
-  function postsCtrl($scope,$routeParams,aggAppPosts,aggAppUsers){
+  function postsCtrl($scope,$routeParams,aggAppPosts,aggAppUsers,aggAppUsersIdentity, $rootScope){
     var vm = this;
     vm.postID = $routeParams.id;
+    vm.adUs = false;
     aggAppPosts.getPostByID(vm.postID).then(
       function success(res){
         vm.post = res.data;
@@ -20,6 +21,17 @@
         console.error(er);
       } 
       );
+      
+        aggAppUsersIdentity.getUserIdentityByID($rootScope.rootUser.identity).then(
+          function success(res) {
+            vm.adUs = true;
+          },
+          function error(err) {
+            console.error(err);
+          }
+        );
+      
+      
       
     vm.dodajComment = function(idU) {
       vm.desRes=false;
@@ -87,7 +99,7 @@
    
   }
   
-  postsCtrl.$inject = ['$scope','$routeParams','aggAppPosts','aggAppUsers'];
+  postsCtrl.$inject = ['$scope','$routeParams','aggAppPosts','aggAppUsers','aggAppUsersIdentity', '$rootScope'];
   
   /* global angular */
   angular

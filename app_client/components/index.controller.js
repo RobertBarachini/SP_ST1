@@ -156,6 +156,7 @@
                 
                 if(tempH.toLowerCase()==vm.postsTemp[i].hashtags[j].toLowerCase()){
                   vm.posts.push(vm.postsTemp[i]);
+                  k=words.length
                   j=vm.postsTemp[i].hashtags.length
                 }
               }
