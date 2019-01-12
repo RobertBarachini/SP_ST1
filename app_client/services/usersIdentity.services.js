@@ -1,16 +1,36 @@
 (function(){
-  function aggAppUsersIdentity($http) {
+  function aggAppUsersIdentity($http,auth) {
     function getUsersIdentity(){
-      return $http.get("/api/userIdentities")
+      return $http.get("/api/userIdentities",
+      {
+        headers: {
+          Authorization: 'Bearer ' + auth.getToken()
+        }
+      })
     };
     function getUserIdentityByID(id){
-      return $http.get("/api/userIdentities/" + id)
+      return $http.get("/api/userIdentities/" + id,
+      {
+        headers: {
+          Authorization: 'Bearer ' + auth.getToken()
+        }
+      })
     };
     function postUserIdentity(email, password, userType){
-      return $http.post("/api/userIdentities/",{email:email, password:password, userType:userType})
+      return $http.post("/api/userIdentities/",{email:email, password:password, userType:userType},
+      {
+        headers: {
+          Authorization: 'Bearer ' + auth.getToken()
+        }
+      })
     };
     function putUserIdentity(id,email, password){
-      return $http.put("/api/userIdentities/"+id,{email:email, password:password})
+      return $http.put("/api/userIdentities/"+id,{email:email, password:password},
+      {
+        headers: {
+          Authorization: 'Bearer ' + auth.getToken()
+        }
+      })
     }
     
     return {
@@ -20,7 +40,7 @@
       putUserIdentity:putUserIdentity
     }
   }
-  aggAppUsersIdentity.$inject = ['$http'];
+  aggAppUsersIdentity.$inject = ['$http','auth'];
   
   /* global angular */
   angular
