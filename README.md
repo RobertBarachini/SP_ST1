@@ -3,7 +3,7 @@
 
 This is the main repository for a web development class at FRI.
 
-Heroku link: ADD HEROKU LINK
+Heroku link: https://spherokuapp123.herokuapp.com/
 
 # Setup
 1. Nov c9 projekt s predlogo Node.js (in že nastavljenim mongodb)
