@@ -2,7 +2,7 @@
   function editProfileCtrl($rootScope,$routeParams,$location,$route, aggAppPosts,aggAppUsers,aggAppUsersIdentity){
     var vm = this;
     vm.userID = $routeParams.id;
-    
+    console.log($rootScope.rootUser);
     aggAppUsers.getUserByID(vm.userID).then(
       function success(res){
         vm.user = res.data;

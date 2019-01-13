@@ -54,17 +54,19 @@
              </div>
           </div>
         
-        <div ng-if="vm.strani>1">
-            <button class="btn btn-secondary" ng-click="vm.newPage(1)">First</button>
-            <button class="btn btn-secondary"  ng-click="vm.newPage(vm.trenStran-1)">Previous</button>
-            <b ng-if="(vm.trenStran-2)>0">...</b>
-            <button class="btn btn-primary"  ng-if="(vm.trenStran-1)>0" ng-click="vm.newPage(vm.trenStran-1)">{{vm.trenStran-1}}</button>
-            <button class="btn btn-secondary" disabled>{{vm.trenStran}}</button>
-            <button class="btn btn-primary"  ng-if="(vm.trenStran+1)<=vm.strani" ng-click="vm.newPage(vm.trenStran+1)">{{vm.trenStran+1}}</button>
-            <b ng-if="(vm.trenStran+2)<=vm.strani">...</b>
-            <button class="btn btn-secondary"  ng-click="vm.newPage(vm.trenStran+1)">Next</button>
-            <button class="btn btn-secondary"  ng-click="vm.newPage(vm.strani)">Last</button>
-        </div>
+        <nav aria-label="Page navigation example" ng-if="vm.strani>1">
+          <ul class="pagination">
+            <li class="page-item" ng-click="vm.newPage(1)"><a class="page-link">First</a></li>
+            <li class="page-item" ng-click="vm.newPage(vm.trenStran-1)"><a class="page-link">Previous</a></li>
+            <li class="page-item" ng-if="(vm.trenStran-2)>0"><a class="page-link">...</a></li>
+            <li class="page-item" ng-if="(vm.trenStran-1)>0" ng-click="vm.newPage(vm.trenStran-1)"><a class="page-link">{{vm.trenStran-1}}</a></li>
+            <li class="page-item"><a class="page-link" disabled>{{vm.trenStran}}</a></li>
+            <li class="page-item" ng-if="(vm.trenStran+1)<=vm.strani" ng-click="vm.newPage(vm.trenStran+1)"><a class="page-link">{{vm.trenStran+1}}</a></li>
+            <li class="page-item" ng-if="(vm.trenStran+2)<=vm.strani"><a class="page-link">...</a></li>
+            <li class="page-item" ng-click="vm.newPage(vm.trenStran+1)"><a class="page-link">Next</a></li>
+            <li class="page-item" ng-click="vm.newPage(vm.strani)"><a class="page-link">Last</a></li>
+          </ul>
+        </nav>
         
         </div>
         <div ng-if="vm.posts == undefined || vm.posts < 1">

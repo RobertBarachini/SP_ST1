@@ -133,11 +133,10 @@
     }
     
     vm.search = function(loT){
-      console.log("blaa");
       var celStr=vm.searchStr;
       var regSrc=new RegExp("^(?=.{1,50}$)[a-žA-Ž0-9#(\ )]+$");
-      if(regSrc.test(celStr)){
-      if(loT==1 && celStr!=undefined && celStr!=''){
+      if(celStr!='' && celStr!=undefined){
+      if(loT==1 && regSrc.test(celStr)){
       var words=vm.searchStr.split(" ");
       aggAppPosts.getPosts().then(
       function success(res){
@@ -170,19 +169,11 @@
         console.error(er);
       } 
       );
-      } /*else {
-        vm.searchStr=undefined;
-        aggAppPosts.getPosts().then(
-          function success(res){
-            vm.posts = res.data;
-            console.log(res)
-          },
-          function error(er){
-            console.error(er);
-          } 
-          );
-      }*/
-    }else vm.searchStr=undefined;
+      }
+    }else {
+      vm.searchStr=undefined;
+      vm.newPage(0)
+    }
     }
     
     vm.newPage = function(p){

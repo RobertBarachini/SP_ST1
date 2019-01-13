@@ -22,22 +22,22 @@
                     <!--<form method="POST" action="/users/userID/editProfile"> -->
                     <form ng-submit="vm.editP(rootUser)" method="PUT">
                         <div class="form-group"><label class="col-lg-3 control-label" for="name">Name:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novName" class="form-control" id="name" type="text" placeholder="Bane" name="name" />
+                            <div class="col-lg-8"><input ng-model="vm.novName" class="form-control" id="name" type="text" placeholder="{{rootUser.name}}" name="name" />
                                 <div ng-if="vm.nameRes == 'true'" class="alert alert-warning">Neveljaven format</div>
                             </div>
                         </div>
                         <div class="form-group"><label class="col-lg-3 control-label" for="surname">Surname:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novSurname" class="form-control" id="surname" type="text" placeholder="Krstič" name="surname" />
+                            <div class="col-lg-8"><input ng-model="vm.novSurname" class="form-control" id="surname" type="text" placeholder="{{rootUser.surname}}" name="surname" />
                                 <div ng-if="vm.surnameRes == 'true'" class="alert alert-warning">Neveljaven format</div>
                             </div>
                         </div>
                         <div class="form-group"><label class="col-lg-3 control-label" for="username">Username:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novUsername" class="form-control" id="username" type="text" placeholder="BaneK" name="username" />
+                            <div class="col-lg-8"><input ng-model="vm.novUsername" class="form-control" id="username" type="text" placeholder="{{rootUser.username}}" name="username" />
                                 <div ng-if="vm.usernameRes == 'true'" class="alert alert-warning">aA-žŽ, 0-9, -, 4 do 20 znakov</div>
                             </div>
                         </div>
                         <div class="form-group"><label class="col-lg-3 control-label" for="email">Email:</label>
-                            <div class="col-lg-8"><input ng-model="vm.novEmail" class="form-control" id="email" type="email" placeholder="banekrstic@gmail.com" name="email" />
+                            <div class="col-lg-8"><input ng-model="vm.novEmail" class="form-control" id="email" type="email" name="email" />
                                 <div ng-if="vm.emailRes == 'true'" class="alert alert-warning">Neveljaven format</div>
                             </div>
                         </div>
