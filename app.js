@@ -11,8 +11,8 @@ var FileStore = require('session-file-store')(session);
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 //var indexRouter = require('./app_server/routes/index.route');
-var usersRouter = require('./app_server/routes/users.route');
-var postsRouter = require('./app_server/routes/posts.route');
+//var usersRouter = require('./app_server/routes/users.route');
+//var postsRouter = require('./app_server/routes/posts.route');
 var bodyParser = require('body-parser');
 
 
@@ -68,8 +68,8 @@ app.use(function(req, res, next) {
 });
 
 // view engine setup
-app.set('views', path.join(__dirname, 'app_server/views'));
-app.set('view engine', 'pug');
+//app.set('views', path.join(__dirname, 'app_server/views'));
+//app.set('view engine', 'pug');
 
 //app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(bodyParser.json());
