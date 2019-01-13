@@ -9,9 +9,9 @@
     
     var loginan = false;
     vm.login = function(){ //ko stisne login lahko primerja ce ustreza keremu. TODO!!!! naredit ustrezn login
-     // var regEm = new RegExp("^(?![.])(?!.*[.]{2})[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+(?<![.])@(?![-])[a-zA-Z0-9-]+(?<![-])\.(?![.])(?!.*[.]{2})[a-zA-Z0-9.]+(?<![.])$");
-      //var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
-      if(true/*regPass.test(vm.prijavniPodatki.password) && regEm.test(vm.prijavniPodatki.email)*/){
+      var regEm = new RegExp("^(?![.])(?!.*[.]{2})[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+(?<![.])@(?![-])[a-zA-Z0-9-]+(?<![-])\.(?![.])(?!.*[.]{2})[a-zA-Z0-9.]+(?<![.])$");
+     var regPass = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?![\s])");
+      if(regPass.test(vm.prijavniPodatki.password) && regEm.test(vm.prijavniPodatki.email)){
         
         auth.login(vm.prijavniPodatki).then(
           //po uspesni prijavi, klici servis za pridobitev uporabnika, ki se je identificiral

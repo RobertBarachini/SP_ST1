@@ -14,7 +14,7 @@
     vm.prvotnaStran = '/';
     
   vm.register = function() {
-    /*https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fvenia-mag.net%2Fvar regUsr = new RegExp("^(?=.{4,20}$)[a-žA-Ž0-9-(\)]+$");
+    var regUsr = new RegExp("^(?=.{4,20}$)[a-žA-Ž0-9-(\)]+$");
     //username = med 4 in 32 znakov, zgoraj nasteti znaki
     var regEm = new RegExp("^(?![.])(?!.*[.]{2})[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+(?<![.])@(?![-])[a-zA-Z0-9-]+(?<![-])\.(?![.])(?!.*[.]{2})[a-zA-Z0-9.]+(?<![.])$");
     //email = (. ni na zaceetku in koncu, in se ne sme podvajat znotraj gor nastetih znakov v []) @ (- ni na zactku in koncu) . (. ni na zactku, koncu in se ne podvaja)
@@ -47,7 +47,7 @@
       if(!regFN.test(vm.prijavniPodatki.surname)){
         vm.surnameRes = 'true'
         checkEr=1;
-      } */
+      }
       
       
       var checkEr=0;
