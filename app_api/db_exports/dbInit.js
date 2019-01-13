@@ -24,7 +24,22 @@ db.Users.save({
   name: "Robert",
   surname: "Barachini",
   profilePicture: "https://scontent.flju1-1.fna.fbcdn.net/v/t1.0-9/12065810_569066336579254_5384630105462652888_n.jpg?_nc_cat=106&_nc_ht=scontent.flju1-1.fna&oh=d5df1d6367f8c3e2c875bc2e645b7edd&oe=5CB25848",
-  posts: [ObjectId("5c0d25ba080e4ba7e0389391"), ObjectId("5c0d25bc080e4ba7e0389392")],
+  posts: [
+    ObjectId("5c0d25ba080e4ba7e0389391"), ObjectId("5c0d25bc080e4ba7e0389392"), ObjectId("5c389a49cd49801331ce25c2"),
+    ObjectId("5c389a49cd49801331ce25c3"), ObjectId("5c389a49cd49801331ce25c4"),ObjectId("5c389a49cd49801331ce25c5"),
+
+    ObjectId("5c3b5bc9cc55f80c1f4464c9"),ObjectId("5c3b5bc9cc55f80c1f4464ca"),ObjectId("5c3b5bc9cc55f80c1f4464cb"),
+    ObjectId("5c3b5bc9cc55f80c1f4464cc"),ObjectId("5c3b5bc9cc55f80c1f4464cd"),ObjectId("5c3b5bc9cc55f80c1f4464ce"),
+    ObjectId("5c3b5bc9cc55f80c1f4464cf"),ObjectId("5c3b5bc9cc55f80c1f4464d0"),ObjectId("5c3b5bc9cc55f80c1f4464d1"),
+    
+    ObjectId("5c3b5bc9cc55f80c1f4464d2"),ObjectId("5c3b5bc9cc55f80c1f4464d3"),ObjectId("5c3b5bc9cc55f80c1f4464d4"),
+    ObjectId("5c3b5bc9cc55f80c1f4464d5"),ObjectId("5c3b5bc9cc55f80c1f4464d6"),ObjectId("5c3b5bc9cc55f80c1f4464d7"),
+    ObjectId("5c3b5bc9cc55f80c1f4464d8"),ObjectId("5c3b5bc9cc55f80c1f4464d9"),ObjectId("5c3b5bc9cc55f80c1f4464da"),
+    
+    ObjectId("5c3b5bc9cc55f80c1f4464db"),ObjectId("5c3b5bc9cc55f80c1f4464dc"),ObjectId("5c3b5bc9cc55f80c1f4464dd"),
+    ObjectId("5c3b5bc9cc55f80c1f4464de"),ObjectId("5c3b5bc9cc55f80c1f4464df"),ObjectId("5c3b5bc9cc55f80c1f4464e0"),
+    ObjectId("5c3b5bc9cc55f80c1f4464e1"),ObjectId("5c3b5bc9cc55f80c1f4464e2"),ObjectId("5c3b5bc9cc55f80c1f4464e3")
+  ],
   postReactions: [],
   points: 0,
   dateJoined: ISODate("2018-12-09T13:00:06.968Z"),
@@ -37,7 +52,7 @@ db.Users.save({
   name: "Aleksandar",
   surname: "Hristov",
   profilePicture: "https://scontent.flju1-1.fna.fbcdn.net/v/t1.0-9/31664593_10212828619736427_2148876720642457600_n.jpg?_nc_cat=110&_nc_ht=scontent.flju1-1.fna&oh=774c1899b8a7ee4a8063bdc402a27c4c&oe=5CA083B1",
-  posts: [],
+  posts: [ObjectId("5c389a49cd49801331ce25c2")],
   postReactions: [],
   points: 0,
   dateJoined: ISODate("2018-12-09T13:00:07.968Z"),
@@ -134,7 +149,7 @@ db.Posts.save({
 db.Posts.save({
   "_id" : ObjectId("5c389a49cd49801331ce25c3"),
   title: "Daddy Solomun",
-  owner: ObjectId("5c0d165a29324abcde4e2e89"),
+  owner: ObjectId("5c0d165a29324abcde4e2e8a"),
   body: {
     bodyType: "embed",
     content: "https://www.youtube.com/embed/bk6Xst6euQk"
@@ -176,6 +191,7 @@ db.Posts.save({
 
 // generic images 1_1
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464c9"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -189,6 +205,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464ca"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -202,6 +219,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464cb"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -216,6 +234,7 @@ db.Posts.save({
 })
 // generic images 1_2
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464cc"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -229,6 +248,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464cd"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -242,6 +262,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464ce"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -256,6 +277,7 @@ db.Posts.save({
 })
 // generic images 1_3
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464cf"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -269,6 +291,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d0"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -282,6 +305,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d1"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -297,6 +321,7 @@ db.Posts.save({
 
 // generic images 2_1
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d2"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -310,6 +335,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d3"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -323,6 +349,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d4"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -337,6 +364,7 @@ db.Posts.save({
 })
 // generic images 2_2
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d5"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -350,6 +378,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d6"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -363,6 +392,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d7"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -377,6 +407,7 @@ db.Posts.save({
 })
 // generic images 2_3
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d8"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -390,6 +421,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464d9"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -403,6 +435,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464da"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -418,6 +451,7 @@ db.Posts.save({
 
 // generic images 3_1
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464db"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -431,6 +465,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464dc"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -444,6 +479,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464dd"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -458,6 +494,7 @@ db.Posts.save({
 })
 // generic images 3_2
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464de"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -471,6 +508,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464df"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -484,6 +522,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464e0"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -498,6 +537,7 @@ db.Posts.save({
 })
 // generic images 3_3
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464e1"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -511,6 +551,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464e2"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {
@@ -524,6 +565,7 @@ db.Posts.save({
   comments: []
 })
 db.Posts.save({
+  "_id" : ObjectId("5c3b5bc9cc55f80c1f4464e3"),
   title: "Generic title",
   owner: ObjectId("5c0d165a29324abcde4e2e89"),
   body: {

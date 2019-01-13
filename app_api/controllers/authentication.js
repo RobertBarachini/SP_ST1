@@ -25,6 +25,11 @@ module.exports.registracija = function(zahteva, odgovor) {
     });
   }
   
+  console.log("\n");
+  for (var i = 0; i < 50; i++) {
+    console.log("\n\"_id\" : ObjectId(\"" + mongoose.Types.ObjectId() + "\"),");
+  }
+  
   var userIdentity = new UserIdentity();
   var id = mongoose.Types.ObjectId();
   userIdentity._id = id;
