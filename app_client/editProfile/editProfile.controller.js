@@ -108,8 +108,19 @@
         aggAppUsers.updateUser(vm.noviUser._id, vm.noviUser).then(
         function success(res) {
           aggAppUsersIdentity.putUserIdentity(vm.noviIdentity._id, vm.noviIdentity.email, vm.noviIdentity.password).then(
-            function success(ress){
-              
+            function success(res){
+              console.log(res)
+              aggAppUsers.getUserByID(vm.noviUser._id).then(
+                  function success(res) {
+                    $rootScope.rootUser = res.data;
+                    console.log('Nastavil uporabnika v root scope---------------');
+                    console.log(res.data)
+                    $location.path("/");
+                  },
+                  function error(err) {
+                    console.error(err);
+                  }
+                );
             },
           function error(er) {
             console.error(er);
