@@ -59,6 +59,14 @@ var indexApi = require("./app_api/routes/index");
 
 var app = express();
 
+// Odprava varnostnih pomanjkljivosti
+app.use(function(req, res, next) {
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  next();
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'pug');
