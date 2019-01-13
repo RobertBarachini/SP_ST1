@@ -17,7 +17,7 @@
         controllerAs:"vm"
       })
       .when('/users/:id/:idd', {
-        templateUrl:"addPosts/addPost.controller.html",
+        templateUrl:"addPosts/addPosts.controller.html",
         controller:"addPostsCtrl",
         controllerAs:"vm"
       })

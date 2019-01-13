@@ -30,7 +30,7 @@ var zdruzeno = uglifyJs.minify({
   'register.controller.js' : fs.readFileSync('app_client/register/register.controller.js', 'utf-8'),
   'usersIdentity.services.js' : fs.readFileSync('app_client/services/usersIdentity.services.js', 'utf-8'),
   'addPost.controller.js' : fs.readFileSync('app_client/modalnaOkna/addPost/addPost.controller.js', 'utf-8'),
-  'addPost.controller.js' : fs.readFileSync('app_client/addPosts/addPost.controller.js', 'utf-8'),
+  'addPosts.controller.js' : fs.readFileSync('app_client/addPosts/addPosts.controller.js', 'utf-8'),
   'editProfile.controller.js' : fs.readFileSync('app_client/editProfile/editProfile.controller.js', 'utf-8'),
   'editPost.controller.js' : fs.readFileSync('app_client/posts/editPost.controller.js', 'utf-8'),
   'posts.services.js' : fs.readFileSync('app_client/services/posts.services.js', 'utf-8'),
