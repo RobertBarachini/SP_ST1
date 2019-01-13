@@ -87,3 +87,22 @@ uporabnik lahko komentira med 1 in 500 znakov
 * Računalnik
 * Telefon
 * Tablica
+
+## Merjenje časa nalaganja strani na dveh brskalnikih
+### Route | Load time [s] Chrome | Load time [s] Brave Browser
+* / | 4.35 | 2.26
+* /posts/{postId} | 2.55 | 0.53
+* /users/{userId} | 1.58 | 0.32
+* /login | 1.47 |  0.19
+* /register | 1.62 | 0.12
+* /db | 1.54 | 0.33
+* /editPost/{postId} | 1.51 | 0.54
+* /editProfile/{profileId} | 1.63 | 0.51
+* /users/{userId}/1 | 1.44 | 0.49
+* /users/{userId}/2 | 1.52 | 0.55
+* /users/{userId}/3 | 1.47 | 0.51
+
+Najpočasneje je naloži glavna stran '/'.
+Razlogov je več. Najbolj očiten razlog je, da mora brskalnik naložiti največ komponent, saj je ta stran najbolj masovna. Prav tako na tej strani opravi največ klicev in pridobi največ resourcov. Ker je resourcov veliko se čas poveča. Na čas nalaganja strani vplivajo tudi extensioni.
+
+Test za vsako stran se izvedel 3x na vsakem brskalniku in vzel povprečje. Brave je nekoliko hitrejši, saj je bolj lightweight browser. Na nalaganje vplivajo tudi Chrome extensions, ki upočasnijo nalaganje.
