@@ -26,13 +26,13 @@
       if($rootScope.rootUser){
        aggAppUsers.getUserByID($rootScope.rootUser._id).then(
         function success(res){
-          vm.user=res.data
+          vm.userD=res.data
         }
         );
     }
       
       vm.checkBtn = function(posId){
-        var ind = vm.user.postReactions.indexOf(posId);
+        var ind = vm.userD.postReactions.indexOf(posId);
         if(ind==-1){
           return "btn-circle btn-circle-default";
         } else {
@@ -42,16 +42,16 @@
     }
     
     vm.reactP = function(posId){
-      var ind = vm.user.postReactions.indexOf(posId);
+      var ind = vm.userD.postReactions.indexOf(posId);
       if(ind==-1){
         //like
         //vm.user=$rootScope.rootUser;
-        vm.user.postReactions.push(posId)
+        vm.userD.postReactions.push(posId)
         aggAppPosts.getPostByID(posId).then( //dubi post
               function success(ress){
                 vm.post = ress.data;
                 vm.post.likes=vm.post.likes + 1;
-                aggAppUsers.updateUser(vm.user._id, vm.user).then( //update user
+                aggAppUsers.updateUser(vm.userD._id, vm.userD).then( //update user
                   function success(resss){
                     aggAppPosts.editPost(vm.post._id, vm.post.title,vm.post.owner,vm.post.body,vm.post.description,vm.post.hashtags,vm.post.likes,vm.post.dislikes,vm.post.comments).then( //update post
                       function success(resss){
@@ -76,12 +76,12 @@
             );
       } else {
         //vm.user=$rootScope.rootUser;
-        vm.user.postReactions.splice(ind,1)
+        vm.userD.postReactions.splice(ind,1)
         aggAppPosts.getPostByID(posId).then( //dubi post
               function success(ress){
                 vm.post = ress.data;
                 vm.post.likes=vm.post.likes - 1;
-                aggAppUsers.updateUser(vm.user._id, vm.user).then( //update user
+                aggAppUsers.updateUser(vm.userD._id, vm.userD).then( //update user
                   function success(resss){
                     aggAppPosts.editPost(vm.post._id, vm.post.title,vm.post.owner,vm.post.body,vm.post.description,vm.post.hashtags,vm.post.likes,vm.post.dislikes,vm.post.comments).then( //update post
                       function success(resss){
