@@ -52,7 +52,9 @@
         templateUrl:'/modalnaOkna/addPost/addPost.controller.html',
         controller: 'addPostCtrl',
         controllerAs: 'vm'
-      });
+      }).result.catch(function (resp) {
+      if (['cancel', 'backdrop click', 'escape key press'].indexOf(resp) === -1) throw resp;
+        });
     };
     
     vm.checkBtn = function(posId){

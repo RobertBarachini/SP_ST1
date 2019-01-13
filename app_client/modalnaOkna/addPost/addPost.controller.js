@@ -1,4 +1,5 @@
 (function() {
+  console.log("NOTER SEEEEM!");
   function addPostCtrl($uibModalInstance) {
     var vm = this;
     vm.modalnoOkno = {
