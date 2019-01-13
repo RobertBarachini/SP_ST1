@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="aggApp">
   <head>
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aggregate</title>
     <link href="../../bootstrap.min.css" rel="stylesheet">
     <link href="../stylesheets/styles.css" rel="stylesheet">
     <base href="/">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132391595-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-132391595-1');
+    </script>
+
+    
   </head>
   <body ng-view>
   </body>
