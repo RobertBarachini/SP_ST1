@@ -119,5 +119,12 @@ RAM: 16GB (zaradi konfiguracije le 8GB uporabnega) DDR3
 DISK: SSD 480GB 2.5''
 
 1) a) 1000 uporabnikov v 1 sekundi, 1 ponovitev
-Error: 0%, Minimalni čas dostopanja: 6ms, Maksimalni čas dostopanja
+Error: 0%, Minimalni čas dostopanja: 4ms, Maksimalni čas dostopanja 588ms, Stevilo zahtev na sekundo 669.
+b) 2000 uporabnikov v 1 sekundi , 1 ponovitev
+Error: 0%, Minimalni čas dostopanja: 23ms, Maksimalni čas dostopanja 2123ms, Stevilo zahtev na sekundo 630.
+c) 2100 uporabnikov v 1 sekundi, 1 ponovitev
+Error: 3,4%, Minimalni čas dostopanja: 68ms, Maksimalni čas dostopanja 2499ms, Stevilo zahtev na sekundo 606.
+d) Nato Error konstantno naraste in do 20000 uporabnikov sprejme v eni sekundi, ampak Error pride na 80%.
+Sepravi v enem sunkovitem navalu stran sprejme priblizno 2000 uporabnikov, brez errorjev!.
 
+2) b) 
