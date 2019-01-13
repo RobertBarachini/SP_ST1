@@ -127,8 +127,8 @@ me.updateObject = function(req, res) {
   UserIdentity
     .findById(ids)
     .exec(
-      function(err, data) {
-        if (!data) {
+      function(err, userIdentity) {
+        if (!userIdentity) {
           vrniJsonOdgovor(res, 404, { "message": "Data not found" });
           return;
         } 
@@ -137,16 +137,16 @@ me.updateObject = function(req, res) {
           return;
         }
         
-        data.email = s.email;
-        data.password = s.password;
-        data.userType = s.userType;
+        userIdentity.email = s.email;
+        userIdentity.nastaviGeslo(s.password);
+        userIdentity.userType = s.userType;
 
-        data.save(function(err, data) {
+        userIdentity.save(function(err, userIdentity) {
           if (err) {
             vrniJsonOdgovor(res, 400, err);
           } 
           else {
-            vrniJsonOdgovor(res, 200, data);
+            vrniJsonOdgovor(res, 200, userIdentity);
           }
         });
       }
