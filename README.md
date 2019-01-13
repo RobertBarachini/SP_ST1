@@ -106,3 +106,18 @@ Najpočasneje je naloži glavna stran '/'.
 Razlogov je več. Najbolj očiten razlog je, da mora brskalnik naložiti največ komponent, saj je ta stran najbolj masovna. Prav tako na tej strani opravi največ klicev in pridobi največ resourcov. Ker je resourcov veliko se čas poveča. Na čas nalaganja strani vplivajo tudi extensioni.
 
 Test za vsako stran se izvedel 3x na vsakem brskalniku in vzel povprečje. Brave je nekoliko hitrejši, saj je bolj lightweight browser. Na nalaganje vplivajo tudi Chrome extensions, ki upočasnijo nalaganje.
+
+## Apache JMeter
+Konfiguracija:
+MongoDB in JMeter ter aplikacija sta pognana na istem računalniku.
+Specifikacije računalnika:
+CPU: Intel core i7 4900MQ
+	Osnova frekvenca: 2.80 GHz
+	Turbo frekvenca: 3.80 GHz
+	Cores: 4, Niti: 8
+RAM: 16GB (zaradi konfiguracije le 8GB uporabnega) DDR3
+DISK: SSD 480GB 2.5''
+
+1) a) 1000 uporabnikov v 1 sekundi, 1 ponovitev
+Error: 0%, Minimalni čas dostopanja: 6ms, Maksimalni čas dostopanja
+
