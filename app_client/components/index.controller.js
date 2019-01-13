@@ -6,6 +6,15 @@
     vm.pages=0;
     vm.maxNaStran=10;
     vm.lahkS=true;
+    
+    if($rootScope.rootUser){
+       aggAppUsers.getUserByID($rootScope.rootUser._id).then(
+        function success(res){
+          vm.user=res.data
+        }
+        );
+    }
+   
       
     aggAppPosts.getPosts().then(
       function success(res){
@@ -59,7 +68,7 @@
     
     vm.checkBtn = function(posId){
       
-        var ind = $rootScope.rootUser.postReactions.indexOf(posId);
+        var ind = vm.user.postReactions.indexOf(posId);
         if(ind==-1){
           return "btn-circle btn-circle-default";
         } else {
@@ -69,10 +78,11 @@
     }
     
     vm.reactP = function(posId){
-      var ind = $rootScope.rootUser.postReactions.indexOf(posId);
+      //var ind = $rootScope.rootUser.postReactions.indexOf(posId);
+        var ind = vm.user.postReactions.indexOf(posId);
       if(ind==-1){
         //like
-        vm.user=$rootScope.rootUser;
+        //vm.user=$rootScope.rootUser;
         vm.user.postReactions.push(posId)
         aggAppPosts.getPostByID(posId).then( //dubi post
               function success(ress){
@@ -102,7 +112,7 @@
               } 
             );
       } else {
-        vm.user=$rootScope.rootUser;
+        //vm.user=$rootScope.rootUser;
         vm.user.postReactions.splice(ind,1)
         aggAppPosts.getPostByID(posId).then( //dubi post
               function success(ress){
