@@ -156,4 +156,4 @@ Error: 0.02%, Minimalni čas dostopanja: 34ms, Maksimalni čas dostopanja 4800ms
 
 Sepravi v velikem navalo v malo daljsem casovnem obdobju sprejmemo malo pod _4000 uporabnikov_ 
 
-
+Število uporabnikov bi se najverjetneje dokaj povečalo če bi JMeter zaganjali iz nekaterega drugega računalnika, saj sam JMeter požre veliko resoursov računalnika.
