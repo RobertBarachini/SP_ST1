@@ -108,23 +108,52 @@ Razlogov je več. Najbolj očiten razlog je, da mora brskalnik naložiti največ
 Test za vsako stran se izvedel 3x na vsakem brskalniku in vzel povprečje. Brave je nekoliko hitrejši, saj je bolj lightweight browser. Na nalaganje vplivajo tudi Chrome extensions, ki upočasnijo nalaganje.
 
 ## Apache JMeter
-Konfiguracija:
-MongoDB in JMeter ter aplikacija sta pognana na istem računalniku.
-Specifikacije računalnika:
-CPU: Intel core i7 4900MQ
-	Osnova frekvenca: 2.80 GHz
-	Turbo frekvenca: 3.80 GHz
-	Cores: 4, Niti: 8
+Konfiguracija: 
+
+MongoDB in JMeter ter aplikacija sta pognana na istem računalniku. 
+
+Specifikacije računalnika: 
+
+CPU: Intel core i7 4900MQ 
+
+	+Osnova frekvenca: 2.80 GHz 
+	
+	+Turbo frekvenca: 3.80 GHz 
+	
+	+Cores: 4, Niti: 8 
+	
 RAM: 16GB (zaradi konfiguracije le 8GB uporabnega) DDR3
-DISK: SSD 480GB 2.5''
 
-1) a) 1000 uporabnikov v 1 sekundi, 1 ponovitev
-Error: 0%, Minimalni čas dostopanja: 4ms, Maksimalni čas dostopanja 588ms, Stevilo zahtev na sekundo 669.
-b) 2000 uporabnikov v 1 sekundi , 1 ponovitev
-Error: 0%, Minimalni čas dostopanja: 23ms, Maksimalni čas dostopanja 2123ms, Stevilo zahtev na sekundo 630.
-c) 2100 uporabnikov v 1 sekundi, 1 ponovitev
-Error: 3,4%, Minimalni čas dostopanja: 68ms, Maksimalni čas dostopanja 2499ms, Stevilo zahtev na sekundo 606.
-d) Nato Error konstantno naraste in do 20000 uporabnikov sprejme v eni sekundi, ampak Error pride na 80%.
-Sepravi v enem sunkovitem navalu stran sprejme priblizno 2000 uporabnikov, brez errorjev!.
+DISK: SSD 480GB 2.5'' 
 
-2) b) 
+
+1) a) 1000 uporabnikov v 1 sekundi, 1 ponovitev.
+
+Error: 0%, Minimalni čas dostopanja: 4ms, Maksimalni čas dostopanja 588ms, Stevilo zahtev na sekundo 669. 
+
+b) 2000 uporabnikov v 1 sekundi , 1 ponovitev 
+
+Error: 0%, Minimalni čas dostopanja: 23ms, Maksimalni čas dostopanja 2123ms, Stevilo zahtev na sekundo 630. 
+
+c) 2100 uporabnikov v 1 sekundi, 1 ponovitev 
+
+Error: 3,4%, Minimalni čas dostopanja: 68ms, Maksimalni čas dostopanja 2499ms, Stevilo zahtev na sekundo 606. 
+
+d) Nato Error konstantno naraste in do 20000 uporabnikov sprejme v eni sekundi, ampak Error pride na 80%. 
+
+Sepravi v enem sunkovitem navalu v _1 sekundi_ stran sprejme priblizno _2000 uporabnikov_, brez errorjev!. 
+
+
+2) 500 uporabnikov v 1 sekundi 10 ponovitev  
+
+Error: 0%, Minimalni čas dostopanja: 15ms, Maksimalni čas dostopanja 2980ms, Stevilo zahtev na sekundo 363.
+
+Tukaj se tudi stvar ustavi. Pri sunkovitem ponavljajocem se navalu sprejme _500 uporabnikov_.
+
+3) 4000 uporabnikov v 10 sekundah 1 ponovitev 
+
+Error: 0.02%, Minimalni čas dostopanja: 34ms, Maksimalni čas dostopanja 4800ms, Stevilo zahtev na sekundo 291. 
+
+Sepravi v velikem navalo v malo daljsem casovnem obdobju sprejmemo malo pod _4000 uporabnikov_ 
+
+
