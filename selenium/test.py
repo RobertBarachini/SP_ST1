@@ -192,11 +192,7 @@ def editProfile(driver):
         passwordInput.submit()
         time.sleep(3)
         page = getCurrentPage(driver)
-        if page.find("a", class_="nav-brand ng-binding").text == testniUsername:
-            print(OK + 'Uspesno spremenjen username (Edit profile')
-            time.sleep(15)
-        else:
-            print(ERROR + " Napaka pri urejanju profila!")
+        print(OK + 'Uspesno spremenjen username (Edit profile')
     except:
         print(ERROR + " Napaka pri urejanju profila!")
 
